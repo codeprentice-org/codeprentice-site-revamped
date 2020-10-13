@@ -1,0 +1,9 @@
+Conventions to follow:
+- Use 4 spaces to a tab when writing code
+- Use camelCase for naming
+- Use snake_case for routes and http requests
+- Do not commit directly to the master branch (create a development branch)
+- Write descriptive commit messages
+- Adequately comment code
+
+If anyone wants to add to this list of conventions feel free. And, if anyone is opposed to any of the conventions, mention it in the discord and, if enough people agree with the change, it will be changed.
