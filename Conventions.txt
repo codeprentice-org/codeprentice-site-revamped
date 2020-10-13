@@ -6,4 +6,6 @@ Conventions to follow:
 - Write descriptive commit messages
 - Adequately comment code
 
-If anyone wants to add to this list of conventions feel free. And, if anyone is opposed to any of the conventions, mention it in the discord and, if enough people agree with the change, it will be changed.
+If anyone wants to add to this list of conventions feel free. And, if anyone is 
+opposed to any of the conventions, mention it in the discord and, if enough people
+agree with the change, it will be changed.
