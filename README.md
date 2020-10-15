@@ -3,7 +3,7 @@ The new Codeprentice website (currently in development).
 <br/>
 # Project Setup
 <br/>
-Run: npm install
+Pretty straight forward just run "npm install"
 <br/>
 # Various Commands  
 <br/>
