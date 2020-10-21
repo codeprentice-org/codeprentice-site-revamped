@@ -1,9 +1,7 @@
 import express from 'express';
 import { Request, Response, NextFunction } from "express";
+import jwt from "jsonwebtoken"
 import dotenv from "dotenv";
-import path from 'path';
-import http from "http";
-
 dotenv.config({ path: "./backend/config/.env.config" });
 
 // API Imports
