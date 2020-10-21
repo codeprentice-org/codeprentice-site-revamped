@@ -19,6 +19,7 @@ module.exports = function (req, res, next) {
         var decoded = jsonwebtoken_1.default.verify(token, 'secret');
         // const decoded = jwt.verify(token, process.env.JWT_KEY);
         req.body.user = decoded;
+        next();
     }
     catch (error) {
         return res.status(401).json({

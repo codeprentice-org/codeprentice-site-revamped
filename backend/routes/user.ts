@@ -7,17 +7,17 @@ import dotenv from "dotenv";
 
 dotenv.config({ path: "./backend/config/.env.config" });
 
-export const authAPI = express.Router();
+export const USER_API = express.Router();
 
 // testing
-authAPI.get("/test", (req: Request, res: Response, next: NextFunction) => {
+USER_API.get("/test", (req: Request, res: Response, next: NextFunction) => {
     res.json({ data: "test" });
     console.log(process.env.JWT_KEY as Secret)
 });
 
 
 // logins in user and creates signed JWT
-authAPI.get("/login", (req: Request, res: Response, next: NextFunction) => {
+USER_API.get("/login", (req: Request, res: Response, next: NextFunction) => {
     // authentication with github api
     // adds user to database if they are not there already
     // pull user from database
