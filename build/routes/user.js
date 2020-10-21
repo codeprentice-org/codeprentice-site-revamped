@@ -7,6 +7,7 @@ exports.USER_API = void 0;
 var express_1 = __importDefault(require("express"));
 var jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 var dotenv_1 = __importDefault(require("dotenv"));
+var check_auth_1 = require("../middleware/check-auth");
 dotenv_1.default.config({ path: "./backend/config/.env.config" });
 exports.USER_API = express_1.default.Router();
 // testing
@@ -32,4 +33,13 @@ exports.USER_API.get("/login", function (req, res, next) {
         status: 0,
         data: { token: token }
     });
+});
+// Changes user username 
+exports.USER_API.post("/change_username", check_auth_1.checkAuth, function (req, res, next) {
+    var user = req.body.user;
+    return res.status(200).json({
+        status: 0,
+        data: { message: "Routes are protected" }
+    });
+    // Change user username
 });

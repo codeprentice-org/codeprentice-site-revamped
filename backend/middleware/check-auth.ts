@@ -1,11 +1,11 @@
-import jwt from "jsonwebtoken";
+import jwt, { Secret } from "jsonwebtoken";
 import dotenv from "dotenv";
 import { Request, Response, NextFunction } from "express";
 
 dotenv.config({ path: "./backend/config/.env.config" });
 
 // Verifies the user's JWT and adds user data to request body if valid
-module.exports = (req: Request, res: Response, next: NextFunction) => {
+export const checkAuth = (req: Request, res: Response, next: NextFunction) => {
     const token = req.body.token;
     if (token === undefined) {
         return res.status(401).json({
@@ -14,8 +14,7 @@ module.exports = (req: Request, res: Response, next: NextFunction) => {
             });
     }
     try {
-        const decoded = jwt.verify(token, 'secret');
-        // const decoded = jwt.verify(token, process.env.JWT_KEY);
+        const decoded = jwt.verify(token, process.env.JWT_KEY as Secret);
         req.body.user = decoded;
         next();
     } catch (error) {

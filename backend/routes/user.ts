@@ -4,6 +4,7 @@ import { User } from "../types/user";
 import jwt from "jsonwebtoken";
 import { Secret } from "jsonwebtoken";
 import dotenv from "dotenv";
+import { checkAuth }  from "../middleware/check-auth"
 
 dotenv.config({ path: "./backend/config/.env.config" });
 
@@ -34,5 +35,15 @@ USER_API.get("/login", (req: Request, res: Response, next: NextFunction) => {
     return res.status(200).json({
         status: 0,
         data: { token: token }
-    })
+    });
+});
+
+// Changes user username 
+USER_API.post("/change_username", checkAuth, (req: Request, res: Response, next: NextFunction) => {
+    const user: User = req.body.user;
+    return res.status(200).json({
+        status: 0,
+        data: { message: "Routes are protected" }
+    });
+    // Change user username
 });
