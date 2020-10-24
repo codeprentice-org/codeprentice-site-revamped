@@ -43,7 +43,7 @@ USER_API.post("/change_username", checkAuth, (req: Request, res: Response, next:
     const user: User = req.body.user;
     return res.status(200).json({
         status: 0,
-        data: { message: "Routes are protected" }
+        data: user
     });
     // Change user username
 });

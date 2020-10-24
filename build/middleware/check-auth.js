@@ -9,14 +9,10 @@ var dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config({ path: "./backend/config/.env.config" });
 // Verifies the user's JWT and adds user data to request body if valid
 exports.checkAuth = function (req, res, next) {
-    var token = req.body.token;
-    if (token === undefined) {
-        return res.status(401).json({
-            status: 1,
-            data: "Authentication Failed"
-        });
-    }
     try {
+        // Token is found in http Authorization header and takes the form:
+        // Bearer <TOKEN> - by convention
+        var token = req.headers.authorization.split(" ")[1];
         var decoded = jsonwebtoken_1.default.verify(token, process.env.JWT_KEY);
         req.body.user = decoded;
         next();
