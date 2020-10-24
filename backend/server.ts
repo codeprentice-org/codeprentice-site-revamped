@@ -1,17 +1,16 @@
 import express from 'express';
-import { Request, Response, NextFunction } from "express";
+// import { Request, Response, NextFunction } from "express";
+import bodyParser from 'body-parser'
 import dotenv from "dotenv";
-import path from 'path';
-import http from "http";
-
 dotenv.config({ path: "./backend/config/.env.config" });
 
 // API Imports
-import { authAPI } from "./routes/authentication";
+import { USER_API } from "./routes/user";
 
 // Express config
 const app = express();
-app.use(express.json());
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded( { extended: false } ))
 
 // For sending view 
 // app.use(express.static(path.join(__dirname, "../../client/build")));
@@ -20,7 +19,7 @@ app.use(express.json());
 // })
 
 // Config API Routes
-app.use("/auth", authAPI);
+app.use("/user", USER_API);
 
 // Start Express server
 const PORT = process.env.PORT || 4000;
