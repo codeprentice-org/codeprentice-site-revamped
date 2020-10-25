@@ -25,7 +25,7 @@ exports.USER_API.get("/login", function (req, res, next) {
         _id: "some mongoose.ObjectID()",
         email: "johndoe@gmail.com",
         username: "John Doe",
-        ROLE: "MEMBER"
+        ROLE: "ADMIN"
     };
     // then ...
     var token = jsonwebtoken_1.default.sign(user, process.env.JWT_KEY, { expiresIn: '1h' });

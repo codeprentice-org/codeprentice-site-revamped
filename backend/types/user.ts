@@ -1,6 +1,4 @@
-// temporary user type
-
-export type User = {
+export type UserType = {
     _id: string
     email: string
     username: string // github username

@@ -1,10 +1,10 @@
 import express from "express";
 import { Request, Response, NextFunction } from "express";
-import { User } from "../types/user";
+import { UserType } from "../types/user";
 import jwt from "jsonwebtoken";
 import { Secret } from "jsonwebtoken";
 import dotenv from "dotenv";
-import { checkAuth }  from "../middleware/check-auth"
+import { checkAuth }  from "../middleware/check-auth";
 
 dotenv.config({ path: "./backend/config/.env.config" });
 
@@ -24,11 +24,11 @@ USER_API.get("/login", (req: Request, res: Response, next: NextFunction) => {
     // pull user from database
 
      // temporary static user 
-     const user: User = {
+     const user: UserType = {
         _id: "some mongoose.ObjectID()",
         email: "johndoe@gmail.com",
         username: "John Doe",
-        ROLE: "MEMBER"
+        ROLE: "ADMIN"
     };
     // then ...
     const token = jwt.sign(user, process.env.JWT_KEY as Secret, { expiresIn: '1h' });
@@ -40,7 +40,7 @@ USER_API.get("/login", (req: Request, res: Response, next: NextFunction) => {
 
 // Changes user username 
 USER_API.post("/change_username", checkAuth, (req: Request, res: Response, next: NextFunction) => {
-    const user: User = req.body.user;
+    const user: UserType = req.body.user;
     return res.status(200).json({
         status: 0,
         data: user
