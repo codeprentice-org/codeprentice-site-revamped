@@ -1,5 +1,6 @@
 import React from 'react';
-import Header './header.tsx'
+import Header from './header'
+import Footer from './footer'
 
 interface MainProps {
 
