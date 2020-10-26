@@ -1,7 +1,8 @@
 import express from 'express';
-// import { Request, Response, NextFunction } from "express";
+import { Request, Response, NextFunction } from "express";
 import bodyParser from 'body-parser'
 import dotenv from "dotenv";
+import path from "path"
 dotenv.config({ path: "./backend/config/.env.config" });
 
 // API Imports
@@ -13,10 +14,10 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded( { extended: false } ))
 
 // For sending view 
-// app.use(express.static(path.join(__dirname, "../../client/build")));
-// app.get("/", (req: Request, res: Response) => {
-//         res.sendFile(path.join(__dirname, "../client/build/index.html"));
-// })
+app.use(express.static(path.join(__dirname, "./../frontend/build")));
+app.get("/", (req: Request, res: Response) => {
+        res.sendFile(path.join(__dirname, "./../frontend/build/index.html"));
+})
 
 // Config API Routes
 app.use("/user", USER_API);
