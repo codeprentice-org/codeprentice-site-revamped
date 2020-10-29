@@ -1,6 +1,6 @@
 import { Document, Model, model, Types, Schema, Query } from "mongoose";
-import { UserModel } from "./user";
-import { UserType } from "../types/user";
+import { UserModel, UserSchema } from "./user";
+import { UserType, UserInt } from "../types/user";
 
 const ProjectSchema = new Schema({
     _id: {
@@ -12,7 +12,7 @@ const ProjectSchema = new Schema({
         required: true
     },
     // Searches for team members with the listed idea in the collection "User"
-    team: [{ type: UserModel, ref: "Users" }], 
+    team: [UserSchema], 
     // The collection in which projects will be saved
 }, { collection: "projects" });
 

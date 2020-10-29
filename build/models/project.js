@@ -4,10 +4,16 @@ exports.ProjectModel = exports.ProjectSchema = void 0;
 var mongoose_1 = require("mongoose");
 var user_1 = require("./user");
 var ProjectSchema = new mongoose_1.Schema({
-    _id: mongoose_1.Types.ObjectId,
-    name: String,
+    _id: {
+        type: mongoose_1.Types.ObjectId,
+        required: true
+    },
+    name: {
+        type: String,
+        required: true
+    },
     // Searches for team members with the listed idea in the collection "User"
-    team: [{ type: user_1.UserSchema, ref: "Users" }],
+    team: [user_1.UserSchema],
 }, { collection: "projects" });
 exports.ProjectSchema = ProjectSchema;
 ProjectSchema.virtual("asString")

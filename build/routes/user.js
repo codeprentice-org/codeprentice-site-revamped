@@ -44,6 +44,7 @@ var express_1 = __importDefault(require("express"));
 var mongoose_1 = require("mongoose");
 var user_1 = require("../models/user");
 var jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
+var role_1 = require("../enums/role");
 var dotenv_1 = __importDefault(require("dotenv"));
 var check_auth_1 = require("../middleware/check-auth");
 dotenv_1.default.config({ path: "./backend/config/.env.config" });
@@ -123,7 +124,7 @@ exports.USER_API.post("/create_user", function (req, res, next) { return __await
                     name: userInfo.name,
                     email: userInfo.email,
                     username: userInfo.username,
-                    ROLE: "MEMBER"
+                    ROLE: role_1.ROLE.ADMIN
                 });
                 return [4 /*yield*/, newUser.save()
                         .then(function (resolve) {

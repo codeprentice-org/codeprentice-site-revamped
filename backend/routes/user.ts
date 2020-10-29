@@ -5,6 +5,7 @@ import { UserType } from "../types/user";
 import { UserModel, UserSchema } from "../models/user";
 import jwt from "jsonwebtoken";
 import { Secret } from "jsonwebtoken";
+import { ROLE } from "../enums/role";
 import dotenv from "dotenv";
 import { checkAuth }  from "../middleware/check-auth";
 
@@ -74,7 +75,7 @@ USER_API.post("/create_user", async (req: Request, res: Response, next: NextFunc
         name: userInfo.name,
         email: userInfo.email,
         username: userInfo.username,
-        ROLE: "MEMBER"
+        ROLE: ROLE.ADMIN
     });
     await newUser.save()
            .then(resolve => {
