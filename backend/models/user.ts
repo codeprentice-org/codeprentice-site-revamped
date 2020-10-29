@@ -1,5 +1,6 @@
 import { Document, Model, model, Types, Schema, Query } from "mongoose";
 import { ROLE } from "../enums/role";
+import { UserInt } from "../types/user";
 
 const UserSchema: Schema = new Schema({
     _id: {

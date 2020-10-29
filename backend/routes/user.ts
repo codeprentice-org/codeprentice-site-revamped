@@ -26,18 +26,18 @@ USER_API.post("/login", async (req: Request, res: Response, next: NextFunction) 
     // pull user from database
 
      // temporary static user 
-    // const userData = req.body.user;
-    // var user: UserType;
-    // UserModel.findOne({email: userData.email})
-    //     .exec()
-    //     .then(resolve => user = resolve)
-    // // then ...
-    // console.log(user)
-    // const token = jwt.sign(user, process.env.JWT_KEY as Secret, { expiresIn: '1h' });
-    // return res.status(200).json({
-    //     status: 0,
-    //     data: { token: token }
-    // });
+//    const userData = req.body.user;
+//     var user: UserType;
+//     UserModel.findOne({email: userData.email})
+//         .exec()
+//         .then(resolve => user = resolve)
+//     // then ...
+//     console.log(user)
+//     const token = jwt.sign(user, process.env.JWT_KEY as Secret, { expiresIn: '1h' });
+//     return res.status(200).json({
+//         status: 0,
+//         data: { token: token }
+//     }); 
 });
 
 // Changes user username 
