@@ -2,7 +2,7 @@ import express from "express";
 import { Types, Document } from "mongoose";
 import { Request, Response, NextFunction } from "express";
 import { UserType } from "../types/user";
-import { UserModel, UserSchema } from "../models/user";
+import { UserModel, UserSchema } from "../models/user.model.";
 import jwt from "jsonwebtoken";
 import { Secret } from "jsonwebtoken";
 import { ROLE } from "../enums/role";

@@ -1,7 +1,7 @@
 import express from "express";
 import { Request, Response, NextFunction } from "express";
-import { ProjectModel } from "../models/project";
-import { UserModel } from "../models/user";
+import { ProjectModel } from "../models/project.model";
+import { UserModel } from "../models/user.model.";
 import { checkAuth }  from "../middleware/check-auth";
 import { checkRoleAdmin } from "../middleware/check-role";
 import { Types, Schema } from "mongoose";
