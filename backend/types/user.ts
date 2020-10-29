@@ -1,6 +1,18 @@
+import { ROLE } from "../enums/role";
+import { Types } from "mongoose";
+
 export type UserType = {
-    _id: string
-    email: string
-    username: string // github username
-    ROLE: string
+    _id: Types.ObjectId;
+    email: string;
+    username: string;
+    name: string;
+    ROLE: ROLE;
+}
+
+export interface UserInt {
+    _id: Types.ObjectId;
+    email: string;
+    username: string; 
+    name: string;
+    ROLE: ROLE;
 }

@@ -17,6 +17,6 @@ export const checkAuth = (req: Request, res: Response, next: NextFunction) => {
         return res.status(401).json({
             status: 1,
             data: "Authentication Failed"
-        })
+        });
     }
 }
