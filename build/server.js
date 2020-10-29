@@ -24,9 +24,9 @@ var app = express_1.default();
 app.use(body_parser_1.default.json());
 app.use(body_parser_1.default.urlencoded({ extended: false }));
 // For sending view 
-app.use(express_1.default.static(path_1.default.join(__dirname, "../../frontend/build")));
+app.use(express_1.default.static(path_1.default.join(__dirname, ".././frontend/build")));
 app.get("/", function (req, res) {
-    res.sendFile(path_1.default.join(__dirname, "../frontend/build/index.html"));
+    res.sendFile(path_1.default.join(__dirname, ".././frontend/build/index.html"));
 });
 // Config API Routes
 app.use("/user", user_1.USER_API);
