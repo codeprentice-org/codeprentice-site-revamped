@@ -10,7 +10,6 @@ dotenv.config({ path: "./backend/config/.env.config" });
 import { USER_API } from "./routes/user";
 import { PROJECT_API } from "./routes/project";
 
-
 // Connect to database
 mongoose.connect(
     "mongodb+srv://test:" 

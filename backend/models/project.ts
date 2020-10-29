@@ -1,12 +1,18 @@
 import { Document, Model, model, Types, Schema, Query } from "mongoose";
-import { UserSchema } from "./user";
+import { UserModel } from "./user";
 import { UserType } from "../types/user";
 
 const ProjectSchema = new Schema({
-    _id: Types.ObjectId,
-    name: String,
+    _id: {
+        type: Types.ObjectId,
+        required: true
+    },
+    name: {
+        type: String,
+        required: true
+    },
     // Searches for team members with the listed idea in the collection "User"
-    team: [{ type: UserSchema, ref: "Users" }], 
+    team: [{ type: UserModel, ref: "Users" }], 
     // The collection in which projects will be saved
 }, { collection: "projects" });
 
@@ -22,7 +28,6 @@ ProjectSchema.virtual("asString")
 });
 
 const ProjectModel = model("Project", ProjectSchema);
-
 
 
 // export values
