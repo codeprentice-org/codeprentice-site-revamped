@@ -19,7 +19,10 @@ const UserSchema: Schema = new Schema({
         type: String,
         required: true
     },
-    ROLE: ROLE
+    ROLE: {
+        type: String,
+        required: true
+    }
     // The collection in which users will be saved
 }, { collection: "users" }); 
 

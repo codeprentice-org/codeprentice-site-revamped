@@ -1,14 +1,35 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserModel = exports.userSchema = void 0;
-var mongoose_1 = __importDefault(require("mongoose"));
-exports.userSchema = new mongoose_1.default.Schema({
-    _id: mongoose_1.default.Schema.Types.ObjectId,
-    email: String,
-    username: String,
-    ROLE: String
+exports.UserModel = exports.UserSchema = void 0;
+var mongoose_1 = require("mongoose");
+var UserSchema = new mongoose_1.Schema({
+    _id: {
+        type: mongoose_1.Types.ObjectId,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    username: {
+        type: String,
+        required: true
+    },
+    name: {
+        type: String,
+        required: true
+    },
+    ROLE: {
+        type: String,
+        required: true
+    }
+    // The collection in which users will be saved
+}, { collection: "users" });
+exports.UserSchema = UserSchema;
+// To Use: userSchema.asString()
+UserSchema.virtual("asString")
+    .get(function () {
+    return "User _id: " + this._id + " \n \n                User email: " + this.email + " \n \n                User username: " + this.username + " \n \n                User ROLE: " + this.ROLE;
 });
-exports.UserModel = mongoose_1.default.model("User", exports.userSchema);
+var UserModel = mongoose_1.model("User", UserSchema);
+exports.UserModel = UserModel;

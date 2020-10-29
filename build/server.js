@@ -15,7 +15,7 @@ var project_1 = require("./routes/project");
 // Connect to database
 mongoose_1.default.connect("mongodb+srv://test:"
     + process.env.MONGODB_ATLAS_DB_PWD
-    + "@messenger-db.jzhdw.mongodb.net/codeprentice-testing-db?retryWrites=true&w=majority", { useNewUrlParser: true });
+    + "@messenger-db.jzhdw.mongodb.net/codeprentice-testing-db?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true });
 var database = mongoose_1.default.connection;
 database.on("error", function () { return console.log("Unable to connect to the database"); });
 database.once("open", function () { return console.log("Connected to database"); });

@@ -16,7 +16,7 @@ mongoose.connect(
     "mongodb+srv://test:" 
     + process.env.MONGODB_ATLAS_DB_PWD 
     + "@messenger-db.jzhdw.mongodb.net/codeprentice-testing-db?retryWrites=true&w=majority",
-    { useNewUrlParser: true }
+    { useNewUrlParser: true, useUnifiedTopology: true }
 );
 const database = mongoose.connection;
 database.on("error", () => console.log("Unable to connect to the database"));

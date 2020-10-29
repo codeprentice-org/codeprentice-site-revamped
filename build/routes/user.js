@@ -41,41 +41,105 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.USER_API = void 0;
 var express_1 = __importDefault(require("express"));
+var mongoose_1 = require("mongoose");
 var user_1 = require("../models/user");
 var jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 var dotenv_1 = __importDefault(require("dotenv"));
 var check_auth_1 = require("../middleware/check-auth");
 dotenv_1.default.config({ path: "./backend/config/.env.config" });
 exports.USER_API = express_1.default.Router();
-// testing
-exports.USER_API.get("/test", function (req, res, next) {
-    res.json({ data: "test" });
-    console.log(process.env.JWT_KEY);
-});
 // logins in user and creates signed JWT
 exports.USER_API.post("/login", function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
-    var userData, user, token;
+    var userData;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 userData = req.body.user;
-                return [4 /*yield*/, user_1.UserModel.find({ email: userData.email }).exec()];
-            case 1:
-                user = _a.sent();
-                // then ...
-                console.log(user);
-                token = jsonwebtoken_1.default.sign(user, process.env.JWT_KEY, { expiresIn: '1h' });
-                return [2 /*return*/, res.status(200).json({
-                        status: 0,
-                        data: { token: token }
+                return [4 /*yield*/, user_1.UserModel.findOne({ email: userData.email })
+                        .exec()
+                        .then(function (resolve) { return __awaiter(void 0, void 0, void 0, function () {
+                        var user, token;
+                        return __generator(this, function (_a) {
+                            if (!resolve) {
+                                return [2 /*return*/, res.status(401).json({
+                                        status: 1,
+                                        data: "Authentication Failed"
+                                    })];
+                            }
+                            user = resolve.toObject();
+                            token = jsonwebtoken_1.default.sign(user, process.env.JWT_KEY, { expiresIn: '1h' });
+                            console.log("User with email: " + user.email + " logged in");
+                            return [2 /*return*/, res.status(200).json({
+                                    status: 0,
+                                    data: { token: token }
+                                })];
+                        });
+                    }); })
+                        .catch(function () {
+                        return res.status(401).json({
+                            status: 1,
+                            data: "Authentication Failed"
+                        });
                     })];
+            case 1:
+                _a.sent();
+                return [2 /*return*/];
         }
     });
 }); });
-// Changes user username 
-exports.USER_API.post("/change_username", check_auth_1.checkAuth, function (req, res, next) {
-    var user = req.body.user;
-    var newUsername = req.body.newUsername;
-    user_1.UserModel.update({ _id: user._id }, { email: newUsername });
-    return res.status(200).send("Username Successfully Updated");
-});
+// Changes user username given a request body containing user: { newUsername: string }
+// Just for testing
+exports.USER_API.post("/change_username", check_auth_1.checkAuth, function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
+    var user, newUsername;
+    return __generator(this, function (_a) {
+        user = req.body.user;
+        newUsername = req.body.newUsername;
+        user_1.UserModel.updateOne({ _id: user._id }, { "$set": { "username": newUsername } })
+            .exec()
+            .then(function (resolve) {
+            console.log(resolve);
+            return res.status(200)
+                .send("Username Successfully Updated");
+        })
+            .catch(function () {
+            return res.status(401).json({
+                status: 1,
+                data: "Failed to Change Username"
+            });
+        });
+        return [2 /*return*/];
+    });
+}); });
+// Creates new user given a request body containing user: { email: string, username: string, name: string }
+// Just for testing
+exports.USER_API.post("/create_user", function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
+    var userInfo, newUser;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                userInfo = req.body.user;
+                newUser = new user_1.UserModel({
+                    _id: new mongoose_1.Types.ObjectId(),
+                    name: userInfo.name,
+                    email: userInfo.email,
+                    username: userInfo.username,
+                    ROLE: "MEMBER"
+                });
+                return [4 /*yield*/, newUser.save()
+                        .then(function (resolve) {
+                        console.log(resolve);
+                        res.status(200).send("User was successfully created");
+                    })
+                        .catch(function (resolve) {
+                        console.log(resolve);
+                        res.status(401).json({
+                            status: 1,
+                            data: "Authentication Failed"
+                        });
+                    })];
+            case 1:
+                _a.sent();
+                return [2 /*return*/];
+        }
+    });
+}); });
