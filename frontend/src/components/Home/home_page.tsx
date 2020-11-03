@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import Navbar from './navbar'
+import '../../styles/intro.css'
+import '../../styles/main.css'
+import '../../styles/about.css'
 
 interface Props {
 
@@ -8,7 +12,7 @@ interface Props {
 const Home: React.FC<Props> = () => {
     return (
         <div>
-            <h1>Home Page</h1>
+            <Navbar />
             <Intro />
             <About />
             <Infographics />
@@ -20,16 +24,50 @@ const Home: React.FC<Props> = () => {
 // sub components
 const Intro: React.FC = () => {
     return (
-        <div>
-            <h1>Intro</h1>
+        <div className="intro">
+            <div className="tag">
+                <h3>Bridging the gap between open source
+                    software and student developers</h3>
+                <div className="tag_buttons">
+                    <button className="introbutton"></button>
+                    <button className="introbutton"></button>
+                </div>
+            </div>
+            <div className="picture">
+                <div className="thumbnail"></div>
+            </div>
         </div>
     );
 };
 
 const About: React.FC = () => {
     return (
-        <div>
-            <h1>About</h1>
+        <div className="about">
+            <div className="icon">
+                <div className="thumbnail"></div>
+            </div>
+            <div className="about_text">
+                <div><h2>Short About Section</h2></div>
+                <br />
+                <div className="description"><p>Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit, sed
+                do eiusmod tempor incididunt ut
+                labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud
+                do eiusmod tempor incididunt ut
+                labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud
+                Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit, sed
+                do eiusmod tempor incididunt ut
+                labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud
+                do eiusmod tempor incididunt ut
+                labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud
+                </p></div>
+                <button className="homebutton"></button>
+            </div>
         </div>
     );
 };

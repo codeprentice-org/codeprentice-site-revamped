@@ -1,0 +1,41 @@
+.navbar{
+    height:13vh;
+    display:flex;
+    flex-direction:row;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.logo{
+width:50%;
+height:100%;
+}
+
+.pic{
+    height:40px;
+    width:200px;
+}
+.nav{
+width:50%;
+height:100%;
+display:flex;
+align-items:center;
+justify-content:space-around;
+}
+
+.nav ul{
+    display:inline-block;
+    list-style-type:none;  
+    vertical-align:middle;
+}
+
+li{
+    float:left;
+    margin: 10px;
+}
+
+.loginbutton{
+    background-color: darkcyan;
+    color:white;
+    height:30px;
+    width:100px;
+}

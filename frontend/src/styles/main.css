@@ -1,0 +1,21 @@
+*{
+   margin:0px;
+   padding:0px;
+   box-sizing:border-box;
+}
+
+.homebutton{
+    height:50px;
+    width:200px;
+    background-color: gray;
+    border-radius: 10px;
+    -webkit-transition: background-color 0.2s ease-out;
+ -moz-transition: background-color 0.2s ease-out;
+ -o-transition: background-color 0.2s ease-out;
+ -ms-transition: background-color 0.2s ease-out;
+ transition: background-color 0.2s ease-out;
+}
+
+.homebutton:hover{
+    background-color: lightgray;
+}
