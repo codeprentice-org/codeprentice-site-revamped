@@ -26,8 +26,8 @@ const Intro: React.FC = () => {
     return (
         <div className="intro">
             <div className="tag">
-                <h3>Bridging the gap between open source
-                    software and student developers</h3>
+                <div> <h3>Bridging the gap between open source
+                    software and student developers</h3></div>
                 <div className="tag_buttons">
                     <button className="introbutton"></button>
                     <button className="introbutton"></button>
@@ -47,7 +47,7 @@ const About: React.FC = () => {
                 <div className="thumbnail"></div>
             </div>
             <div className="about_text">
-                <div><h2>Short About Section</h2></div>
+                <h1>Short About Section</h1>
                 <br />
                 <div className="description"><p>Lorem ipsum dolor sit amet,
                 consectetur adipiscing elit, sed

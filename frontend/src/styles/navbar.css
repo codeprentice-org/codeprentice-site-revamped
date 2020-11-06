@@ -1,8 +1,8 @@
 .navbar{
-    height:13vh;
+    height:13%;
     display:flex;
     flex-direction:row;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family:Segoe UI ;
 }
 
 .logo{
@@ -10,22 +10,28 @@ width:50%;
 height:100%;
 }
 
+.github_logo{
+    height:100%;
+    width:30%;
+}
+
 .pic{
-    height:40px;
-    width:200px;
+    height:100%;
+    width:60%;
 }
 .nav{
 width:50%;
-height:100%;
+height:auto;
 display:flex;
 align-items:center;
-justify-content:space-around;
+justify-content:space-evenly;
 }
 
 .nav ul{
     display:inline-block;
     list-style-type:none;  
-    vertical-align:middle;
+    vertical-align: center;
+    align-items: center;
 }
 
 li{
@@ -34,7 +40,11 @@ li{
 }
 
 .loginbutton{
-    background-color: darkcyan;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-around;
+    background-color:darkslategray;
     color:white;
     height:30px;
     width:100px;

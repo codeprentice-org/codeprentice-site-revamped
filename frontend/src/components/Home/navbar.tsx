@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../styles/navbar.css'
 import logo from '../../logo.png'
-
+import github_logo from '../../github_logo.png';
 interface navbarProps {
 
 }
@@ -17,7 +17,9 @@ const Navbar: React.FC<navbarProps> = () => {
                     <li>About</li>
                     <li>Projects</li>
                     <li>Member</li>
-                    <button className="loginbutton">Log In</button>
+                    <button className="loginbutton">Log In
+                    <img src={github_logo} className="github_logo" />
+                    </button>
                 </ul>
             </div>
         </div>
