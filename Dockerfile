@@ -8,5 +8,7 @@ RUN npm install
 
 COPY . .
 
+CMD [ "npm", "run-script", "build" ]
+
 EXPOSE 4200
 CMD [ "npm", "start" ]
