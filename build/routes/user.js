@@ -42,7 +42,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.USER_API = void 0;
 var express_1 = __importDefault(require("express"));
 var mongoose_1 = require("mongoose");
-var user_1 = require("../models/user");
+var user_model_1 = require("../models/user.model.");
 var jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 var role_1 = require("../enums/role");
 var dotenv_1 = __importDefault(require("dotenv"));
@@ -56,7 +56,7 @@ exports.USER_API.post("/login", function (req, res, next) { return __awaiter(voi
         switch (_a.label) {
             case 0:
                 userData = req.body.user;
-                return [4 /*yield*/, user_1.UserModel.findOne({ email: userData.email })
+                return [4 /*yield*/, user_model_1.UserModel.findOne({ email: userData.email })
                         .exec()
                         .then(function (resolve) { return __awaiter(void 0, void 0, void 0, function () {
                         var user, token;
@@ -95,7 +95,7 @@ exports.USER_API.post("/change_username", check_auth_1.checkAuth, function (req,
     return __generator(this, function (_a) {
         user = req.body.user;
         newUsername = req.body.newUsername;
-        user_1.UserModel.updateOne({ _id: user._id }, { "$set": { "username": newUsername } })
+        user_model_1.UserModel.updateOne({ _id: user._id }, { "$set": { "username": newUsername } })
             .exec()
             .then(function (resolve) {
             console.log(resolve);
@@ -119,7 +119,7 @@ exports.USER_API.post("/create_user", function (req, res, next) { return __await
         switch (_a.label) {
             case 0:
                 userInfo = req.body.user;
-                newUser = new user_1.UserModel({
+                newUser = new user_model_1.UserModel({
                     _id: new mongoose_1.Types.ObjectId(),
                     name: userInfo.name,
                     email: userInfo.email,

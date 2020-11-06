@@ -41,8 +41,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PROJECT_API = void 0;
 var express_1 = __importDefault(require("express"));
-var project_1 = require("../models/project");
-var user_1 = require("../models/user");
+var project_model_1 = require("../models/project.model");
+var user_model_1 = require("../models/user.model.");
 var check_auth_1 = require("../middleware/check-auth");
 var check_role_1 = require("../middleware/check-role");
 var mongoose_1 = require("mongoose");
@@ -55,10 +55,10 @@ exports.PROJECT_API.post("/create_project", check_auth_1.checkAuth, check_role_1
         switch (_a.label) {
             case 0:
                 projectInfo = req.body.project;
-                return [4 /*yield*/, user_1.UserModel.findOne({ _id: req.body.user._id }).exec()];
+                return [4 /*yield*/, user_model_1.UserModel.findOne({ _id: req.body.user._id }).exec()];
             case 1:
                 teamMember = _a.sent();
-                newProject = new project_1.ProjectModel({
+                newProject = new project_model_1.ProjectModel({
                     _id: new mongoose_1.Types.ObjectId(),
                     name: projectInfo.name,
                     team: [(teamMember) ? teamMember.toObject() : undefined]

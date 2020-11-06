@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProjectModel = exports.ProjectSchema = void 0;
 var mongoose_1 = require("mongoose");
-var user_1 = require("./user");
+var user_model_1 = require("./user.model.");
 var ProjectSchema = new mongoose_1.Schema({
     _id: {
         type: mongoose_1.Types.ObjectId,
@@ -13,7 +13,7 @@ var ProjectSchema = new mongoose_1.Schema({
         required: true
     },
     // Searches for team members with the listed idea in the collection "User"
-    team: [user_1.UserSchema],
+    team: [user_model_1.UserSchema],
 }, { collection: "projects" });
 exports.ProjectSchema = ProjectSchema;
 ProjectSchema.virtual("asString")

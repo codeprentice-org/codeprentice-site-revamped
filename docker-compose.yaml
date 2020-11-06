@@ -1,0 +1,15 @@
+version: "3"
+networks:
+  codeprentice-network:
+    external: true
+services:
+  codeprentice-web:
+    networks:
+      - codeprentice-network
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      ENV_NAME: dev
+    ports:
+      - 4200:4200
