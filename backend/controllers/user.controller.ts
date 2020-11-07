@@ -1,8 +1,8 @@
-import express from "express";
 import { Types, Document } from "mongoose";
 import { Request, Response, NextFunction } from "express";
+import express from "express";
 import { UserType } from "../types/user";
-import { UserModel, UserSchema } from "../models/user.model.";
+import { UserModel, UserSchema } from "../models/user.model";
 import jwt from "jsonwebtoken";
 import { Secret } from "jsonwebtoken";
 import { ROLE } from "../enums/role";
@@ -11,10 +11,7 @@ import { checkAuth }  from "../middleware/check-auth";
 
 dotenv.config({ path: "./backend/config/.env.config" });
 
-export const USER_API = express.Router();
-
-// logins in user and creates signed JWT
-USER_API.post("/login", async (req: Request, res: Response, next: NextFunction) => {
+const loginUser = async (req: Request, res: Response, next: NextFunction) => {
     // authentication with github api
     // adds user to database if they are not there already
     // pull user from database
@@ -43,12 +40,11 @@ USER_API.post("/login", async (req: Request, res: Response, next: NextFunction) 
                 data: "Authentication Failed"
             });
         })
-    
-});
+};
 
-// Changes user username given a request body containing user: { newUsername: string }
+// Changes user username give a request body container user: { newUsername: string }
 // Just for testing
-USER_API.post("/change_username", checkAuth, async (req: Request, res: Response, next: NextFunction) => {
+const changeUsername = async (req: Request, res: Response, next: NextFunction) => {
     const user: UserType = req.body.user;
     const newUsername: string = req.body.newUsername;
     UserModel.updateOne({ _id: user._id }, {"$set": { "username": newUsername } })
@@ -64,11 +60,11 @@ USER_API.post("/change_username", checkAuth, async (req: Request, res: Response,
                 data: "Failed to Change Username"
             });
         });
-});
+};
 
-// Creates new user given a request body containing user: { email: string, username: string, name: string }
+// Creats a new user given a request body containing user: { email: string, username: string, name: string }
 // Just for testing
-USER_API.post("/create_user", async (req: Request, res: Response, next: NextFunction) => {
+const createUser = async (req: Request, res: Response, next: NextFunction) => {
     const userInfo = req.body.user
     const newUser = new UserModel({
         _id: new Types.ObjectId(),
@@ -89,4 +85,7 @@ USER_API.post("/create_user", async (req: Request, res: Response, next: NextFunc
                     data: "Authentication Failed"
                 });
            });
-});
+};
+
+
+export { loginUser, changeUsername, createUser }

@@ -7,8 +7,8 @@ import path from "path";
 dotenv.config({ path: "./backend/config/.env.config" });
 
 // API Imports
-import { USER_API } from "./routes/user";
-import { PROJECT_API } from "./routes/project";
+import { USER_API } from "./routes/user.route";
+import { PROJECT_API } from "./routes/project.route";
 
 // Connect to database
 mongoose.connect(
