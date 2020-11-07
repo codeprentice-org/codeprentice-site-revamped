@@ -1,4 +1,4 @@
-import express from "express";
+import express, { response } from "express";
 import { Types, Document } from "mongoose";
 import { Request, Response, NextFunction } from "express";
 import { UserType } from "../types/user";
@@ -8,10 +8,42 @@ import { Secret } from "jsonwebtoken";
 import { ROLE } from "../enums/role";
 import dotenv from "dotenv";
 import { checkAuth }  from "../middleware/check-auth";
+import { request } from "http";
+import { appendFile } from "fs";
+import { AxiosResponse } from "axios";
 
 dotenv.config({ path: "./backend/config/.env.config" });
 
 export const USER_API = express.Router();
+
+const qs = require('querystring')
+USER_API.get("/auth/github", async (req: Request, res: Response, next: NextFunction) => {
+    // Redirect caller to the GitHub auth web flow with our app credentials
+    res.redirect("https://github.com/login/oauth/authorize?" + qs.stringify({
+        client_id: process.env.GITHUB_CLIENT_ID,
+        scope: "read:org",
+        redirect_uri: "http://localhost:4200/user/auth/callback" // specify callback url
+    }))
+});
+
+const axios = require('axios');
+USER_API.get("/auth/callback", async (req: Request, res: Response, next: NextFunction) => {
+    // After successfull auth on GitHub, a code is sent back. We POST it back to GitHub
+    // to exchange it for an access token
+    const body = {
+        client_id: process.env.GITHUB_CLIENT_ID,
+        client_secret: process.env.GITHUB_CLIENT_SECRET,
+        code: req.query.code // the code we received from GitHub
+    };
+    const opts = { headers: { accept: 'application/json' } };
+    axios.post(`https://github.com/login/oauth/access_token`, body, opts)
+    .then((post_res:AxiosResponse) => post_res.data)
+    .then((token:String) => {
+      console.log('My token:', token);
+      res.json({ ok: 1 });
+    })
+    .catch((err:Error) => res.status(500).json({ message: err.message }));
+});
 
 // logins in user and creates signed JWT
 USER_API.post("/login", async (req: Request, res: Response, next: NextFunction) => {
