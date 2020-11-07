@@ -1,0 +1,51 @@
+.navbar{
+    height:13%;
+    display:flex;
+    flex-direction:row;
+    font-family:Segoe UI ;
+}
+
+.logo{
+width:50%;
+height:100%;
+}
+
+.github_logo{
+    height:100%;
+    width:30%;
+}
+
+.pic{
+    height:100%;
+    width:60%;
+}
+.nav{
+width:50%;
+height:auto;
+display:flex;
+align-items:center;
+justify-content:space-evenly;
+}
+
+.nav ul{
+    display:inline-block;
+    list-style-type:none;  
+    vertical-align: center;
+    align-items: center;
+}
+
+li{
+    float:left;
+    margin: 10px;
+}
+
+.loginbutton{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-around;
+    background-color:darkslategray;
+    color:white;
+    height:30px;
+    width:100px;
+}
