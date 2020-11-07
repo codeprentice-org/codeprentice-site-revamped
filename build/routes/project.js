@@ -42,7 +42,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.PROJECT_API = void 0;
 var express_1 = __importDefault(require("express"));
 var project_model_1 = require("../models/project.model");
-var user_model_1 = require("../models/user.model.");
+var user_model_1 = require("../models/user.model");
 var check_auth_1 = require("../middleware/check-auth");
 var check_role_1 = require("../middleware/check-role");
 var mongoose_1 = require("mongoose");
