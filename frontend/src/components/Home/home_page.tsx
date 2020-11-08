@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './navbar'
+import Footer from './footer'
 import '../../styles/intro.css'
 import '../../styles/main.css'
 import '../../styles/about.css'
@@ -19,6 +20,7 @@ const Home: React.FC<Props> = () => {
             <About />
             <Infographics />
             <Projects />
+            <Footer />
         </div>
     );
 };

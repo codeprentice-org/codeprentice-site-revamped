@@ -1,4 +1,9 @@
 import React from 'react';
+import '../../styles/footer.css'
+import GitHubIcon from '@material-ui/icons/GitHub'
+import LinkedInIcon from '@material-ui/icons/LinkedIn'
+import InstagramIcon from '@material-ui/icons/Instagram'
+import FacebookIcon from '@material-ui/icons/Facebook'
 
 interface FooterProps {
 
@@ -6,8 +11,13 @@ interface FooterProps {
 
 const Footer: React.FC<FooterProps> = () => {
     return (
-        <div>
-
+        <div className="footer_section">
+                <ul className="social_list">
+                    <li><GitHubIcon /></li>
+                    <li><LinkedInIcon /></li>
+                    <li><FacebookIcon /></li>
+                    <li><InstagramIcon /></li>
+                </ul>
         </div>
     );
 };
