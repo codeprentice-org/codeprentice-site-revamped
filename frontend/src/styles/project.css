@@ -1,0 +1,51 @@
+.project_section {
+    height: 70vh;
+    width: 100%;
+    padding: 20px;
+}
+
+.project_heading {
+    text-align: center;
+}
+
+
+.projects-box {
+    height: 70vh;
+    width: 90%;
+    /* border: 2px solid red; */
+    margin: 5px auto;
+    margin-top: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+
+.project {
+    height: 60%;
+    width: 40%;
+    background-color: rgb(105, 103, 103);
+    margin-right: 3px;
+}
+
+.project:hover {
+    background-color: rgb(158, 158, 158);
+}
+
+.more_projects {
+    height: 10%;
+    width: 15%;
+    min-width: 150px;
+    background-color: rgb(105, 103, 103);
+    margin: auto;
+}
+
+.more_projects:hover {
+    cursor: pointer;
+    background-color: rgb(158, 158, 158);
+}
+
+.more_projects > h3 {
+   text-align: center;
+}

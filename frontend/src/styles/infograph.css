@@ -1,0 +1,31 @@
+.infographics {
+    height: 70vh;
+    width: 100%;
+    background-color: lightgray;
+    padding: 20px;
+}
+
+
+.info_heading {
+    text-align: center;
+}
+
+.illustrations-box {
+    height: 40vh;
+    width: 90%;
+    /* border: 2px solid red; */
+    margin: 5px auto;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+
+.illustration {
+    height: 80%;
+    width: 50%;
+    background-color: rgb(105, 103, 103);
+    margin: 5px;
+}

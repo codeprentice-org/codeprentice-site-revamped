@@ -1,0 +1,20 @@
+.footer_section {
+    height: 10vh;
+    width: 100%;
+    margin-top: 180px;
+    /* border: 2px solid red; */
+    
+}
+
+
+.social_list{
+    list-style: none;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social_list > li {
+    margin-right: 25px;
+}

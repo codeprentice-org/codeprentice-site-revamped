@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './navbar'
+import Footer from './footer'
 import '../../styles/intro.css'
 import '../../styles/main.css'
 import '../../styles/about.css'
+import '../../styles/infograph.css'
+import '../../styles/project.css'
 
 interface Props {
 
@@ -17,6 +20,7 @@ const Home: React.FC<Props> = () => {
             <About />
             <Infographics />
             <Projects />
+            <Footer />
         </div>
     );
 };
@@ -74,16 +78,41 @@ const About: React.FC = () => {
 
 const Infographics: React.FC = () => {
     return (
-        <div>
-            <h1>Infographics</h1>
+        <div className="infographics">
+            <h1 className="info_heading">Infographics with features</h1>
+            <div className="illustrations-box">
+                <div className="illustration">
+                   
+                </div>
+                <div className="illustration">
+                    
+                </div>
+                <div className="illustration">
+                    
+                </div>
+            </div>
         </div>
     );
 };
 
 const Projects: React.FC = () => {
     return (
-        <div>
-            <h1>Projects</h1>
+        <div className="project_section">
+            <h1 className="project_heading">Project Previews</h1>
+            <div className="projects-box">
+                <div className="project">
+                   
+                </div>
+                <div className="project">
+                    
+                </div>
+                <div className="project">
+                    
+                </div>
+            </div>
+            <div className="more_projects">
+                <h3>More Projects</h3>
+            </div>
         </div>
     );
 };
