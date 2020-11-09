@@ -1,7 +1,5 @@
 import React from 'react';
-import Home from './home_page'
-import Header from './header'
-import Footer from './footer'
+import Home from '../home-page/home_page'
 
 interface MainProps {
 

@@ -13,7 +13,7 @@
 }
 
 .codeprentice-logo {
-    background-image: url("../assets/images/logo.png");
+    background-image: url("../../assets/images/logo.png");
     background-size: contain;
     background-repeat: no-repeat;
     width: 170px;
@@ -36,7 +36,7 @@
 .login-button:hover { cursor: pointer; }
 
 .github-logo {
-    background-image: url("../assets/images/github_logo.png");
+    background-image: url("../../assets/images/github_logo.png");
     height: 100%;
     width: 30px;
     margin-right: 10px;

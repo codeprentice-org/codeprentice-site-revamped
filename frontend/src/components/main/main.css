@@ -23,19 +23,19 @@
 
 @font-face {
     font-family: 'poppins-regular';
-    src: url("../assets/fonts/poppins/Poppins-Regular.ttf");
+    src: url("../../assets/fonts/poppins/Poppins-Regular.ttf");
     font-style: normal;
 }
 
 @font-face {
     font-family: 'poppins-medium';
-    src: url("../assets/fonts/poppins/Poppins-Medium.ttf");
+    src: url("../../assets/fonts/poppins/Poppins-Medium.ttf");
     font-style: normal;
 }
 
 @font-face {
     font-family: 'poppins-semibold';
-    src: url("../assets/fonts/poppins/Poppins-SemiBold.ttf");
+    src: url("../../assets/fonts/poppins/Poppins-SemiBold.ttf");
     font-style: normal;
 }
 

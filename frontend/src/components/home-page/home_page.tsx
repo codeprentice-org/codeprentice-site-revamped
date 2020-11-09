@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from './navbar'
-import Footer from './footer'
-import '../../styles/intro.css'
-import '../../styles/main.css'
-import '../../styles/about.css'
-import '../../styles/infograph.css'
-import '../../styles/project.css'
-import { height } from '@material-ui/system';
+import Navbar from '../navbar/navbar'
+import Footer from './footer/footer'
+import './intro.css'
+import '../main/main.css'
+import './about.css'
+import './infograph.css'
+import './project.css'
 
 interface Props {
 
