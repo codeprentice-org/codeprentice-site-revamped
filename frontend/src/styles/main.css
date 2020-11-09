@@ -38,3 +38,11 @@
     src: url("../assets/fonts/poppins/Poppins-SemiBold.ttf");
     font-style: normal;
 }
+
+.transform-background-color {
+    -webkit-transition: background-color 0.5s ease-out;
+    -moz-transition: background-color 0.5s ease-out;
+    -o-transition: background-color 0.5s ease-out;
+    -ms-transition: background-color 0.5s ease-out;
+    transition: background-color 0.5s ease-out;
+}
