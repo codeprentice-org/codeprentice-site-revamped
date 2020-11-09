@@ -28,7 +28,7 @@ npm run-script build
 ```
 
 ## Local Deployment (from GitHub clone)
-Prerequisites: must have docker and docker-compose installed
+Prerequisites: must have docker and docker-compose installedv
 <br/>
 Deployment with Docker:
 ```bash
