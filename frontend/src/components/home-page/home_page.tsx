@@ -41,7 +41,7 @@ const Intro: React.FC = () => {
                     <button className="intro-button"></button>
                 </div>
             </div>
-            <div className="right-container">
+            <div className="intro-right-container">
                 <div className="thumbnail transform-background-color">
                     <div className='offset-thumbnail transform-background-color'></div>
                 </div>
@@ -52,33 +52,24 @@ const Intro: React.FC = () => {
 
 const About: React.FC = () => {
     return (
-        <div className="about">
-            <div className="icon">
-                <div className="thumbnail" style={{backgroundColor: 'gray'}}></div>
+        <div className="about-container">
+            <div className="about-left-container">
+                <div className="about-image"></div>
             </div>
-            <div className="about_text">
-                <h1>Short About Section</h1>
-                <br />
+            <div className="about-right-container">
+                <div className="about-right-header">About us</div>
                 <div className="description">
-                    <p>Lorem ipsum dolor sit amet,
-                        consectetur adipiscing elit, sed
-                        do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.
-                        Ut enim ad minim veniam, quis nostrud
-                        do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.
-                        Ut enim ad minim veniam, quis nostrud
-                        Lorem ipsum dolor sit amet,
-                        consectetur adipiscing elit, sed
-                        do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.
-                        Ut enim ad minim veniam, quis nostrud
-                        do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.
-                        Ut enim ad minim veniam, quis nostrud
-                    </p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                    Ut enim ad minim veniam, quis nostrud do eiusmod tempor 
+                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim 
+                    veniam, quis nostrud Lorem ipsum dolor sit amet, consectetur 
+                    adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
+                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud do 
+                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut 
+                    enim ad minim veniam, quis nostrud
                 </div>
-                <button className="homebutton"></button>
+                <button className="about-button">Find out more</button>
             </div>
         </div>
     );
