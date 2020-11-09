@@ -1,51 +1,96 @@
-.navbar{
-    height:13%;
-    display:flex;
-    flex-direction:row;
-    font-family:Segoe UI ;
-}
-
-.logo{
-width:50%;
-height:100%;
-}
-
-.github_logo{
-    height:100%;
-    width:30%;
-}
-
-.pic{
-    height:100%;
-    width:60%;
-}
-.nav{
-width:50%;
-height:auto;
-display:flex;
-align-items:center;
-justify-content:space-evenly;
-}
-
-.nav ul{
-    display:inline-block;
-    list-style-type:none;  
-    vertical-align: center;
-    align-items: center;
-}
-
-li{
-    float:left;
-    margin: 10px;
-}
-
-.loginbutton{
+.navbar {
+    height: 70px;
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content:space-around;
-    background-color:darkslategray;
-    color:white;
-    height:30px;
-    width:100px;
+    font-family:Segoe UI;
 }
+
+.logo-container {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+
+.codeprentice-logo {
+    background-image: url("../assets/images/logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 170px;
+    margin-top: 20px;
+    height: 50px;
+}
+
+.login-button {
+    width: 210px;
+    height: 40px;
+    background-color: rgb(59, 59, 59);
+    border-radius: 5px;
+    display: flex;
+    box-sizing: border-box;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.login-button:hover { cursor: pointer; }
+
+.github-logo {
+    background-image: url("../assets/images/github_logo.png");
+    height: 100%;
+    width: 30px;
+    margin-right: 10px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.login-button-text {
+    height: 100%;
+    width: 160px;
+    color: rgb(255, 255, 255);
+    line-height: 30px;
+    font-size: 16px;
+    font-family: 'poppins-semibold';
+    text-align: center;
+}
+
+.options-container {
+    width: 70%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-item {
+    float: right;
+    line-height: 40px;
+    height: 40px;
+    text-align: center;
+    font-size: 17px;
+    font-family: 'poppins-semibold';
+    border-radius: 5px;
+    transform: translateX(30px);
+    margin-right: 50px;
+    color: rgb(41, 41, 41);
+}
+
+.nav-item:hover { cursor: pointer; }
+
+.nav-item-underline {
+    width: 15px;
+    background-color: rgb(1, 108, 255);
+    height: 3px;
+}
+
+.nav-item:hover .nav-item-underline{
+    width: 100%;
+}
+
+.transform-width {
+    -webkit-transition: width 0.2s;
+    -moz-transition: width 0.2s;
+    -o-transition: width 0.2s;
+    transition: width 0.2s;
+}
+
+

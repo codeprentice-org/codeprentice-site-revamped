@@ -1,11 +1,11 @@
-.intro{
+.intro {
     width: 100%;
     height: 50vh;
     background-color: rgb(208, 239, 250);
     color: rgb(6, 153, 179);
     display: flex;
     flex-direction: row;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: "Times New Roman";
 }
 
 .introbutton{
@@ -15,14 +15,14 @@
     border:none;
 }
 
-.tag{
- display:flex;
- flex-direction: column;
- align-items: center;
- justify-content:"space-around";
- width: 50%;
- padding: 60px;
- font-size: x-large;
+.tag {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:"space-around";
+    width: 50%;
+    padding: 60px;
+    font-size: x-large;
 }
 
 .tag_buttons{
@@ -39,9 +39,9 @@
 }
 
 
-.picture{
+.picture { 
     width: 50%;
-padding:30px;
+    padding:30px;
 }
 
 .thumbnail{
@@ -49,10 +49,10 @@ padding:30px;
     width:100%;
     height: 100%;
     -webkit-transition: background-color 0.5s ease-out;
- -moz-transition: background-color 0.5s ease-out;
- -o-transition: background-color 0.5s ease-out;
- -ms-transition: background-color 0.5s ease-out;
- transition: background-color 0.5s ease-out;
+    -moz-transition: background-color 0.5s ease-out;
+    -o-transition: background-color 0.5s ease-out;
+    -ms-transition: background-color 0.5s ease-out;
+    transition: background-color 0.5s ease-out;
 }
 
 .thumbnail:hover{

@@ -30,8 +30,12 @@ const Intro: React.FC = () => {
     return (
         <div className="intro">
             <div className="tag">
-                <div> <h3>Bridging the gap between open source
-                    software and student developers</h3></div>
+                <div>
+                    <h3>
+                        Bridging the gap between open source
+                        software and student developers
+                    </h3>
+                </div>
                 <div className="tag_buttons">
                     <button className="introbutton"></button>
                     <button className="introbutton"></button>
@@ -53,23 +57,25 @@ const About: React.FC = () => {
             <div className="about_text">
                 <h1>Short About Section</h1>
                 <br />
-                <div className="description"><p>Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit, sed
-                do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud
-                do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud
-                Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit, sed
-                do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud
-                do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud
-                </p></div>
+                <div className="description">
+                    <p>Lorem ipsum dolor sit amet,
+                        consectetur adipiscing elit, sed
+                        do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud
+                        do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud
+                        Lorem ipsum dolor sit amet,
+                        consectetur adipiscing elit, sed
+                        do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud
+                        do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud
+                    </p>
+                </div>
                 <button className="homebutton"></button>
             </div>
         </div>
