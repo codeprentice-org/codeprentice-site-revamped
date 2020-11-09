@@ -1,13 +1,11 @@
 import { Types, Document } from "mongoose";
 import { Request, Response, NextFunction } from "express";
-import express from "express";
 import { UserType } from "../types/user";
 import { UserModel, UserSchema } from "../models/user.model";
 import jwt from "jsonwebtoken";
 import { Secret } from "jsonwebtoken";
 import { ROLE } from "../enums/role";
 import dotenv from "dotenv";
-import { checkAuth }  from "../middleware/check-auth";
 
 dotenv.config({ path: "./backend/config/.env.config" });
 
