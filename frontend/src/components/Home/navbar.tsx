@@ -1,7 +1,5 @@
 import React from 'react';
 import '../../styles/navbar.css'
-import logo from '../../logo.png'
-import github_logo from '../../github_logo.png';
 interface navbarProps {
 
 }
@@ -9,18 +7,26 @@ interface navbarProps {
 const Navbar: React.FC<navbarProps> = () => {
     return (
         <div className="navbar">
-            <div className="logo">
-                <img src={logo} className="pic" />
+            <div className="logo-container">
+                <div className="codeprentice-logo"></div>
             </div>
-            <div className="nav">
-                <ul>
-                    <li>About</li>
-                    <li>Projects</li>
-                    <li>Member</li>
-                    <button className="loginbutton">Log In
-                    <img src={github_logo} className="github_logo" />
-                    </button>
-                </ul>
+            <div className="options-container">
+                <div className='nav-item transform-color'>
+                    About
+                    <div className='nav-item-underline transform-width'></div>
+                </div>
+                <div className='nav-item transform-color'>
+                    Projects    
+                    <div className='nav-item-underline transform-width'></div>
+                </div>
+                <div className='nav-item transform-color'>
+                    Members
+                    <div className='nav-item-underline transform-width'></div>
+                </div>
+                <div className="login-button">
+                    <div className="github-logo"></div>
+                    <div className="login-button-text">Login with Github</div>
+                </div>
             </div>
         </div>
     );

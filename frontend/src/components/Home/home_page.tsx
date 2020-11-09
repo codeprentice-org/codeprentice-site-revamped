@@ -6,6 +6,7 @@ import '../../styles/main.css'
 import '../../styles/about.css'
 import '../../styles/infograph.css'
 import '../../styles/project.css'
+import { height } from '@material-ui/system';
 
 interface Props {
 
@@ -15,9 +16,11 @@ interface Props {
 const Home: React.FC<Props> = () => {
     return (
         <div>
-            <Navbar />
-            <Intro />
-            <About />
+            <div style={{height: '100vh', width: '100%'}}>
+                <Navbar />
+                <Intro />
+                <About />
+            </div>
             <Infographics />
             <Projects />
             <Footer />
@@ -28,17 +31,21 @@ const Home: React.FC<Props> = () => {
 // sub components
 const Intro: React.FC = () => {
     return (
-        <div className="intro">
-            <div className="tag">
-                <div> <h3>Bridging the gap between open source
-                    software and student developers</h3></div>
-                <div className="tag_buttons">
-                    <button className="introbutton"></button>
-                    <button className="introbutton"></button>
+        <div className="intro-container">
+            <div className="intro-left-container">
+                <div className='intro-left-header'>
+                    Bridging the gap between open source
+                    software and student developers.
+                </div>
+                <div className="intro-buttons">
+                    <button className="intro-button"></button>
+                    <button className="intro-button"></button>
                 </div>
             </div>
-            <div className="picture">
-                <div className="thumbnail"></div>
+            <div className="right-container">
+                <div className="thumbnail transform-background-color">
+                    <div className='offset-thumbnail transform-background-color'></div>
+                </div>
             </div>
         </div>
     );
@@ -48,28 +55,30 @@ const About: React.FC = () => {
     return (
         <div className="about">
             <div className="icon">
-                <div className="thumbnail"></div>
+                <div className="thumbnail" style={{backgroundColor: 'gray'}}></div>
             </div>
             <div className="about_text">
                 <h1>Short About Section</h1>
                 <br />
-                <div className="description"><p>Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit, sed
-                do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud
-                do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud
-                Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit, sed
-                do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud
-                do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud
-                </p></div>
+                <div className="description">
+                    <p>Lorem ipsum dolor sit amet,
+                        consectetur adipiscing elit, sed
+                        do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud
+                        do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud
+                        Lorem ipsum dolor sit amet,
+                        consectetur adipiscing elit, sed
+                        do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud
+                        do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud
+                    </p>
+                </div>
                 <button className="homebutton"></button>
             </div>
         </div>
