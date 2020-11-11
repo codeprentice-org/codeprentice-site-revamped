@@ -15,14 +15,15 @@ interface Props {
 const Home: React.FC<Props> = () => {
     return (
         <div>
-            <div style={{height: '100vh', width: '100%'}}>
-                <Navbar />
+            <div style={{height: 'calc(100vh - 70px)', width: '100%'}}>
                 <Intro />
                 <About />
             </div>
             <Infographics />
-            <Projects />
-            <Footer />
+            <div style={{height: '100vh', width: '100%'}}>
+                <Projects />
+                <Footer />
+            </div>
         </div>
     );
 };
@@ -30,20 +31,20 @@ const Home: React.FC<Props> = () => {
 // sub components
 const Intro: React.FC = () => {
     return (
-        <div className="intro-container">
-            <div className="intro-left-container">
-                <div className='intro-left-header'>
+        <div className="intro_container">
+            <div className="intro_left_container">
+                <div className='intro_left_header'>
                     Bridging the gap between open source
                     software and student developers.
                 </div>
-                <div className="intro-buttons">
-                    <button className="intro-button"></button>
-                    <button className="intro-button"></button>
+                <div className="intro_buttons">
+                    <button className="intro_button"></button>
+                    <button className="intro_button"></button>
                 </div>
             </div>
-            <div className="intro-right-container">
-                <div className="thumbnail transform-background-color">
-                    <div className='offset-thumbnail transform-background-color'></div>
+            <div className="intro_right_container">
+                <div className="thumbnail transform_background_color">
+                    <div className='offset_thumbnail transform_background_color'></div>
                 </div>
             </div>
         </div>
@@ -52,13 +53,13 @@ const Intro: React.FC = () => {
 
 const About: React.FC = () => {
     return (
-        <div className="about-container">
-            <div className="about-left-container">
-                <div className="about-image"></div>
+        <div className="about_container">
+            <div className="about_left_container">
+                <div className="about_image"></div>
             </div>
-            <div className="about-right-container">
-                <div className="about-right-header">About us</div>
-                <div className="description">
+            <div className="about_right_container">
+                <div className="about_right_header">About us</div>
+                <div className="about_us_text">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
                     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                     Ut enim ad minim veniam, quis nostrud do eiusmod tempor 
@@ -69,7 +70,7 @@ const About: React.FC = () => {
                     eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut 
                     enim ad minim veniam, quis nostrud
                 </div>
-                <button className="about-button">Find out more</button>
+                <button className="about_button">Find out more</button>
             </div>
         </div>
     );
@@ -78,8 +79,8 @@ const About: React.FC = () => {
 const Infographics: React.FC = () => {
     return (
         <div className="infographics">
-            <h1 className="info_heading">Infographics with features</h1>
-            <div className="illustrations-box">
+            <div className="info_header">Why Join Codeprentice?</div>
+            <div className="illustrations_container">
                 <div className="illustration">
                    
                 </div>
@@ -97,8 +98,8 @@ const Infographics: React.FC = () => {
 const Projects: React.FC = () => {
     return (
         <div className="project_section">
-            <h1 className="project_heading">Project Previews</h1>
-            <div className="projects-box">
+            <div className="project_header">Our Impact</div>
+            <div className="projects_container">
                 <div className="project">
                    
                 </div>
@@ -110,7 +111,7 @@ const Projects: React.FC = () => {
                 </div>
             </div>
             <div className="more_projects">
-                <h3>More Projects</h3>
+                More Projects
             </div>
         </div>
     );

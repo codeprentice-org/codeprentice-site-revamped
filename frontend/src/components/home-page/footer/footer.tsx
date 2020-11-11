@@ -9,15 +9,21 @@ interface FooterProps {
 
 }
 
+const styles = {
+    icon_style: {
+        width: 30,
+        height: 30
+    }
+};
 const Footer: React.FC<FooterProps> = () => {
     return (
-        <div className="footer_section">
-                <ul className="social_list">
-                    <li><GitHubIcon /></li>
-                    <li><LinkedInIcon /></li>
-                    <li><FacebookIcon /></li>
-                    <li><InstagramIcon /></li>
-                </ul>
+        <div className="footer_container">
+            <ul className="social_list">
+                <li><GitHubIcon style={styles.icon_style}/></li>
+                <li><LinkedInIcon style={styles.icon_style}/></li>
+                <li><FacebookIcon style={styles.icon_style}/></li>
+                <li><InstagramIcon style={styles.icon_style}/></li>
+            </ul>
         </div>
     );
 };
