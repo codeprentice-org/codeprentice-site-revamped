@@ -1,31 +1,36 @@
 .infographics {
-    height: 70vh;
+    height: 420px;
     width: 100%;
-    background-color: lightgray;
+    /* background-color: rgb(208, 239, 250);  */
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
     padding: 20px;
 }
 
-
-.info_heading {
+.info_header {
     text-align: center;
+    font-family: 'poppins-semibold';
+    font-size: 25px;
+    color: rgb(18, 155, 209);
 }
 
-.illustrations_box {
-    height: 40vh;
+.illustrations_container {
+    height: calc(100% - 10px);
     width: 90%;
     /* border: 2px solid red; */
     margin: 5px auto;
-    margin-top: 10px;
+    margin-top: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    padding: 40px;
+    box-sizing: border-box;
 
 }
 
 .illustration {
-    height: 80%;
+    height: 100%;
     width: 50%;
-    background-color: rgb(105, 103, 103);
+    background-color: rgb(63, 63, 63);
     margin: 5px;
 }

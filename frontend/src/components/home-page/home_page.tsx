@@ -21,8 +21,10 @@ const Home: React.FC<Props> = () => {
                 <About />
             </div>
             <Infographics />
-            <Projects />
-            <Footer />
+            <div style={{height: '100vh', width: '100%'}}>
+                <Projects />
+                <Footer />
+            </div>
         </div>
     );
 };
@@ -78,8 +80,8 @@ const About: React.FC = () => {
 const Infographics: React.FC = () => {
     return (
         <div className="infographics">
-            <h1 className="info_heading">Infographics with features</h1>
-            <div className="illustrations_box">
+            <div className="info_header">Why Join Codeprentice?</div>
+            <div className="illustrations_container">
                 <div className="illustration">
                    
                 </div>
@@ -97,8 +99,8 @@ const Infographics: React.FC = () => {
 const Projects: React.FC = () => {
     return (
         <div className="project_section">
-            <h1 className="project_heading">Project Previews</h1>
-            <div className="projects_box">
+            <h1 className="project_header">Project Previews</h1>
+            <div className="projects_container">
                 <div className="project">
                    
                 </div>
@@ -110,7 +112,7 @@ const Projects: React.FC = () => {
                 </div>
             </div>
             <div className="more_projects">
-                <h3>More Projects</h3>
+                More Projects
             </div>
         </div>
     );
