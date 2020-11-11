@@ -6,8 +6,7 @@ interface ProjectShowcaseProps {
 
 const ProjectShowcase: React.FC<ProjectShowcaseProps> = () => {
     return (
-        <div>
-
+        <div style={{height: 'calc(100vh - 70px)', width: '100%'}}>
         </div>
     );
 };

@@ -12,6 +12,8 @@
     height: 100%;
 }
 
+.logo-container:hover { cursor: pointer; }
+
 .codeprentice-logo {
     background-image: url("../../assets/images/logo.png");
     background-size: contain;

@@ -30,7 +30,7 @@ app.use(bodyParser.urlencoded( { extended: false } ))
 
 // For sending view 
 app.use(express.static(path.join(__dirname, ".././frontend/build")));
-app.get("/", (req: Request, res: Response) => {
+app.get("*", (req: Request, res: Response) => {
         res.sendFile(path.join(__dirname, ".././frontend/build/index.html"));
 })
 

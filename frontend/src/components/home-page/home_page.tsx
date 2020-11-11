@@ -15,8 +15,7 @@ interface Props {
 const Home: React.FC<Props> = () => {
     return (
         <div>
-            <div style={{height: '100vh', width: '100%'}}>
-                <Navbar />
+            <div style={{height: 'calc(100vh - 70px)', width: '100%'}}>
                 <Intro />
                 <About />
             </div>
@@ -99,7 +98,7 @@ const Infographics: React.FC = () => {
 const Projects: React.FC = () => {
     return (
         <div className="project_section">
-            <h1 className="project_header">Project Previews</h1>
+            <div className="project_header">Our Impact</div>
             <div className="projects_container">
                 <div className="project">
                    
