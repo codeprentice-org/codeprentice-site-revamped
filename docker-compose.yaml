@@ -3,7 +3,7 @@ networks:
   codeprentice-network:
     external: true
 services:
-  codeprentice-web:
+  web:
     networks:
       - codeprentice-network
     build:

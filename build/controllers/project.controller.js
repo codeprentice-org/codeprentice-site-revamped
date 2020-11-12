@@ -35,21 +35,14 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PROJECT_API = void 0;
-var express_1 = __importDefault(require("express"));
+exports.createProject = void 0;
 var project_model_1 = require("../models/project.model");
-var user_model_1 = require("../models/user.model.");
-var check_auth_1 = require("../middleware/check-auth");
-var check_role_1 = require("../middleware/check-role");
+var user_model_1 = require("../models/user.model");
 var mongoose_1 = require("mongoose");
-exports.PROJECT_API = express_1.default.Router();
-// Creates a new project given a request body containing project: { name: string }
+// Creates a new project give a request body containing project: { name: string }
 // Just for testing
-exports.PROJECT_API.post("/create_project", check_auth_1.checkAuth, check_role_1.checkRoleAdmin, function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
+var createProject = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
     var projectInfo, teamMember, newProject;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -76,4 +69,5 @@ exports.PROJECT_API.post("/create_project", check_auth_1.checkAuth, check_role_1
                 return [2 /*return*/];
         }
     });
-}); });
+}); };
+exports.createProject = createProject;

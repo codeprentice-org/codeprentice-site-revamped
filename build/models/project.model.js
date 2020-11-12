@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProjectModel = exports.ProjectSchema = void 0;
 var mongoose_1 = require("mongoose");
-var user_model_1 = require("./user.model.");
+var user_model_1 = require("./user.model");
 var ProjectSchema = new mongoose_1.Schema({
     _id: {
         type: mongoose_1.Types.ObjectId,

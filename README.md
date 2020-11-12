@@ -1,6 +1,13 @@
 # Codeprentice-Site
 The new Codeprentice website (currently in development).
 
+## Docker Image Deployment (no Github clone needed)
+Install and run the image:
+```bash
+docker pull devinleamy/codeprentice-web
+docker run -p 4200:4200 devinleamy/codeprentice-web
+```
+
 ## Project Setup
 Pretty straight forward just run ```npm install```
 <br/>
@@ -20,8 +27,8 @@ Build:
 npm run-script build
 ```
 
-## Local Deployment
-Prerequisites: must have docker and docker-compose installed
+## Local Deployment (from GitHub clone)
+Prerequisites: must have docker and docker-compose installedv
 <br/>
 Deployment with Docker:
 ```bash
@@ -36,3 +43,4 @@ To stop running locally:
 ```bash
 docker-compose down
 ```
+

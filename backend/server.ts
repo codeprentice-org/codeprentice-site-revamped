@@ -7,8 +7,8 @@ import path from "path";
 dotenv.config({ path: "./backend/config/.env.config" });
 
 // API Imports
-import { USER_API } from "./routes/user";
-import { PROJECT_API } from "./routes/project";
+import { USER_API } from "./routes/user.route";
+import { PROJECT_API } from "./routes/project.route";
 
 // Connect to database
 mongoose.connect(
@@ -30,7 +30,7 @@ app.use(bodyParser.urlencoded( { extended: false } ))
 
 // For sending view 
 app.use(express.static(path.join(__dirname, ".././frontend/build")));
-app.get("/", (req: Request, res: Response) => {
+app.get("*", (req: Request, res: Response) => {
         res.sendFile(path.join(__dirname, ".././frontend/build/index.html"));
 })
 
