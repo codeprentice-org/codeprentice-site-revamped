@@ -1,0 +1,37 @@
+.projects {
+  height: 100%;
+  width: 100%;
+  padding: 20px 60px;
+  border: 1px solid gray;
+  overflow-x: scroll;
+}
+.project_display {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+}
+
+.project {
+  height: 70%;
+  width: 30%;
+  margin-bottom: 4px;
+  background-color: gray;
+  -webkit-transition: height 0.5s ease-out;
+  -moz-transition: height 0.5s ease-out;
+  -o-transition: height 0.5s ease-out;
+  -ms-transition: height 0.5s ease-out;
+  transition: height 0.5s ease-out;
+}
+
+.project:hover {
+  background-color: lightgray;
+  height: 100%;
+  position: static;
+  -webkit-transition: height 0.5s ease-out;
+  -moz-transition: height 0.5s ease-out;
+  -o-transition: height 0.5s ease-out;
+  -ms-transition: height 0.5s ease-out;
+  transition: height 0.5s ease-out;
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import './main.css';
 import Home from "../home-page/home_page";
 import Projects from "../projects-page/projects_page";
 import Members from "../members-page/members_page";
@@ -12,7 +13,7 @@ interface MainProps {
 const Main: React.FC<MainProps> = () => {
     return (
         <Router>
-            <div>
+            <div className="body">
                 <Navbar />
                 <Switch>
                     <Route path="/about" exact component={Home}></Route>
