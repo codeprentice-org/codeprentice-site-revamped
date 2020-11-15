@@ -5,33 +5,31 @@
   border: 1px solid gray;
   overflow-x: scroll;
 }
-.project_display {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
-  height: 100%;
-}
 
+.project_display {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 150px);
+  column-gap: 20px;
+}
 .project {
-  height: 70%;
-  width: 30%;
-  margin-bottom: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  width: auto;
+  z-index: 0;
   background-color: gray;
-  -webkit-transition: height 0.5s ease-out;
-  -moz-transition: height 0.5s ease-out;
-  -o-transition: height 0.5s ease-out;
-  -ms-transition: height 0.5s ease-out;
   transition: height 0.5s ease-out;
 }
 
 .project:hover {
   background-color: lightgray;
-  height: 100%;
-  position: static;
-  -webkit-transition: height 0.5s ease-out;
+  z-index: 10;
+  height: 50vh;
+  /* -webkit-transition: height 0.5s ease-out;
   -moz-transition: height 0.5s ease-out;
   -o-transition: height 0.5s ease-out;
-  -ms-transition: height 0.5s ease-out;
+  -ms-transition: height 0.5s ease-out; */
   transition: height 0.5s ease-out;
 }

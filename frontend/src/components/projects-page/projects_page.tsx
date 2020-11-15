@@ -15,11 +15,11 @@ const Projects: React.FC<ProjectsProps> = () => {
            <h1>Projects</h1>
            <br/>
                 <div className="project_display">
-               <Project name={project_name} desc={project_desc} />
-                <Project name={project_name} desc={project_desc}/>
-                <Project name={project_name} desc={project_desc} />
-                <Project name={project_name} desc={project_desc}/>
-                <Project name={project_name} desc={project_desc}/>
+               <Project name={"Web Dev"} desc={project_desc} />
+                <Project name={"MP-SPDZ"} desc={project_desc}/>
+                <Project name={"PYRO"} desc={project_desc} />
+                <Project name={"SOCKS-5"} desc={project_desc}/>
+                <Project name={"SNIFFPY"} desc={project_desc}/>
                 <Project name={project_name} desc={project_desc}/>
                 <Project name={project_name} desc={project_desc}/>
                 <Project name={project_name} desc={project_desc}/>
@@ -30,14 +30,14 @@ const Projects: React.FC<ProjectsProps> = () => {
 
 interface ProjectProps {
     name: String,
-    desc: String
+    desc: String 
 }
 
 const Project: React.FC<ProjectProps> = (props) => {
     return (
         <div className="project">
             <h4>{props.name}</h4>
-            <p>{props.desc}</p>
+            {/* <p>{props.desc}</p> */}
         </div>
     )
 
