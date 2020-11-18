@@ -1,0 +1,31 @@
+.projects {
+  height: 100%;
+  width: 100%;
+  padding: 20px 60px;
+  border: 1px solid gray;
+  overflow-x: scroll;
+}
+
+.project_display {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 150px);
+  column-gap: 20px;
+}
+.project {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  width: auto;
+  z-index: 0;
+  background-color: gray;
+  transition: height 0.5s ease-in;
+}
+
+.project:hover {
+  background-color: lightgray;
+  z-index: 10;
+  height: 30vh;
+  transition: height 0.4s ease-out;
+}
