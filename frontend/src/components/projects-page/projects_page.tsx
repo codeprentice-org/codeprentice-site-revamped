@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './project.css'
 
 interface ProjectsProps {
@@ -36,24 +37,14 @@ interface ProjectProps {
 const Project: React.FC<ProjectProps> = (props) => {
     return (
         <div className="project">
+            <Link to={`/projects/${props.name}`}>
             <h4>{props.name}</h4>
-            {/* <p>{props.desc}</p> */}
-        </div>
+            </Link>
+            </div>
+            
     )
 
 }
 
 export default Projects;
 
-{/* <h1>Projects</h1>
-                <div className="project_display">
-                <Project />
-                <Project />
-                <Project />
-                <Project />
-                <Project />
-                <Project />
-                <Project />
-                <Project />
-                <Project/>       
-               </div> */}

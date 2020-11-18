@@ -20,16 +20,12 @@
   width: auto;
   z-index: 0;
   background-color: gray;
-  transition: height 0.5s ease-out;
+  transition: height 0.5s ease-in;
 }
 
 .project:hover {
   background-color: lightgray;
   z-index: 10;
-  height: 50vh;
-  /* -webkit-transition: height 0.5s ease-out;
-  -moz-transition: height 0.5s ease-out;
-  -o-transition: height 0.5s ease-out;
-  -ms-transition: height 0.5s ease-out; */
-  transition: height 0.5s ease-out;
+  height: 30vh;
+  transition: height 0.4s ease-out;
 }
