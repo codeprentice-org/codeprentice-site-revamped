@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from '../../assets/images/logo.png';
 import './project_showcase.css'
 
 
@@ -20,7 +21,7 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = () => {
                     </div>
                 </div>
                 <br/>
-                <div className="showcase_image"></div>
+                <div className="showcase_image"><img src={logo}/></div>
                 <br/>
                 <div className="showcase_about">
                     <div className="pic">
