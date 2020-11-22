@@ -14,7 +14,7 @@
     color: rgb(18, 155, 209);
 }
 
-.projects_container {
+.projects_container_home {
     height: 100%;
     width: 90%;
     /* border: 2px solid red; */
@@ -25,14 +25,15 @@
     align-items: center;
 }
 
-.project {
-    height: 80%;
-    width: 40%;
+/* named project_home to avoid name conflict with project page */
+.project_home {
+    height: 350px;
+    width: 350px;
     background-color: rgb(105, 103, 103);
     margin-right: 3px;
 }
 
-.project:hover {
+.project_home:hover {
     background-color: rgb(158, 158, 158);
 }
 

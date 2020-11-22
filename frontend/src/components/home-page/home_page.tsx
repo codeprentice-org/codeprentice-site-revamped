@@ -99,14 +99,14 @@ const Projects: React.FC = () => {
     return (
         <div className="project_section">
             <div className="project_header">Our Impact</div>
-            <div className="projects_container">
-                <div className="project">
+            <div className="projects_container_home">
+                <div className="project_home">
                    
                 </div>
-                <div className="project">
+                <div className="project_home">
                     
                 </div>
-                <div className="project">
+                <div className="project_home">
                     
                 </div>
             </div>
