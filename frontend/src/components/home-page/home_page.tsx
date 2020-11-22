@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from '../navbar/navbar'
 import Footer from './footer/footer'
 import './intro.css'
 import '../main/main.css'
@@ -53,31 +52,24 @@ const Intro: React.FC = () => {
 
 const About: React.FC = () => {
     return (
-        <div className="about">
-            <div className="icon">
-                <div className="thumbnail"></div>
+        <div className="about_container">
+        <div className="about_left_container">
+            <div className="about_image"></div>
+        </div>
+        <div className="about_right_container">
+            <div className="about_right_header">About us</div>
+            <div className="about_us_text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                Ut enim ad minim veniam, quis nostrud do eiusmod tempor 
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim 
+                veniam, quis nostrud Lorem ipsum dolor sit amet, consectetur 
+                adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud do 
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut 
+                enim ad minim veniam, quis nostrud
             </div>
-            <div className="about_text">
-                <h1>Short About Section</h1>
-                <br />
-                <div className="description"><p>Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit, sed
-                do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud
-                do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud
-                Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit, sed
-                do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud
-                do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud
-                </p></div>
-                <button className="homebutton"></button>
+            <button className="about_button">Find out more</button>
             </div>
         </div>
     );
