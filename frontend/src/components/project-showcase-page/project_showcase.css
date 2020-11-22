@@ -28,7 +28,7 @@
   height: 50px;
   width: 50px;
   margin: 5px;
-  border-radius: 1000px;
+  border-radius: 999999999999px;
 }
 
 .showcase_image {
