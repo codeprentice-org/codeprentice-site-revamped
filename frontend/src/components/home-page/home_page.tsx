@@ -14,7 +14,7 @@ interface Props {
 const Home: React.FC<Props> = () => {
     return (
         <div>
-            <div style={{height: 'calc(100vh - 70px)', width: '100%'}}>
+            <div className="home_page" style={{height: 'calc(100vh - 70px)', width: '100%'}}>
                 <Intro />
                 <About />
                 <Infographics />

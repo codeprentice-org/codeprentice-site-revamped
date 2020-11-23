@@ -1,12 +1,19 @@
 import React,{useState} from 'react';
 import './navbar.css';
+import MenuIcon from '@material-ui/icons/Menu';
+import CloseIcon from '@material-ui/icons/Close';
 import { Link } from "react-router-dom";
 interface navbarProps {
-
+    blurContent: React.Dispatch<React.SetStateAction<boolean>>,
+    blur: Boolean
 }
 
-const AltNav: React.FC<navbarProps> = () => {
-    const [navOpen,toggleNav] = useState(false);
+const AltNav: React.FC<navbarProps> = (props) => {
+    const [navOpen, toggleNav] = useState(false);
+    const toggle = () => {
+        toggleNav(!navOpen)
+        props.blurContent(!props.blur)
+    }
     return(
         <div className="navbar">
             <Link to="" className="logo-container">
@@ -36,10 +43,8 @@ const AltNav: React.FC<navbarProps> = () => {
                     <div className="login-button-text">Login with Github</div>
                 </div>
             </div>
-            <div className="hamburger">
-          <div className="line"></div>
-          <div className="line"></div>
-          <div className="line"></div>
+            <div className="hamburger" onClick={() => toggle()}>
+                { navOpen? <MenuIcon/>:<CloseIcon/>}
         </div>
         </div>
         )
