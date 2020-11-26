@@ -14,12 +14,10 @@ interface Props {
 const Home: React.FC<Props> = () => {
     return (
         <div>
-            <div style={{height: 'calc(100vh - 70px)', width: '100%'}}>
+            <div className="home_page" style={{height: 'calc(100vh - 70px)', width: '100%'}}>
                 <Intro />
                 <About />
-            </div>
-            <Infographics />
-            <div style={{height: '100vh', width: '100%'}}>
+                <Infographics />
                 <Projects />
                 <Footer />
             </div>
@@ -59,15 +57,9 @@ const About: React.FC = () => {
         <div className="about_right_container">
             <div className="about_right_header">About us</div>
             <div className="about_us_text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                Ut enim ad minim veniam, quis nostrud do eiusmod tempor 
-                incididunt ut labore et dolore magna aliqua. Ut enim ad minim 
-                veniam, quis nostrud Lorem ipsum dolor sit amet, consectetur 
-                adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud do 
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut 
-                enim ad minim veniam, quis nostrud
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                    Ut enim ad minim veniam, quis nostrud do eiusmod tempor 
             </div>
             <button className="about_button">Find out more</button>
             </div>
