@@ -5,19 +5,20 @@ import { UserModel, UserSchema } from "../models/user.model";
 import jwt from "jsonwebtoken";
 import { Secret } from "jsonwebtoken";
 import { ROLE } from "../enums/role";
-import dotenv from "dotenv";
 import { AxiosResponse } from "axios";
 import qs from "qs";
 import axios from "axios";
 
-dotenv.config({ path: "./backend/config/.env.config" });
+//localhost:4200/user/github/login
 
 const loginUser = async (req: Request, res: Response, next: NextFunction) => {
+    console.log(process.env.GITHUB_CLIENT_SECRET);
     // Redirect caller to the GitHub auth web flow with our app credentials
     res.redirect("https://github.com/login/oauth/authorize?" + qs.stringify({
         client_id: process.env.GITHUB_CLIENT_ID,
+        client_secret: process.env.GITHUB_CLIENT_SECRET,
         scope: "read:org",
-        redirect_uri: "http://localhost:4200/user/callback"
+        redirect_uri: "http://localhost:4200/user/github/callback"
     }))
 };
 
@@ -30,11 +31,14 @@ const gitHubCallback = async (req: Request, res: Response, next: NextFunction) =
         code: req.query.code // The code we received from GitHub
     };
     const opts = { headers: { accept: 'application/json' } };
+
     axios.post(`https://github.com/login/oauth/access_token`, body, opts)
     .then((post_res:AxiosResponse) => {
-        axios.get('https://api.github.com/user/memberships/orgs/codeprentice-org',
-        { headers: { authorization: "token" + post_res.data.access_token, accept: "application/vnd.github.v3+json" } })
-        .then((r:AxiosResponse) => qs.parse(r.data));
+        console.log(post_res.data);
+        axios.get('https://api.github.com/user', //memberships/orgs/codeprentice-org
+        { headers: { authorization: "token " + post_res.data.access_token, accept: "application/vnd.github.v3+json" } })
+        .then((r:AxiosResponse) => qs.parse(r.data))
+        .catch((err:Error) => console.log(err));
     })
     .catch((err:Error) => res.status(500).json({ message: err.message }));
 };

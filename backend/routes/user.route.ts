@@ -5,9 +5,9 @@ import { createUser, loginUser, changeUsername, gitHubCallback } from "../contro
 export const USER_API = express.Router();
 
 // logins in user and creates signed JWT
-USER_API.get("/login", loginUser);
+USER_API.get("/github/login", loginUser);
 
-USER_API.get("/callback", gitHubCallback);
+USER_API.get("/github/callback", gitHubCallback);
 
 // Changes user username given a request body containing user: { newUsername: string }
 USER_API.post("/change_username", checkAuth, changeUsername);
