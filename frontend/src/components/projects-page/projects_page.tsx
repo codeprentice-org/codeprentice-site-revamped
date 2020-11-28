@@ -12,11 +12,11 @@ const project_desc = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, s
 //
 
 const Projects: React.FC<ProjectsProps> = () => {
-       return( <div className="projects" style={{height: 'calc(100vh - 70px)', width: '100%'}}>
-           <h1>Projects</h1>
-           <br/>
-                <div className="project_display">
-               <Project name={"Web Dev"} desc={project_desc} />
+    return ( 
+        <div className="projects_container">
+            <div className="projects_header">Our Contributions</div>
+            <div className="project_display_container">
+                <Project name={"Web Dev"} desc={project_desc} />
                 <Project name={"MP-SPDZ"} desc={project_desc}/>
                 <Project name={"PYRO"} desc={project_desc} />
                 <Project name={"SOCKS-5"} desc={project_desc}/>
@@ -25,8 +25,9 @@ const Projects: React.FC<ProjectsProps> = () => {
                 <Project name={project_name} desc={project_desc}/>
                 <Project name={project_name} desc={project_desc}/>
                 <Project name={project_name} desc={project_desc}/>       
-               </div>
-             </div>)
+            </div>
+        </div>
+    )
 };
 
 interface ProjectProps {
@@ -36,11 +37,9 @@ interface ProjectProps {
 
 const Project: React.FC<ProjectProps> = (props) => {
     return (
-        <div className="project">
-            <Link to={`/projects/${props.name}`}>
-            <h4>{props.name}</h4>
-            </Link>
-            </div>
+        <Link to={`/projects/${props.name}`} className="project transform_background_color">
+            <div className="project_name">{props.name}</div>
+        </Link>
             
     )
 
