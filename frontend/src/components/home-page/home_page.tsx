@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from '../navbar/navbar'
 import Footer from './footer/footer'
 import './intro.css'
 import '../main/main.css'
@@ -15,12 +14,10 @@ interface Props {
 const Home: React.FC<Props> = () => {
     return (
         <div>
-            <div style={{height: 'calc(100vh - 70px)', width: '100%'}}>
+            <div className="home_page" style={{height: 'calc(100vh - 70px)', width: '100%'}}>
                 <Intro />
                 <About />
-            </div>
-            <Infographics />
-            <div style={{height: '100vh', width: '100%'}}>
+                <Infographics />
                 <Projects />
                 <Footer />
             </div>
@@ -54,27 +51,22 @@ const Intro: React.FC = () => {
 const About: React.FC = () => {
     return (
         <div className="about_container">
-            <div className="about_left_container">
-                <div className="about_image"></div>
-            </div>
-            <div className="about_right_container">
-                <div className="about_right_header">About us</div>
-                <div className="about_us_text">
+        <div className="about_left_container">
+            <div className="about_image"></div>
+        </div>
+        <div className="about_right_container">
+            <div className="about_right_header">About us</div>
+            <div className="about_us_text">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
                     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                     Ut enim ad minim veniam, quis nostrud do eiusmod tempor 
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim 
-                    veniam, quis nostrud Lorem ipsum dolor sit amet, consectetur 
-                    adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud do 
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut 
-                    enim ad minim veniam, quis nostrud
-                </div>
-                <button className="about_button">Find out more</button>
+            </div>
+            <button className="about_button">Find out more</button>
             </div>
         </div>
     );
 };
+
 
 const Infographics: React.FC = () => {
     return (
@@ -99,14 +91,14 @@ const Projects: React.FC = () => {
     return (
         <div className="project_section">
             <div className="project_header">Our Impact</div>
-            <div className="projects_container">
-                <div className="project">
+            <div className="projects_container_home">
+                <div className="project_home">
                    
                 </div>
-                <div className="project">
+                <div className="project_home">
                     
                 </div>
-                <div className="project">
+                <div className="project_home">
                     
                 </div>
             </div>
