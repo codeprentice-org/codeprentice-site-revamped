@@ -9,7 +9,7 @@ interface navbarProps {
 }
 
 const AltNav: React.FC<navbarProps> = (props) => {
-    const [navOpen, toggleNav] = useState(false);
+    const [navOpen, toggleNav] = useState(true);
     const toggle = () => {
         toggleNav(!navOpen)
         props.blurContent(!props.blur)
