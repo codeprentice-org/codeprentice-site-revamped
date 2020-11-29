@@ -12,7 +12,6 @@ import axios from "axios";
 //localhost:4200/user/github/login
 
 const loginUser = async (req: Request, res: Response, next: NextFunction) => {
-    console.log(process.env.GITHUB_CLIENT_SECRET);
     // Redirect caller to the GitHub auth web flow with our app credentials
     res.redirect("https://github.com/login/oauth/authorize?" + qs.stringify({
         client_id: process.env.GITHUB_CLIENT_ID,
@@ -32,12 +31,12 @@ const gitHubCallback = async (req: Request, res: Response, next: NextFunction) =
     };
     const opts = { headers: { accept: 'application/json' } };
 
+    console.log("Fetching user data...");
     axios.post(`https://github.com/login/oauth/access_token`, body, opts)
     .then((post_res:AxiosResponse) => {
-        console.log(post_res.data);
-        axios.get('https://api.github.com/user', //memberships/orgs/codeprentice-org
+        axios.get('https://api.github.com/user/memberships/orgs/codeprentice-org', //memberships/orgs/codeprentice-org
         { headers: { authorization: "token " + post_res.data.access_token, accept: "application/vnd.github.v3+json" } })
-        .then((r:AxiosResponse) => qs.parse(r.data))
+        .then((r:AxiosResponse) => console.log(r.data))
         .catch((err:Error) => console.log(err));
     })
     .catch((err:Error) => res.status(500).json({ message: err.message }));
