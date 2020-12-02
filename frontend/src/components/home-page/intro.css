@@ -1,7 +1,4 @@
 .intro_container {
-  width: 100%;
-  height: 100%;
-  /* height: calc(50% - 70px); */
   background-color: rgb(208, 239, 250);
   color: rgb(18, 155, 209);
   text-align: center;

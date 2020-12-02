@@ -14,13 +14,13 @@ interface MainProps {
 }
 
 const Main: React.FC<MainProps> = () => {
-    const [blur,undoBlur]=useState(false)
+    const [blur,undoBlur]=useState(true)
     return (
         <Router>
             <div className="body">
                 {/* <Navbar /> */}
                 <AltNav blurContent={undoBlur} blur={ blur}/>
-                <div className={blur?"blur_content":"content"}>
+                <div className={blur ? "HP blur_content" : "HP content"}>
                 <Switch>
                     <Route path="/about" exact component={Home}></Route>
                     <Route path="/projects" exact component={Projects}></Route>

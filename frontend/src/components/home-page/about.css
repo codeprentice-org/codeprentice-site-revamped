@@ -1,13 +1,10 @@
 .about_container {
-  width: 100%;
-  height: 100%;
   display: flex;
-  overflow: hidden;
-  border: 1px solid black;
+  background-color: white;
 }
 
 .home_page {
-  overflow-y: scroll;
+  overflow: scroll;
 }
 ::-webkit-scrollbar {
   width: 0px;
