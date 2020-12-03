@@ -14,7 +14,7 @@ interface MainProps {
 }
 
 const Main: React.FC<MainProps> = () => {
-    const [blur,undoBlur]=useState(false)
+    const [blur,undoBlur]=useState(true)
     return (
         <Router>
             <div className="body">
