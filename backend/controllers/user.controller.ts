@@ -11,7 +11,7 @@ import GitHubError from "../errors/GitHubError";
 import qs from "qs";
 import axios from "axios";
 
-//localhost:4200/user/github/login
+// localhost:4200/user/github/login
 
 // GET /user/github/login
 const loginOrCreateUser = async (req: Request, res: Response, next: NextFunction) => {
@@ -59,7 +59,6 @@ const handleUser = async (req: Request, res: Response, token:string) => {
                 console.log("Creating user.");
                 createUser(req, res, orgUserData, token);
             }else{
-                // TODO: log in -- sign jwt
                 console.log("Logging in.")
                 const user: UserType = resolve.toObject();
                 const token = jwt.sign(user, process.env.JWT_KEY as Secret, { expiresIn: '1h' });
