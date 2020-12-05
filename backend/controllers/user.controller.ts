@@ -95,13 +95,24 @@ const createUser = async (req: Request, res: Response, orgUserData:any, token:st
         .catch((err:Error) => res.status(500).json({ message: err.message }));
 };
 
+// const getUserData = (req: Request, res: Response, url:string, token:string) => {
+//     return axios.get(url,
+//         { headers: { 
+//                 authorization: "token " + token,
+//                 accept: "application/vnd.github.v3+json" 
+//         } })
+//         .then((r:AxiosResponse) => {
+//             (({ id, name, email, login }) => ({ id, name, email, login }))(r.data);
+//         })
+// }
+
 const getUserData = async (req: Request, res: Response, url:string, token:string) => {
     const response:any = await axios.get(url,
         { headers: { 
                 authorization: "token " + token,
                 accept: "application/vnd.github.v3+json" 
         } });
-    (({ id, name, email, login }) => ({ id, name, email, login }))(response.data);
+    return (({ id, name, email, login }) => ({ id, name, email, login }))(response.data);
 }
 
 // const loginUser = async (req: Request, res: Response, next: NextFunction) => {
