@@ -6,6 +6,10 @@ const UserSchema: Schema = new Schema({
        type: Types.ObjectId,
        required: true
     },
+    githubId: {
+        type: String,
+        required: true
+    },
     email: {
         type: String,
         required: true
@@ -18,6 +22,11 @@ const UserSchema: Schema = new Schema({
         type: String,
         required: true
     },
+    admin: {
+        type: Boolean,
+        required: false,
+        default: false
+    },
     ROLE: {
         type: String,
         required: true
@@ -27,15 +36,24 @@ const UserSchema: Schema = new Schema({
 
 // To Use: userSchema.asString()
 UserSchema.virtual("asString")
-    .get( function(this: { _id: Types.ObjectId, email: string, username: string, name: string, ROLE: ROLE }) {
-        return `User _id: ${this._id} \n 
+    .get( function(this: 
+        { 
+            _id: Types.ObjectId,
+            githubId: String, 
+            email: string, 
+            username: string,
+            name: string,
+            admin: Boolean,
+            ROLE: ROLE
+        }) {
+        return `User _id: ${this._id} \n
+                User githubId: ${this.githubId} \n 
                 User email: ${this.email} \n 
-                User username: ${this.username} \n 
+                User username: ${this.username} \n
                 User ROLE: ${this.ROLE}`;
 });
 
 const UserModel = model("User", UserSchema);
-
 
 // export values
 export { UserSchema, UserModel }
