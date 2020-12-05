@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.main_heading {
+    margin: 1.75% 12%;
+}
+
+.founder_heading{
+    margin: 0 12%;
+}
+
+.founder_members {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 18px;
+}
+
+
+.member_body {
+    height: 350px;
+    width: 350px;
+    background-color: lightgray;
+    border: black;
+    margin: 15px;
+}
