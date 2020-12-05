@@ -44,7 +44,7 @@ const gitHubCallback = async (req: Request, res: Response, next: NextFunction) =
 const handleUser = async (req: Request, res: Response, token:string) => {
     
     // use token to find membership
-    axios.get('https://api.github.com/user/memberships/orgs/codeprentice-org',
+    await axios.get('https://api.github.com/user/memberships/orgs/codeprentice-org',
     { headers: { 
         authorization: "token " + token,
         accept: "application/vnd.github.v3+json" 
@@ -52,14 +52,22 @@ const handleUser = async (req: Request, res: Response, token:string) => {
     .then((r:AxiosResponse) => {
         // login or create user
         const orgUserData = r.data.user
-        UserModel.findOne({ githubId: orgUserData.id }, function(err, user) {
-            if(!user){
+        UserModel.findOne({ githubId: orgUserData.id })
+        .exec()
+        .then(async (resolve) =>  {
+            if(!resolve){
                 console.log("Creating user.");
                 createUser(req, res, orgUserData, token);
             }else{
                 // TODO: log in -- sign jwt
                 console.log("Logging in.")
-                res.status(200).json({ message: "Success" })
+                const user: UserType = resolve.toObject();
+                const token = jwt.sign(user, process.env.JWT_KEY as Secret, { expiresIn: '1h' });
+                console.log(`User with email: ${user.email} logged in`);
+                return res.status(200).json({
+                    status: 0,
+                    data: { token: token }
+                }); 
             }
         })
     })
@@ -86,25 +94,14 @@ const createUser = async (req: Request, res: Response, orgUserData:any, token:st
                 })
                 .catch((resolve) => {
                     console.log(resolve);
-                    res.status(401).json({
+                    res.status(500).json({
                         status: 1,
-                        data: "Authentication Failed"
+                        data: "Failed to create user"
                     });
                 });
         })
         .catch((err:Error) => res.status(500).json({ message: err.message }));
 };
-
-// const getUserData = (req: Request, res: Response, url:string, token:string) => {
-//     return axios.get(url,
-//         { headers: { 
-//                 authorization: "token " + token,
-//                 accept: "application/vnd.github.v3+json" 
-//         } })
-//         .then((r:AxiosResponse) => {
-//             (({ id, name, email, login }) => ({ id, name, email, login }))(r.data);
-//         })
-// }
 
 const getUserData = async (req: Request, res: Response, url:string, token:string) => {
     const response:any = await axios.get(url,
@@ -130,13 +127,13 @@ const getUserData = async (req: Request, res: Response, url:string, token:string
 //                     data: "Authentication Failed"
 //                 });
 //             }
-//             const user: UserType = resolve.toObject();
-//             const token = jwt.sign(user, process.env.JWT_KEY as Secret, { expiresIn: '1h' });
-//             console.log(`User with email: ${user.email} logged in`);
-//             return res.status(200).json({
-//                 status: 0,
-//                 data: { token: token }
-//             }); 
+            // const user: UserType = resolve.toObject();
+            // const token = jwt.sign(user, process.env.JWT_KEY as Secret, { expiresIn: '1h' });
+            // console.log(`User with email: ${user.email} logged in`);
+            // return res.status(200).json({
+            //     status: 0,
+            //     data: { token: token }
+            // }); 
 //         })
 //         .catch(() => {
 //             return res.status(401).json({
