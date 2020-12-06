@@ -18,6 +18,11 @@
     margin: 18px;
 }
 
+@media only screen and (max-width: 450px) {
+    .founder_members {
+        flex-direction: column;
+    }
+}
 
 .member_body {
     height: 350px;
@@ -25,4 +30,36 @@
     background-color: lightgray;
     border: black;
     margin: 15px;
+}
+
+.upper_part{
+    height: 32%;
+    width: 350px;
+    background-color: rgb(161, 161, 161);
+}
+
+.photo {
+    height: 120px;
+    width: 120px;
+    background-color: rgb(105, 104, 104);
+    border-radius: 50%;
+    margin-top: -13%;
+    margin-left: 33%;
+}
+
+.name {
+    display: flex;
+    justify-content: center;
+    margin-top: 2px;
+}
+
+.about {
+    height: 38%;
+    width: 350px;
+    padding: 8px;
+}
+
+.member_photo {
+    text-align: center;
+    padding: 30% 0;
 }
