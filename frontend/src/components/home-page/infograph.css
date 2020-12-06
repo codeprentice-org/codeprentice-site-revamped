@@ -1,9 +1,7 @@
 .infographics {
-    height: 420px;
+    height: 450px;
     width: 100%;
-    /* background-color: rgb(208, 239, 250);  */
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
+    background-color: white;
     padding: 20px;
 }
 
@@ -11,7 +9,7 @@
     text-align: center;
     font-family: 'poppins-semibold';
     font-size: 25px;
-    color: rgb(18, 155, 209);
+    color: black;
 }
 
 .illustrations_container {
@@ -31,6 +29,14 @@
 .illustration {
     height: 100%;
     width: 50%;
-    background-color: rgb(63, 63, 63);
-    margin: 5px;
+    background-color: rgb(40, 124, 250);
+    border-radius: 10px;
+    margin: 15px;
+    transition: all 0.5s ease-out;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.illustration:hover {
+    transform: translateY(-20px);
+    box-shadow: rgba(43, 29, 29, 0.5) 0px 5px 15px;
 }

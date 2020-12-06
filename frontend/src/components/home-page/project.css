@@ -1,59 +1,62 @@
 .project_section {
-  height: 100%;
+  height: calc(100% - 190px);
   width: 100%;
   padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-top: 1px solid rgb(212, 212, 212);
 }
 
 .project_header {
   text-align: center;
-  font-family: "poppins-semibold";
-  font-size: 30px;
-  color: rgb(18, 155, 209);
+  font-family: 'poppins-semibold';
+  font-size: 26px;
+  color: rgb(8, 8, 8);
 }
 
 .projects_container_home {
-    height: 100%;
-    width: 90%;
-    /* border: 2px solid red; */
-    margin: 5px auto;
-    margin-top: 7px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  overflow: hidden;
+  width: 90%;
+  height: 100%;
+  /* border: 2px solid red; */
+  margin: 5px auto;
+  margin-top: 7px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 /* named project_home to avoid name conflict with project page */
 .project_home {
-    height: 350px;
-    width: 350px;
-    background-color: rgb(105, 103, 103);
-    margin-right: 3px;
+  height: 300px;
+  width: 300px;
+  border-radius: 5px;
+  background-color: rgb(32, 32, 32);
+  margin-right: 30px;
+  transition: all 0.3s;
 }
 
 .project_home:hover {
-    background-color: rgb(158, 158, 158);
+    background-color: rgb(40, 124, 250);
 }
 
 .more_projects {
   height: 40px;
-  width: 150px;
-  background-color: rgb(71, 71, 71);
+  text-align: center;
+  width: 170px;
+  background-color: rgb(101, 0, 233);
+  box-shadow: rgba(8, 8, 8, 0.4) 0px 7px 29px 0px;
   border-radius: 2px;
-  color: white;
-  font-size: 19px;
-  font-family: "poppins-medium";
+  color: rgb(243, 243, 243);
+  font-size: 20px;
+  font-family: "poppins-semibold";
   border: none;
-  text-align: center;
+  line-height: 40px;
+  box-sizing: content-box;
+  padding: 3px;
+  outline: none;
 }
 
-.more_projects:hover {
-  cursor: pointer;
-  background-color: rgb(158, 158, 158);
-}
-
-.more_projects > h3 {
-  text-align: center;
-}
+.more_projects:hover { cursor: pointer; }
