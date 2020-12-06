@@ -41,6 +41,23 @@ const gitHubCallback = async (req: Request, res: Response, next: NextFunction) =
     .catch((err:Error) => next(new HttpError(500, "Error logging in with GitHub")));
 };
 
+// GET /user
+const getCurrentUser = async (req: Request, res: Response, next: NextFunction) => {
+
+};
+
+// GET /user/:id
+const getUser = async (req: Request, res: Response, next: NextFunction) => {
+
+};
+
+// GET /user/all
+const getAllUsers = async (req: Request, res: Response, next: NextFunction) => {
+
+};
+
+// ================ helpers ================
+
 const handleUser = async (req: Request, res: Response, token:string) => {
     
     // use token to find membership
@@ -189,4 +206,4 @@ const getUserData = async (req: Request, res: Response, url:string, token:string
 // };
 
 
-export { loginOrCreateUser, gitHubCallback };
+export { loginOrCreateUser, gitHubCallback, getCurrentUser, getUser, getAllUsers };
