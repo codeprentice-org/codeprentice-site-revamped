@@ -79,7 +79,7 @@ const handleUser = async (req: Request, res: Response, token:string) => {
                 console.log("Logging in.")
                 const user: UserType = resolve.toObject();
                 const token = jwt.sign(user, process.env.JWT_KEY as Secret, { expiresIn: '1h' });
-                console.log(`User with email: ${user.email} logged in`);
+                console.log("User with email: ${user.email} logged in");
                 return res.status(200).json({
                     status: 0,
                     data: { token: token }
@@ -97,7 +97,7 @@ const createUser = async (req: Request, res: Response, orgUserData:any, token:st
             const newUser = new UserModel({
                 _id: new Types.ObjectId(),
                 githubId: userData.id,
-                name: userData.name,
+                name: userData.name || userData.login,
                 email: userData.email,
                 username: userData.login,
                 avatarUrl: userData.avatar_url,
