@@ -3,6 +3,7 @@
   width: 100%;
   padding: 20px;
   display: flex;
+  background: white;
   flex-direction: column;
   align-items: center;
   border-top: 1px solid rgb(212, 212, 212);
@@ -10,7 +11,7 @@
 
 .project_header {
   text-align: center;
-  font-family: 'poppins-semibold';
+  font-family: "poppins-semibold";
   font-size: 26px;
   color: rgb(8, 8, 8);
 }
@@ -39,7 +40,7 @@
 }
 
 .project_home:hover {
-    background-color: rgb(40, 124, 250);
+  background-color: rgb(40, 124, 250);
 }
 
 .more_projects {
@@ -59,4 +60,6 @@
   outline: none;
 }
 
-.more_projects:hover { cursor: pointer; }
+.more_projects:hover {
+  cursor: pointer;
+}

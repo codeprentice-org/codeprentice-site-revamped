@@ -9,6 +9,9 @@ html, body {
   box-sizing: border-box;
 }
 
+.HP {
+  overflow-y: scroll;
+}
 .homebutton {
   height: 50px;
   width: 200px;

@@ -1,8 +1,8 @@
 import React from 'react';
 import '../members-page/member/members_page.css';
 
-interface MembersProps {
-
+interface MembersProps{
+    
 }
 
 const Members: React.FC<MembersProps> = () => {

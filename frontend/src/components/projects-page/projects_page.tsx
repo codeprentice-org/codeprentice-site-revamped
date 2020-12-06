@@ -21,8 +21,8 @@ const Projects: React.FC<ProjectsProps> = () => {
                 <Project name={"PYRO"} desc={project_desc} />
                 <Project name={"SOCKS-5"} desc={project_desc}/>
                 <Project name={"SNIFFPY"} desc={project_desc}/>
-                <Project name={project_name} desc={project_desc}/>
-                <Project name={project_name} desc={project_desc}/>
+                <Project name={"Keras"} desc={project_desc}/>
+                <Project name={"Change Journal"} desc={project_desc}/>
                 <Project name={project_name} desc={project_desc}/>
                 <Project name={project_name} desc={project_desc}/>       
             </div>

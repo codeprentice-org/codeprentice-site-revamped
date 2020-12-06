@@ -20,8 +20,8 @@ const Main: React.FC<MainProps> = () => {
         <Router>
             <div className="body">
                 <AltNav blurContent={undoBlur} blur={ blur}/>
-                <div className={blur?"blur_content":"content"}>
-                 <Switch>
+                <div className={blur ? "HP blur_content" : "HP content"}>
+                <Switch>
                     <Route path="/about" exact component={Home}></Route>
                     <Route path="/projects" exact component={Projects}></Route>
                     <Route path="/projects/:name" exact component={ProjectShowcase}></Route>
