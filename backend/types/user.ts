@@ -7,6 +7,7 @@ export type UserType = {
     email: string;
     username: string;
     name: string;
+    avatarUrl: string;
     admin: Boolean;
     ROLE: ROLE;
 }

@@ -83,6 +83,7 @@ const createUser = async (req: Request, res: Response, orgUserData:any, token:st
                 name: userData.name,
                 email: userData.email,
                 username: userData.login,
+                avatarUrl: userData.avatar_url,
                 admin: orgUserData.role === "member" ? false : true,
                 ROLE: ROLE.MEMBER
             });
@@ -108,7 +109,7 @@ const getUserData = async (req: Request, res: Response, url:string, token:string
                 authorization: "token " + token,
                 accept: "application/vnd.github.v3+json" 
         } });
-    return (({ id, name, email, login }) => ({ id, name, email, login }))(response.data);
+    return (({ id, name, email, login, avatar_url }) => ({ id, name, email, login, avatar_url }))(response.data);
 }
 
 // const loginUser = async (req: Request, res: Response, next: NextFunction) => {

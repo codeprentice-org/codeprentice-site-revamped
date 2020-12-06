@@ -22,6 +22,10 @@ const UserSchema: Schema = new Schema({
         type: String,
         required: true
     },
+    avatarUrl: {
+        type: String,
+        required: false
+    },
     admin: {
         type: Boolean,
         required: false,
@@ -43,6 +47,7 @@ UserSchema.virtual("asString")
             email: string, 
             username: string,
             name: string,
+            avatarUrl: string,
             admin: Boolean,
             ROLE: ROLE
         }) {
