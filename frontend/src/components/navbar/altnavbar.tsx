@@ -38,10 +38,13 @@ const AltNav: React.FC<navbarProps> = (props) => {
                         <div className='nav-item-underline transform-width'></div>
                     </div>
                 </Link>
+                {/* <Link to="/login"> */}
+                    {/* Login with Github Works thus removing the need for a link to a login page */}
                 <div className="login-button">
                     <div className="github-logo"></div>
-                    <div className="login-button-text">Login with Github</div>
+                    <div className="login-button-text">Login</div>
                 </div>
+                {/* </Link> */}
             </div>
             <div className="hamburger" onClick={() => toggle()}>
                 { navOpen? <MenuIcon/>:<CloseIcon/>}

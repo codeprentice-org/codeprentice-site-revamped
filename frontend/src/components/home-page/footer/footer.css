@@ -1,10 +1,13 @@
 .footer_container {
-  height: calc(100% - 800px);
+  height: 100px;
   width: 100%;
   margin-top: 40px;
+  background-color: rgb(37, 37, 37);
 }
 
 .social_list {
+  height: 100%;
+  width: 100%;
   list-style: none;
   margin: auto;
   display: flex;
@@ -13,8 +16,8 @@
 }
 
 .social_list > li {
-  margin-right: 25px;
-  width: 20px;
-  height: 20px;
-  color: rgb(0, 162, 255);
+  margin: 10px;
+  width: 50px;
+  height: 30px;
+  color: rgb(245, 245, 245);
 }

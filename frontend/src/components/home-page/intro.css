@@ -1,4 +1,7 @@
 .intro_container {
+  width: 100%;
+  height: 100%;
+  /* height: calc(50% - 70px); */
   background-color: rgb(208, 239, 250);
   color: rgb(18, 155, 209);
   text-align: center;
@@ -38,13 +41,33 @@
 
 .intro_button {
   height: 40px;
-  width: 150px;
-  background-color: rgb(71, 71, 71);
+  width: 170px;
+  background-color: rgb(101, 0, 233);
   border-radius: 2px;
-  color: white;
-  font-size: 19px;
-  font-family: "poppins-medium";
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  font-family: "poppins-semibold";
   border: none;
+  box-sizing: unset;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  transition: transform 0.5s ease-out, background-color 0.2s ease-out,
+    box-shadow 0.5s ease-out;
+  box-shadow: rgba(8, 8, 8, 0.2) 0px 7px 29px 0px;
+  outline: none;
+}
+
+.intro_button:hover {
+  cursor: pointer;
+  transform: translateY(-7px);
+  background-color: white;
+  color: black;
+  box-shadow: rgba(8, 8, 8, 0.4) 0px 7px 29px 0px;
+}
+
+.students {
+  background-color: rgb(15, 15, 15);
+  color: white;
 }
 
 .intro_right_container {
@@ -63,7 +86,7 @@
 
 .offset_thumbnail {
   transform: translateX(50px) translateY(60px);
-  background-color: blue;
+  background-color: rgb(0, 102, 255);
   width: 100%;
   height: 100%;
 }

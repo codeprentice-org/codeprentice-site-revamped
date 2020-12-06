@@ -37,8 +37,8 @@ const Home: React.FC<Props> = () => {
                     software and student developers.
                 </div>
                 <div className="intro_buttons">
-                    <button className="intro_button"></button>
-                    <button className="intro_button"></button>
+                    <button className="intro_button">Mentor</button>
+                    <button className="intro_button students">Develop</button>
                 </div>
             </div>
             <div className="intro_right_container">
@@ -54,13 +54,13 @@ const Home: React.FC<Props> = () => {
             <div className="about_image"></div>
         </div>
         <div className="about_right_container">
-            <div className="about_right_header">About us</div>
+            <div className="about_right_header">About Us</div>
             <div className="about_us_text">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
                     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                     Ut enim ad minim veniam, quis nostrud do eiusmod tempor 
             </div>
-            <button className="about_button">Find out more</button>
+            <button className="about_button">Learn more</button>
             </div>
             </div>
       </Scene>
@@ -68,44 +68,23 @@ const Home: React.FC<Props> = () => {
          <div className="panel infographics">
             <div className="info_header">Why Join Codeprentice?</div>
             <div className="illustrations_container">
-                <div className="illustration">
+                <div className="illustration left-illustration">
                    
                 </div>
                 <div className="illustration">
                     
                 </div>
-                <div className="illustration">
+                <div className="illustration right-illustration">
                     
                 </div>
             </div>
-            </div>
-      </Scene>
-      <Scene pin>
-        <div className="panel project_section">
-            <div className="project_header">Our Impact</div>
-            <div className="projects_container_home">
-                <div className="project_home">
-                   
-                </div>
-                <div className="project_home">
-                    
-                </div>
-                <div className="project_home">
-                    
-                </div>
-            </div>
-            <div className="more_projects">
-                More Projects
-            </div>
-            </div>
-      </Scene>
-    </Controller>
-                
-        
+                    </div>
+                </Scene>
+            </Controller>
             </HP>
-    
     );
 };
+
 
 // sub components
 
