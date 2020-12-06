@@ -59,12 +59,18 @@ const Home: React.FC<Props> = () => {
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
                     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                     Ut enim ad minim veniam, quis nostrud do eiusmod tempor 
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                    Ut enim ad minim veniam, quis nostrud do eiusmod tempor 
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                    Ut enim ad minim veniam, quis nostrud do eiusmod tempor 
             </div>
             <button className="about_button">Learn more</button>
             </div>
             </div>
       </Scene>
-      <Scene pin>
+      <Scene duration={100} pin>
          <div className="panel infographics">
             <div className="info_header">Why Join Codeprentice?</div>
             <div className="illustrations_container">
@@ -79,6 +85,26 @@ const Home: React.FC<Props> = () => {
                 </div>
             </div>
                     </div>
+                </Scene>
+                <Scene pin>
+                    <div className="project_section">
+            <div className="project_header">Our Impact on Open Source</div>
+            <div className="projects_container_home">
+                <div className="project_home">
+                   
+                </div>
+                <div className="project_home">
+                    
+                </div>
+                <div className="project_home">
+                    
+                </div>
+            </div>
+            <div className="more_projects">
+                            See More
+            </div>
+                        <Footer/>
+        </div>
                 </Scene>
             </Controller>
             </HP>

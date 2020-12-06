@@ -1,30 +1,33 @@
 import React from 'react';
 import './project_showcase.css'
+import TimeLine from '../../assets/images/time.png';
+import Coding from '../../assets/images/coding.jpg';
+import Coding2 from '../../assets/images/code.jpg';
 
 
 interface ProjectShowcaseProps {
-   
+    match: any;
 }
 
-const ProjectShowcase: React.FC<ProjectShowcaseProps> = () => {
+const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({match}) => {
     return (
         <div style={{height: 'calc(100vh - 70px)', width: '100%'}}>
             <div className="showcase">
                 <div className="showcase_intro">
-                    <h1>Project Name</h1>
+                    <p>{match.params.name}</p>
                     <div className="icon">
                         { ""}
-                        <div className="circle"></div>
-                        <div className="circle"></div>
-                        <div className="circle"></div>
+                        <div className="circle"><img src={Coding}/></div>
+                        <div className="circle"><img src={Coding}/></div>
+                        <div className="circle"><img src={Coding}/></div>
                     </div>
                 </div>
                 <br/>
-                <div className="showcase_image"></div>
+                <div className="showcase_image">
+                </div>
                 <br/>
                 <div className="showcase_about">
-                    <div className="pic">
-                        <div className="project_img"></div>
+                    <div className="pic illustration left-illustration ">
                     </div>
                     <div className="about_section">
                         Lorem ipsum dolor sit amet, consectetur 
@@ -45,8 +48,8 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = () => {
                          la pariatur. Excepteur sint occaecat cupidatat non proiden
                          t, sunt in culpa qui officia deserunt mollit anim id est l
                          aborum.
-                        <br/>
-                        <div className="showcase_image"></div>
+                        <br/><br/>
+                        <div className="showcase_image illustration"><img src={Coding2}/></div>
                         <br/><br/>
                         Lorem ipsum dolor sit amet, consectetur 
                         adipiscing elit, sed do eiusmod tempor incididunt ut 
@@ -76,7 +79,7 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = () => {
                          t, sunt in culpa qui officia deserunt mollit anim id est l
                          aborum.
                     </div>
-                    <div className="date"></div>
+                    <div className="date"><img src={TimeLine}/></div>
                 </div>
             </div>
         </div>
