@@ -39,7 +39,7 @@ const gitHubCallback = async (req: Request, res: Response, next: NextFunction) =
     .then((post_res:AxiosResponse) => {
         handleUser(req, res, post_res.data.access_token);
     })
-    .catch((err:Error) => next(new HttpError(500, "Error logging in with GitHub")));
+    .catch((err:Error) => res.status(500).json({ error: "Error logging in with GitHub" }));
 };
 
 // GET /user
