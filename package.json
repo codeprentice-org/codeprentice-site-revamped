@@ -37,6 +37,7 @@
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.9",
-    "randomstring": "^1.1.5"
+    "randomstring": "^1.1.5",
+    "react-gsap": "^2.2.1"
   }
 }
