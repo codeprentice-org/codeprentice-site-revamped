@@ -10,6 +10,7 @@ import HttpError from "../errors/HttpError";
 import GitHubError from "../errors/GitHubError";
 import qs from "qs";
 import axios from "axios";
+import { Model } from "mongoose";
 
 // localhost:4200/user/github/login
 
@@ -48,11 +49,44 @@ const getCurrentUser = async (req: Request, res: Response, next: NextFunction) =
 
 // GET /user/:id
 const getUser = async (req: Request, res: Response, next: NextFunction) => {
-
+    const id = req.params.id;
+    if(!Types.ObjectId.isValid(id)){
+        res.status(400).json({ error: "Invalid id" })
+    }
+    await UserModel.findById(req.params.id.toString())
+    .then((result:any) => {
+        if(result){
+            res.status(200).json({ user: result });
+        }else{
+            res.status(404).json({ error: "User not found"});
+        }
+    });
 };
 
-// GET /user/all
+// GET /user/all?page={},per={}
 const getAllUsers = async (req: Request, res: Response, next: NextFunction) => {
+    const myCustomLabels = {
+        totalDocs: "itemCount",
+        docs: "itemsList",
+        limit: "perPage",
+        page: "currentPage",
+        nextPage: "next",
+        prevPage: "prev",
+        totalPages: "pageCount",
+        meta: "paginator",
+      };
+    const options = {
+        select: "_id githubId name avatarUrl admin",
+        page: Number(req.query.page) || 1,
+        limit: Number(req.query.limit) || 5,
+        sort: { name: 1 },
+        customLabels: myCustomLabels
+    };
+    await UserModel.paginate({}, options)
+    .then((result:any) => {
+        res.status(200).send({ users: result.itemsList, paginator: result.paginator });
+    })
+    .catch((err:Error) => res.status(500).json({ data: "Something went wrong :(" }));
 
 };
 
@@ -105,11 +139,11 @@ const createUser = async (req: Request, res: Response, orgUserData:any, token:st
                 ROLE: ROLE.MEMBER
             });
             newUser.save()
-                .then(resolve => {
+                .then((resolve:any) => {
                     console.log(resolve)
                     res.status(200).json({ message: "Created user"})
                 })
-                .catch((resolve) => {
+                .catch((resolve:any) => {
                     console.log(resolve);
                     res.status(500).json({
                         status: 1,
@@ -129,37 +163,6 @@ const getUserData = async (req: Request, res: Response, url:string, token:string
     return (({ id, name, email, login, avatar_url }) => ({ id, name, email, login, avatar_url }))(response.data);
 }
 
-// const loginUser = async (req: Request, res: Response, next: NextFunction) => {
-//     // authentication with github api
-//     // adds user to database if they are not there already
-//     // pull user from database
-//      // temporary static user 
-//     const userData = req.body.user;
-//     await UserModel.findOne({email: userData.email})
-//         .exec()
-//         .then(async (resolve) =>  {
-//             if (!resolve) {
-//                 return res.status(401).json({
-//                     status: 1,
-//                     data: "Authentication Failed"
-//                 });
-//             }
-            // const user: UserType = resolve.toObject();
-            // const token = jwt.sign(user, process.env.JWT_KEY as Secret, { expiresIn: '1h' });
-            // console.log(`User with email: ${user.email} logged in`);
-            // return res.status(200).json({
-            //     status: 0,
-            //     data: { token: token }
-            // }); 
-//         })
-//         .catch(() => {
-//             return res.status(401).json({
-//                 status: 1,
-//                 data: "Authentication Failed"
-//             });
-//         })
-// };
-
 // Changes user username give a request body container user: { newUsername: string }
 // Just for testing
 // const changeUsername = async (req: Request, res: Response, next: NextFunction) => {
@@ -178,31 +181,6 @@ const getUserData = async (req: Request, res: Response, url:string, token:string
 //                 data: "Failed to Change Username"
 //             });
 //         });
-// };
-
-// Creats a new user given a request body containing user: { email: string, username: string, name: string }
-// Just for testing
-// const createUser = async (req: Request, res: Response, next: NextFunction) => {
-//     const userInfo = req.body.user
-//     const newUser = new UserModel({
-//         _id: new Types.ObjectId(),
-//         name: userInfo.name,
-//         email: userInfo.email,
-//         username: userInfo.username,
-//         ROLE: ROLE.ADMIN
-//     });
-//     await newUser.save()
-//            .then(resolve => {
-//                 console.log(resolve)
-//                 res.status(200).send("User was successfully created");
-//            })
-//            .catch((resolve) => {
-//                 console.log(resolve);
-//                 res.status(401).json({
-//                     status: 1,
-//                     data: "Authentication Failed"
-//                 });
-//            });
 // };
 
 

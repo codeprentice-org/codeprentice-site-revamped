@@ -1,5 +1,7 @@
 import { Document, Model, model, Types, Schema, Query } from "mongoose";
 import { ROLE } from "../enums/role";
+import mongoosePaginate from "mongoose-paginate-v2";
+
 
 const UserSchema: Schema = new Schema({
     _id: {
@@ -57,7 +59,7 @@ UserSchema.virtual("asString")
                 User username: ${this.username} \n
                 User ROLE: ${this.ROLE}`;
 });
-
+UserSchema.plugin(mongoosePaginate);
 const UserModel = model("User", UserSchema);
 
 // export values
