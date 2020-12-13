@@ -1,65 +1,79 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+  font-family: "poppins-regular";
 }
 
 .main_heading {
-    margin: 1.75% 12%;
+  margin: 1.75% 12%;
 }
 
-.founder_heading{
-    margin: 0 12%;
+.founder_heading {
+  margin: 0 12%;
 }
 
-.founder_members {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin: 18px;
-}
-
-@media only screen and (max-width: 450px) {
-    .founder_members {
-        flex-direction: column;
-    }
+.modal_member {
+  position: absolute;
+  left: 50%;
+  height: 50vh;
+  width: 100vh;
+  background-color: beige;
 }
 
 .member_body {
-    height: 350px;
-    width: 350px;
-    background-color: lightgray;
-    border: black;
-    margin: 15px;
+  cursor: pointer;
 }
 
-.upper_part{
-    height: 32%;
-    width: 350px;
-    background-color: rgb(161, 161, 161);
+.founder_members {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 18px;
+  flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 450px) {
+  .founder_members {
+    flex-direction: column;
+  }
+}
+
+.member_body {
+  height: 350px;
+  width: 350px;
+  background-color: lightgray;
+  border: black;
+  margin: 15px;
+}
+
+.upper_part {
+  height: 32%;
+  width: 350px;
+  background-color: rgb(161, 161, 161);
 }
 
 .photo {
-    height: 120px;
-    width: 120px;
-    background-color: rgb(105, 104, 104);
-    border-radius: 50%;
-    margin-top: -13%;
-    margin-left: 33%;
+  height: 120px;
+  width: 120px;
+  background-color: rgb(105, 104, 104);
+  border-radius: 50%;
+  margin-top: -13%;
+  margin-left: 33%;
 }
 
 .name {
-    display: flex;
-    justify-content: center;
-    margin-top: 2px;
+  display: flex;
+  justify-content: center;
+  margin-top: 2px;
 }
 
 .about {
-    height: 38%;
-    width: 350px;
-    padding: 8px;
+  height: 38%;
+  width: 350px;
+  padding: 8px;
 }
 
 .member_photo {
-    text-align: center;
-    padding: 30% 0;
+  text-align: center;
+  padding: 30% 0;
 }
