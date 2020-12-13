@@ -1,8 +1,9 @@
 .infographics {
-  height: 450px;
+  height: 100vh;
   width: 100%;
   background-color: white;
   padding: 20px;
+  overflow-y: scroll;
 }
 
 .info_header {
@@ -14,27 +15,50 @@
 
 .illustrations_container {
   height: calc(100% - 10px);
-  width: 90%;
+  width: 100vw;
   margin: 5px auto;
   margin-top: 5px;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   padding: 40px;
-  box-sizing: border-box;
 }
 
 .illustration {
   height: 100%;
   width: 50%;
-  background-color: rgb(40, 124, 250);
+  background-color: rgb(50, 101, 173);
   border-radius: 10px;
   margin: 15px;
   transition: all 0.5s ease-out;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 10px;
+  font-family: "Segoe UI, Tahoma, Geneva, Verdana, sans-serif";
+  color: white;
+  font-size: large;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.illustration img {
+  height: 50%;
+  width: 100%;
 }
 
 .illustration:hover {
   transform: translateY(-20px);
   box-shadow: rgba(43, 29, 29, 0.5) 0px 5px 15px;
+}
+
+@media screen and (max-width: 850px) {
+  .infographics {
+    height: 100vh;
+  }
+  .illustrations_container {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+  }
 }

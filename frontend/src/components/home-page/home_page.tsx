@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Controller, Scene } from 'react-scrollmagic';
 import styled from 'styled-components';
+import coding from '../../assets/images/coding.jpg';
 import Footer from './footer/footer'
 import './intro.css'
 import '../main/main.css'
@@ -13,23 +14,13 @@ interface Props {
 
 }
 
-const HP = styled.div`
- overflow: hidden;
-
-  .panel {
-    height: 100vh;
-    width: 100vw;
-    text-align: center;
-  }
-`;
-
 // Main home components
 const Home: React.FC<Props> = () => {
-    return (
-        <HP>  
-           
-<Controller globalSceneOptions={{ triggerHook: 'onLeave' }}>
-      <Scene pin>
+    return (  
+    <>
+        <Controller>
+                <Scene pin>
+                <>
         <div className="panel intro_container">
             <div className="intro_left_container">
                 <div className='intro_left_header'>
@@ -41,14 +32,13 @@ const Home: React.FC<Props> = () => {
                     <button className="intro_button students">Develop</button>
                 </div>
             </div>
-            <div className="intro_right_container">
-                <div className="thumbnail transform_background_color">
-                    <div className='offset_thumbnail transform_background_color'></div>
+                <div className="intro_right_container">
+                    <div className="illustration thumbnail">
+                    
                 </div>
+                
             </div>
             </div>
-      </Scene>
-      <Scene pin>
            <div className="panel about_container">
         <div className="about_left_container">
             <div className="about_image"></div>
@@ -56,38 +46,68 @@ const Home: React.FC<Props> = () => {
         <div className="about_right_container">
             <div className="about_right_header">About Us</div>
             <div className="about_us_text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    Ut enim ad minim veniam, quis nostrud do eiusmod tempor 
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    Ut enim ad minim veniam, quis nostrud do eiusmod tempor 
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    Ut enim ad minim veniam, quis nostrud do eiusmod tempor 
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                    Ut enim ad minim veniam, quis nostrud do eiusmod tempor 
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                    Ut enim ad minim veniam, quis nostrud do eiusmod tempor 
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                    Ut enim ad minim veniam, quis nostrud do eiusmod tempor 
             </div>
+                            <br/>
             <button className="about_button">Learn more</button>
             </div>
-            </div>
-      </Scene>
-      <Scene duration={100} pin>
+                        </div>
+                    </>
+            </Scene>
+                <Scene pin>
+                <>
          <div className="panel infographics">
             <div className="info_header">Why Join Codeprentice?</div>
             <div className="illustrations_container">
                 <div className="illustration left-illustration">
-                   
+                                    <img src={coding} />
+                                <h1>Open-Souce</h1><br/>
+                                 <p> Ut enim ad minim veniam, quis nostrud do eiusmod tempor 
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                    Ut enim ad minim veniam, quis nostrud do eiusmod tempor
+                                    Ut enim ad minim veniam, quis nostrud do eiusmod tempor 
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                    Ut enim ad minim veniam, quis nostrud do eiusmod tempor  </p>  
+                                    
                 </div>
                 <div className="illustration">
-                    
+                                    <img src={coding} />
+                                    <h1>Mentor</h1><br />
+                                     <p> Ut enim ad minim veniam, quis nostrud do eiusmod tempor 
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                    Ut enim ad minim veniam, quis nostrud do eiusmod tempor
+                                    Ut enim ad minim veniam, quis nostrud do eiusmod tempor 
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                    Ut enim ad minim veniam, quis nostrud do eiusmod tempor </p>  
                 </div>
                 <div className="illustration right-illustration">
-                    
+                                    <img src={coding} />
+                                     <h1>Develop</h1><br/>
+                   <p> Ut enim ad minim veniam, quis nostrud do eiusmod tempor 
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                        Ut enim ad minim veniam, quis nostrud do eiusmod tempor
+                                    Ut enim ad minim veniam, quis nostrud do eiusmod tempor 
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                    Ut enim ad minim veniam, quis nostrud do eiusmod tempor  </p> 
+                                  
                 </div>
             </div>
                     </div>
-                </Scene>
-                <Scene pin>
-                    <div className="project_section">
+                    <div className="panel project_section">
             <div className="project_header">Our Impact on Open Source</div>
             <div className="projects_container_home">
                 <div className="project_home">
@@ -104,10 +124,11 @@ const Home: React.FC<Props> = () => {
                             See More
             </div>
                         <Footer/>
-        </div>
-                </Scene>
-            </Controller>
-            </HP>
+                        </div>
+                    </>
+            </Scene>
+        </Controller>
+    </>
     );
 };
 

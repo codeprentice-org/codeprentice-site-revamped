@@ -1,5 +1,5 @@
 .project_section {
-  height: calc(100% - 190px);
+  height: 50vh;
   width: 100%;
   padding: 20px;
   display: flex;
@@ -35,7 +35,7 @@
   width: 300px;
   border-radius: 5px;
   background-color: rgb(32, 32, 32);
-  margin-right: 30px;
+  margin: 30px;
   transition: all 0.3s;
 }
 
@@ -62,4 +62,10 @@
 
 .more_projects:hover {
   cursor: pointer;
+}
+
+@media screen and (max-width: 850px) {
+  .project_section {
+    height: 100vh;
+  }
 }
