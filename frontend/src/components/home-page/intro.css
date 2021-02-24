@@ -111,7 +111,7 @@
   }
 
   .intro_container {
-    height: 100vh;
+    height: 500px;
   }
 
   .intro_left_header {
@@ -121,8 +121,21 @@
     height: 100px;
     width: 100px;
   }
+}
 
-  .illustration {
-    display: hidden;
-  }
+.intro_box {
+  height: 200px;
+  width: 300px;
+  background-color: rgb(50, 101, 173);
+  border-radius: 10px;
+  margin: 15px;
+  transition: all 0.5s ease-out;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 10px;
+  font-family: "Segoe UI, Tahoma, Geneva, Verdana, sans-serif";
+  color: white;
+  font-size: large;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }

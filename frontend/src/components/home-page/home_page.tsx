@@ -18,8 +18,7 @@ interface Props {
 const Home: React.FC<Props> = () => {
     return (  
     <>
-        <Controller>
-                <Scene pin>
+
                 <>
         <div className="panel intro_container">
             <div className="intro_left_container">
@@ -33,7 +32,7 @@ const Home: React.FC<Props> = () => {
                 </div>
             </div>
                 <div className="intro_right_container">
-                    <div className="illustration thumbnail">
+                    <div className="intro_box">
                     
                 </div>
                 
@@ -61,8 +60,8 @@ const Home: React.FC<Props> = () => {
             </div>
                         </div>
                     </>
-            </Scene>
-                <Scene pin>
+        
+          
                 <>
          <div className="panel infographics">
             <div className="info_header">Why Join Codeprentice?</div>
@@ -121,13 +120,14 @@ const Home: React.FC<Props> = () => {
                 </div>
             </div>
             <div className="more_projects">
-                            See More
+                                See More
             </div>
+                            <br/><br/>
                         <Footer/>
                         </div>
                     </>
-            </Scene>
-        </Controller>
+       
+
     </>
     );
 };
