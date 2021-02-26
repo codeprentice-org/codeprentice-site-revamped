@@ -5,11 +5,13 @@
 }
 
 .main_heading {
-  margin: 1.75% 12%;
+  margin: 1.75% 5%;
+  font-size: 70px;
 }
 
 .founder_heading {
-  margin: 0 12%;
+  margin: 0 5%;
+  font-size: xx-large;
 }
 
 .modal_member {
@@ -36,6 +38,14 @@
   .founder_members {
     flex-direction: column;
   }
+  .member_body {
+    height: 350px;
+    width: 350px;
+    background-color: lightgray;
+    border: black;
+    margin: 15px;
+    font-size: medium;
+  }
 }
 
 .member_body {
@@ -44,12 +54,16 @@
   background-color: lightgray;
   border: black;
   margin: 15px;
+  font-size: 12px;
+  border-radius: 10px;
 }
 
 .upper_part {
   height: 32%;
   width: 350px;
   background-color: rgb(161, 161, 161);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .photo {
@@ -70,10 +84,57 @@
 .about {
   height: 38%;
   width: 350px;
-  padding: 8px;
+  padding: 4px;
 }
 
 .member_photo {
   text-align: center;
   padding: 30% 0;
+}
+
+.modal {
+  position: absolute;
+  top: 5%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  height: 50vh;
+  width: 550px;
+  background-color: lightslategray;
+}
+
+.modal_body {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  padding: 10px;
+}
+
+.modal_header {
+  color: whitesmoke;
+}
+
+.modal_desc {
+  font-size: large;
+  padding: 20px;
+}
+
+.modal_photo {
+  height: 80px;
+  width: 80px;
+  background-color: rgb(105, 104, 104);
+  border-radius: 50%;
+  margin: 20px;
+}
+.modal_intro {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.modal_socials {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
