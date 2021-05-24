@@ -9,6 +9,7 @@ dotenv.config({ path: "./config/.env.config" });
 // API Imports
 import { USER_API } from "./routes/user.route";
 import { PROJECT_API } from "./routes/project.route";
+import { PICTURE_API } from './routes/picture.route';
 
 // Connect to database
 mongoose.connect(
@@ -29,15 +30,12 @@ app.use(bodyParser.urlencoded( { extended: false } ))
 
 
 // For sending view 
-app.use(express.static(path.join(__dirname, ".././frontend/build")));
-app.get("/", (req: Request, res: Response) => {
-        res.sendFile(path.join(__dirname, ".././frontend/build/index.html"));
-})
-
+app.use(express.static(path.join(__dirname, "./static")));
 
 // Config API Routes
 app.use("/user", USER_API);
 app.use("/project", PROJECT_API);
+app.use("/picture", PICTURE_API);
 
 // Start Express server
 const PORT = process.env.PORT || 4000;
