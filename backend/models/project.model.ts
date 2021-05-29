@@ -1,20 +1,7 @@
 import { Document, Model, model, Types, Schema, Query } from "mongoose";
-import { UserModel, UserSchema } from "./user.model";
 import { UserType, UserInt } from "../types/user";
+import { ProjectSchema } from '../schema/project.schema';
 
-const ProjectSchema = new Schema({
-    _id: {
-        type: Types.ObjectId,
-        required: true
-    },
-    name: {
-        type: String,
-        required: true
-    },
-    // Searches for team members with the listed idea in the collection "User"
-    team: [UserSchema], 
-    // The collection in which projects will be saved
-}, { collection: "projects" });
 
 ProjectSchema.virtual("asString")
     .get( function(this: { _id: Types.ObjectId, name: string, team: UserType[] }) {
