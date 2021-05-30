@@ -21,7 +21,6 @@ export const ProjectSchema = new Schema({
         {
             title: {
                 type: String,
-                required: true
             },
             cardTitle: {
                 type: String,
