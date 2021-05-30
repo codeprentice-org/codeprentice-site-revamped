@@ -1,21 +1,46 @@
-import { Document, Model, model, Types, Schema, Query } from "mongoose";
-import { UserType, UserInt } from "../types/user";
-import { ProjectSchema } from '../schema/project.schema';
+import { model, Types, Schema } from "mongoose";
 
-
-ProjectSchema.virtual("asString")
-    .get( function(this: { _id: Types.ObjectId, name: string, team: UserType[] }) {
-        var projectString = `Project _id: ${this._id} \n
-                             Project name: ${this.name} \n
-                             Project team (members): \n`;
-        for (const user of this.team) {
-            projectString += `Member email: ${user.email} \n`;
+export const ProjectSchema = new Schema({
+    _id: {
+        type: Types.ObjectId,
+        required: true
+    },
+    name: {
+        type: String,
+        required: true
+    },
+    team: [{
+        type: String,
+        required: true
+    }],
+    description: {
+        type: String,
+        required: true
+    },
+    timeline: [
+        {
+            title: {
+                type: String,
+            },
+            cardTitle: {
+                type: String,
+            },
+            cardSubtitle: {
+                type: String,
+            },
+            cardDetailedText: {
+                type: String,
+            }
         }
-        return projectString;
-});
+    ]
+},
+    {
+        writeConcern: {
+            w: "majority",
+            j: true,
+            wtimeout: 1000,
+        }
+    }
+);
 
-const ProjectModel = model("Project", ProjectSchema);
-
-
-// export values
-export { ProjectSchema, ProjectModel }
+export const Projects = model("projects",  ProjectSchema);

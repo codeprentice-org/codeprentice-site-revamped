@@ -1,13 +1,13 @@
-import { Types, Document } from "mongoose";
+import { Users, UserSchema } from '../models/user.model';
 import { Request, Response, NextFunction } from "express";
 import { UserType } from "../types/user";
-import { UserModel, UserSchema } from "../models/user.model";
 import jwt from "jsonwebtoken";
 import { Secret } from "jsonwebtoken";
 import { ROLE } from "../enums/role";
 import { AxiosResponse } from "axios";
 import qs from "qs";
 import axios from "axios";
+import { Types, Schema } from "mongoose";
 
 //localhost:4200/user/github/login
 
@@ -49,7 +49,7 @@ const gitHubCallback = async (req: Request, res: Response, next: NextFunction) =
 //     // pull user from database
 //      // temporary static user 
 //     const userData = req.body.user;
-//     await UserModel.findOne({email: userData.email})
+//     await Users.findOne({email: userData.email})
 //         .exec()
 //         .then(async (resolve) =>  {
 //             if (!resolve) {
@@ -79,7 +79,7 @@ const gitHubCallback = async (req: Request, res: Response, next: NextFunction) =
 const changeUsername = async (req: Request, res: Response, next: NextFunction) => {
     const user: UserType = req.body.user;
     const newUsername: string = req.body.newUsername;
-    UserModel.updateOne({ _id: user._id }, {"$set": { "username": newUsername } })
+    Users.updateOne({ _id: user._id }, {"$set": { "username": newUsername } })
         .exec()
         .then((resolve) => {
             console.log(resolve);
@@ -97,27 +97,18 @@ const changeUsername = async (req: Request, res: Response, next: NextFunction) =
 // Creats a new user given a request body containing user: { email: string, username: string, name: string }
 // Just for testing
 const createUser = async (req: Request, res: Response, next: NextFunction) => {
-    const userInfo = req.body.user
-    const newUser = new UserModel({
-        _id: new Types.ObjectId(),
-        name: userInfo.name,
-        email: userInfo.email,
-        username: userInfo.username,
-        ROLE: ROLE.ADMIN
-    });
+    req.body._id = Types.ObjectId()
+    const newUser = new Users({...req.body});
     await newUser.save()
-           .then(resolve => {
-                console.log(resolve)
-                res.status(200).send("User was successfully created");
-           })
-           .catch((resolve) => {
-                console.log(resolve);
-                res.status(401).json({
-                    status: 1,
-                    data: "Authentication Failed"
-                });
-           });
+           .then((data: any) => res.status(200).send("User was successfully created"))
+           .catch((err: any) => res.status(401).send("Error in creating user"));
+};
+
+const getUsers = async (req: Request, res: Response, next: NextFunction) => {
+    Users.find({})
+        .then((results:any[]) =>  res.status(200).json(results))
+        .catch((err: any) =>  res.status(404).send(err))
 };
 
 
-export { loginUser, changeUsername, createUser, gitHubCallback }
+export { loginUser, changeUsername, createUser, gitHubCallback, getUsers }
