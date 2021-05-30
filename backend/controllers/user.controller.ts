@@ -1,7 +1,6 @@
-import { Types, Document } from "mongoose";
+import { Users, UserSchema } from '../models/user.model';
 import { Request, Response, NextFunction } from "express";
 import { UserType } from "../types/user";
-import { UserModel, UserSchema } from "../models/user.model";
 import jwt from "jsonwebtoken";
 import { Secret } from "jsonwebtoken";
 import { ROLE } from "../enums/role";
@@ -49,7 +48,7 @@ const gitHubCallback = async (req: Request, res: Response, next: NextFunction) =
 //     // pull user from database
 //      // temporary static user 
 //     const userData = req.body.user;
-//     await UserModel.findOne({email: userData.email})
+//     await Users.findOne({email: userData.email})
 //         .exec()
 //         .then(async (resolve) =>  {
 //             if (!resolve) {
@@ -79,7 +78,7 @@ const gitHubCallback = async (req: Request, res: Response, next: NextFunction) =
 const changeUsername = async (req: Request, res: Response, next: NextFunction) => {
     const user: UserType = req.body.user;
     const newUsername: string = req.body.newUsername;
-    UserModel.updateOne({ _id: user._id }, {"$set": { "username": newUsername } })
+    Users.updateOne({ _id: user._id }, {"$set": { "username": newUsername } })
         .exec()
         .then((resolve) => {
             console.log(resolve);
@@ -98,8 +97,8 @@ const changeUsername = async (req: Request, res: Response, next: NextFunction) =
 // Just for testing
 const createUser = async (req: Request, res: Response, next: NextFunction) => {
     const userInfo = req.body.user
-    const newUser = new UserModel({
-        _id: new Types.ObjectId(),
+    const newUser = new Users({
+        _id: 1,
         name: userInfo.name,
         email: userInfo.email,
         username: userInfo.username,

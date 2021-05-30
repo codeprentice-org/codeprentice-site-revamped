@@ -1,28 +1,23 @@
 import { Request, Response, NextFunction } from "express";
-import { ProjectModel } from "../models/project.model";
-import { UserModel } from "../models/user.model";
+import { Projects, ProjectSchema } from "../models/project.model";
+import { UserSchema } from '../models/user.model'
 import { Types, Schema } from "mongoose";
 
 // Creates a new project give a request body containing project: { name: string }
 // Just for testing
-const createProject = async (req: Request, res: Response, next: NextFunction) => {
-    const projectInfo = req.body.project;
-    const teamMember = await UserModel.findOne({ _id: req.body.user._id }).exec(); 
-    const newProject = new ProjectModel({
-        _id: new Types.ObjectId(),
-        name: projectInfo.name,
-        team: [(teamMember)? teamMember.toObject(): undefined]
-    });
-    newProject.save()
-              .then((resolve) => {
-                  console.log(resolve);
-                  res.status(200)
-                    .send("Project was successfully created");
-              })
-              .catch(() => {
-                  res.status(401)
-                     .send("Unable to create new project");
-              });
+export const createProject = async (req: Request, res: Response, next: NextFunction) => {
+   
 };
 
-export { createProject }
+export const getProjects = (req: Request, res: Response) => {
+    Projects.find({})
+        .then((results:any[]) =>  res.status(200).json(results))
+        .catch((err: any) =>  res.status(404).send(err))
+}
+
+export const getProjectByName = (req: Request, res: Response) => {
+    Projects.find({name: req.query.name})
+        .then((results:any[]) =>  res.status(200).json(results))
+        .catch((err: any) =>  res.status(404).send(err))
+}
+
