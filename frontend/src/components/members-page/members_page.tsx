@@ -165,27 +165,23 @@ const Modal: React.FC<ModalProps> = ({showModal, changeShowModal, member}) => {
         >
         <CloseIcon onClick={() => changeShowModal(false)} style={{ cursor: "pointer" }} />
         <br />
-
         <div className="modal_intro">
             <div className="modal_body">
                 <div className="modal_background">
                 <div className="modal_photo">
                         <p className="member_photo">Photo</p>
                 </div>
-
                 <p className='modal_name'>{member.name}</p>
                 <p className="modal_desc">{member.desc}</p>
                 </div>
             </div>
-
-            
+ 
             <div className="modal_body2">
                 <p className='modal_heading'>BIO</p>
                 <p className="modal_desc2">{member.desc}</p>
                 <p className='modal_heading'>PROJECTS</p>
                 <p className="modal_desc2">LINKS</p>
                 <p className="modal_heading">SOCIAL MEDIA</p>
-
                 <div className="modal_socials">
                     <GitHubIcon style={styles.icon_style}/>
                     <LinkedInIcon style={styles.icon_style}/>
