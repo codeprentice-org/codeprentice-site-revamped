@@ -14,7 +14,20 @@ interface MembersProps{
     
 }
 
-
+const founderData = [
+    {
+        name: "Name",
+        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur "
+    },
+     {
+        name: "Name",
+        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur "
+    },
+      {
+        name: "Name",
+        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur "
+    },
+]
 //Sample  user data to be retrieved from github
 const userData = [
     {
@@ -112,47 +125,7 @@ const Members: React.FC<MembersProps> = () => {
             <h1 className="main_heading">Members</h1>
             <h2 className="founder_heading">Founders/Executive Board</h2>
             <div className="founder_members">
-                <div className="member_body">
-                    <div className="upper_part">
-
-                    </div>
-                    <div className="photo">
-                        <p className="member_photo">Photo</p>
-                    </div>
-                    <h2 className="name">NAME</h2>
-                    <div className="about">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur 
-                        </p>
-                    </div>
-                </div>
-                <div className="member_body">
-                    <div className="upper_part">
-
-                    </div>
-                    <div className="photo">
-                        <p className="member_photo">Photo</p>
-                    </div>
-                    <h2 className="name">NAME</h2>
-                    <div className="about">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur 
-                        </p>
-                    </div>
-
-                </div>
-                <div className="member_body">
-                    <div className="upper_part">
-
-                    </div>
-                    <div className="photo">
-                        <p className="member_photo">Photo</p>
-                    </div>
-                    <h2 className="name">NAME</h2>
-                    <div className="about">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur 
-                        </p>
-                    </div>
-
-                </div>
+                {founderData.map(item=>member_generate(item.name,item.desc))}
             </div>
             <h2 className="founder_heading">Organization Team</h2>
             <div className="founder_members">
@@ -192,21 +165,32 @@ const Modal: React.FC<ModalProps> = ({showModal, changeShowModal, member}) => {
         >
         <CloseIcon onClick={() => changeShowModal(false)} style={{ cursor: "pointer" }} />
         <br />
-        <div className="modal_body">
-            <div className="modal_intro">
+        <div className="modal_intro">
+            <div className="modal_body">
+                <div className="modal_background">
                 <div className="modal_photo">
                         <p className="member_photo">Photo</p>
                 </div>
-            <h1 className="modal_header">{member.name}</h1>
+                <p className='modal_name'>{member.name}</p>
+                <p className="modal_desc">{member.desc}</p>
                 </div>
-            <p className="modal_desc">{member.desc}</p>
+            </div>
+ 
+            <div className="modal_body2">
+                <p className='modal_heading'>BIO</p>
+                <p className="modal_desc2">{member.desc}</p>
+                <p className='modal_heading'>PROJECTS</p>
+                <p className="modal_desc2">LINKS</p>
+                <p className="modal_heading">SOCIAL MEDIA</p>
+                <div className="modal_socials">
+                    <GitHubIcon style={styles.icon_style}/>
+                    <LinkedInIcon style={styles.icon_style}/>
+                    <FacebookIcon style={styles.icon_style}/>
+                    <InstagramIcon style={styles.icon_style}/>
+                </div>
+            </div>
         </div>
-        <div className="modal_socials">
-            <GitHubIcon style={styles.icon_style}/>
-            <LinkedInIcon style={styles.icon_style}/>
-            <FacebookIcon style={styles.icon_style}/>
-            <InstagramIcon style={styles.icon_style}/>
-        </div>
+        
         </ReactModal>);
 }
 
