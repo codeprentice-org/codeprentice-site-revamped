@@ -38,6 +38,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.9",
     "randomstring": "^1.1.5",
+    "react-github-login": "^1.0.3",
     "react-gsap": "^2.2.1"
   }
 }

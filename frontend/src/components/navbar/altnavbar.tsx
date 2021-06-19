@@ -1,12 +1,17 @@
 import React,{useState} from 'react';
+import ReactDOM from 'react-dom';
 import './navbar.css';
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import { Link } from "react-router-dom";
+import LoginGithub from 'react-login-github';
 interface navbarProps {
     blurContent: React.Dispatch<React.SetStateAction<boolean>>,
     blur: Boolean
 }
+
+const onSuccess = (response: any) => console.log(response);
+const onFailure = (response: any) => console.error(response);
 
 const AltNav: React.FC<navbarProps> = (props) => {
     const [navOpen, toggleNav] = useState(true);
@@ -40,10 +45,10 @@ const AltNav: React.FC<navbarProps> = (props) => {
                 </Link>
                 {/* <Link to="/login"> */}
                     {/* Login with Github Works thus removing the need for a link to a login page */}
-                <div className="login-button">
-                    <div className="github-logo"></div>
-                    <div className="login-button-text">Login</div>
-                </div>
+                <LoginGithub className="login-button" clientId="ca409dfa0b78ab4efa25"
+                    onSuccess={onSuccess}
+                    onFailure={onFailure}
+                    buttonText="Login"/>
                 {/* </Link> */}
             </div>
             <div className="hamburger" onClick={() => toggle()}>
