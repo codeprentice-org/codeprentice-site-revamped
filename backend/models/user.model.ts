@@ -1,7 +1,7 @@
-import { Document, Model, model, Types, Schema, Query } from "mongoose";
+import { model, Types, Schema } from "mongoose";
 import { ROLE } from "../enums/role";
 
-const UserSchema: Schema = new Schema({
+export const UserSchema: Schema = new Schema({
     _id: {
        type: Types.ObjectId,
        required: true
@@ -19,23 +19,38 @@ const UserSchema: Schema = new Schema({
         required: true
     },
     ROLE: {
+        type: ROLE,
+        required: true
+    },
+    projects: [{
         type: String,
         required: true
+    }],
+    bio: {
+        type: String,
+        required: true
+    },
+    github_link: {
+        type: String,
+    },
+    facebook_link: {
+        type: String,
+    },
+    linkedin_link: {
+        type: String,
+    },
+    instagram_link: {
+        type: String,
     }
     // The collection in which users will be saved
-}, { collection: "users" }); 
-
-// To Use: userSchema.asString()
-UserSchema.virtual("asString")
-    .get( function(this: { _id: Types.ObjectId, email: string, username: string, name: string, ROLE: ROLE }) {
-        return `User _id: ${this._id} \n 
-                User email: ${this.email} \n 
-                User username: ${this.username} \n 
-                User ROLE: ${this.ROLE}`;
+},
+ {
+        writeConcern: {
+            w: "majority",
+            j: true,
+            wtimeout: 1000,
+        }
 });
 
-const UserModel = model("User", UserSchema);
 
-
-// export values
-export { UserSchema, UserModel }
+export const Users = model("users",  UserSchema);

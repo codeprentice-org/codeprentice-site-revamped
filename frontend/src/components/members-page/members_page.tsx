@@ -9,6 +9,8 @@ import GitHubIcon from '@material-ui/icons/GitHub'
 import LinkedInIcon from '@material-ui/icons/LinkedIn'
 import InstagramIcon from '@material-ui/icons/Instagram'
 import FacebookIcon from '@material-ui/icons/Facebook'
+import zIndex from '@material-ui/core/styles/zIndex';
+import { ToggleButton } from 'react-bootstrap';
 
 interface MembersProps{
     
@@ -18,57 +20,61 @@ interface MembersProps{
 //Sample  user data to be retrieved from github
 const userData = [
     {
+        photo: "https://picsum.photos/200/300",
         name: "Member 1",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur "
+        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur ",
+        bio : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ip",
+        links: "link",
+        
     },
-     {
-        name: "Member 2",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur "
+    {
+        photo: "https://picsum.photos/200/300",
+        name: "Member 1",
+        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur ",
+        bio : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur ",
+        links: "link",
+        
     },
-      {
-        name: "Member 3",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur "
+    {
+        photo: "https://picsum.photos/200/300",
+        name: "Member 1",
+        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur ",
+        bio : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur ",
+        links: "link",
+        
     },
-       {
-        name: "Name",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur "
+    {
+        photo: "https://picsum.photos/200/300",
+        name: "Member 1",
+        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur ",
+        bio : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur ",
+        links: "link",
+        
     },
-        {
-        name: "Name",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur "
+    {
+        photo: "https://picsum.photos/200/300",
+        name: "Member 1",
+        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur ",
+        bio : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur ",
+        links: "link",
+        
     },
-         {
-        name: "Name",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur "
+    {
+        photo: "https://picsum.photos/200/300",
+        name: "Member 1",
+        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur ",
+        bio : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur ",
+        links: "link",
+        
     },
-          {
-        name: "Name",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur "
-    },
-           {
-        name: "Name",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur "
-    },
-            {
-        name: "Name",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur "
-    },
-            {
-        name: "Name",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur "
-    },
-            {
-        name: "Name",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur "
-    },
-            {
-        name: "Name",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur "
-    },
-            {
-        name: "Name",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur "
-    },
+    {
+        photo: "https://picsum.photos/200/300",
+        name: "Member 1",
+        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur ",
+        bio : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur ",
+        links: "link",
+        
+    }
 ]
 
 
@@ -76,37 +82,42 @@ const Members: React.FC<MembersProps> = () => {
     
     const [modal, setModal] = useState(false);
     const [showModal, changeShowModal] = useState(false);
-    const [member, changeMember] = useState({name:"", desc:""});
+    const [member, changeMember] = useState({name:"", desc:"", photo:"", links:"", bio:""});
   
   const handleModal = (mem:any) => {
       changeShowModal(!modal);
       changeMember(mem);
   }
 
+  const changeShowModal1 = () => {
+      changeShowModal(false)
+  }
+
+
     const toggle = (mem: object) => handleModal(mem);
     
-    const member_generate = (name:String, desc:String) => {
+    const member_generate = (name:String, desc:String, photo:String, links:String, bio: String) => {
             return (
-                <div className="member_body" onClick={()=>toggle({name: name, desc: desc})}>
+                <div className="member_body" onClick={()=>toggle({name: name, desc: desc, photo: photo, links:links, bio: bio})}>
                     <div className="upper_part">
 
                     </div>
                     <div className="photo">
-                        <p className="member_photo">Photo</p>
+                        <p className="member_photo">photo</p>                        
                     </div>
                     <h2 className="name">{name}</h2>
                     <div className="about">
                         <p>{desc}
                         </p>
                     </div>
-
                 </div>
         )      
     }
     return (
         <>
+        
       <div>
-                <Modal showModal={showModal} changeShowModal={changeShowModal} member={member}/>
+          <Modal showModal={showModal} changeShowModal={changeShowModal} member={member}/>
       </div>
         <div className="member_page_body">
             <h1 className="main_heading">Members</h1>
@@ -156,11 +167,11 @@ const Members: React.FC<MembersProps> = () => {
             </div>
             <h2 className="founder_heading">Organization Team</h2>
             <div className="founder_members">
-                {userData.map(item=>member_generate(item.name,item.desc))}
+                {userData.map(item=>member_generate(item.name,item.desc, item.photo, item.links, item.bio))}
             </div>
             <h2 className="founder_heading">Development Team</h2>
             <div className="founder_members">
-                {userData.map(item=>member_generate(item.name,item.desc))}
+                {userData.map(item=>member_generate(item.name,item.desc, item.photo, item.links, item.bio))}
             </div>
             </div>
             </>
@@ -173,6 +184,9 @@ interface ModalProps{
     member: {
         name: string;
         desc: string;
+        photo: string;
+        links: string;
+        bio: string;
     };
 }
 const styles = {
@@ -189,25 +203,42 @@ const Modal: React.FC<ModalProps> = ({showModal, changeShowModal, member}) => {
            isOpen={showModal}
                     contentLabel="Minimal Modal Example"
                     className="modal"
+                    onRequestClose={() => changeShowModal(false)} 
         >
+            
         <CloseIcon onClick={() => changeShowModal(false)} style={{ cursor: "pointer" }} />
         <br />
+        
         <div className="modal_body">
-            <div className="modal_intro">
-                <div className="modal_photo">
-                        <p className="member_photo">Photo</p>
+            <div className = "left_side_modal">
+                <div className="modal_photo_container">
+                    <img className="modal_photo" src={member.photo} alt="photo" />
                 </div>
-            <h1 className="modal_header">{member.name}</h1>
+                <div className="modal_person">
+                   <p className="modal_name">{member.name}</p>
+                   <p className="modal_desc">{member.desc}</p>
                 </div>
-            <p className="modal_desc">{member.desc}</p>
+                
+                
+            </div>
+            <div className="right_side_modal">
+                <p className="modal_titles">BIO</p>
+                <p className="modal_desc">{member.bio}</p>
+                <p className="modal_titles">PROJECTS</p>
+                <p className="modal_project_links">{member.links}</p>
+                <p className="modal_titles">SOCIAL MEDIA</p>
+                <div className="modal_socials">
+                    <GitHubIcon style={styles.icon_style}/>
+                    <LinkedInIcon style={styles.icon_style}/>
+                    <FacebookIcon style={styles.icon_style}/>
+                    <InstagramIcon style={styles.icon_style}/>
+                </div>
+            </div>
+            
         </div>
-        <div className="modal_socials">
-            <GitHubIcon style={styles.icon_style}/>
-            <LinkedInIcon style={styles.icon_style}/>
-            <FacebookIcon style={styles.icon_style}/>
-            <InstagramIcon style={styles.icon_style}/>
-        </div>
+        
         </ReactModal>);
+        
 }
 
 export default Members;
