@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 //import SingleMember from './member/single_member';
 import { generatePath } from 'react-router-dom';
 import CloseIcon from '@material-ui/icons/Close';
@@ -11,12 +11,12 @@ import InstagramIcon from '@material-ui/icons/Instagram'
 import FacebookIcon from '@material-ui/icons/Facebook'
 import zIndex from '@material-ui/core/styles/zIndex';
 import { ToggleButton } from 'react-bootstrap';
+require('dotenv').config()
 
 interface MembersProps{
     
 }
-
-
+ 
 //Sample  user data to be retrieved from github
 const userData = [
     {
@@ -77,12 +77,22 @@ const userData = [
     }
 ]
 
-
 const Members: React.FC<MembersProps> = () => {
     
     const [modal, setModal] = useState(false);
     const [showModal, changeShowModal] = useState(false);
     const [member, changeMember] = useState({name:"", desc:"", photo:"", links:"", bio:""});
+
+    const myHeaders = new Headers();
+    myHeaders.append('access-token', process.env.ACCESS_TOKEN as string);
+
+    useEffect(() => {
+        fetch(process.env.backend + "/users", {
+            headers: myHeaders
+        })
+            .then(response => console.log(response.json()))
+            .then(data => console.log(data));
+    });
   
   const handleModal = (mem:any) => {
       changeShowModal(!modal);
