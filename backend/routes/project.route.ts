@@ -13,8 +13,3 @@ PROJECT_API.post("/create_project", createProject);
 PROJECT_API.get("/", getProjects);
 
 PROJECT_API.get("/:name", getProjectByName);
-
-/*
-todos
-1. Add timeline for projects
-*/
