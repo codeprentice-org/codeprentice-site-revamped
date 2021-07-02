@@ -27,8 +27,8 @@ const Home: React.FC<Props> = () => {
                     software and student developers.
                 </div>
                 <div className="intro_buttons">
-                    <button className="intro_button">Mentor</button>
-                    <button className="intro_button students">Develop</button>
+                    <button className="intro_button">Join Us</button>
+                    <button className="intro_button students">Log in Github</button>
                 </div>
             </div>
                 <div className="intro_right_container">
@@ -38,32 +38,66 @@ const Home: React.FC<Props> = () => {
                 
             </div>
             </div>
+
            <div className="panel about_container">
-        <div className="about_left_container">
+               
+            <div className="about_wave">
+            <div className="about_header_container">
+            <div className="about_right_header">Breaking Barriers</div>
+            </div>
+        <div className="about_desc_container">
             <div className="about_image"></div>
-        </div>
-        <div className="about_right_container">
-            <div className="about_right_header">About Us</div>
             <div className="about_us_text">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                                    Ut enim ad minim veniam, quis nostrud do eiusmod tempor 
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                                    Ut enim ad minim veniam, quis nostrud do eiusmod tempor 
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                                    Ut enim ad minim veniam, quis nostrud do eiusmod tempor 
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                sed do eiusmod tempor incididunt ut labore et dolore magna 
+                aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+                ullamco laboris nisi ut aliquip ex ea commodo consequat. 
             </div>
-                            <br/>
-            <button className="about_button">Learn more</button>
-            </div>
+        </div>
+        <div className="about_button_container">
+            <button className="intro_button about_us_button">About Us</button>
+        </div>
+        <div className="about_header_container2">
+            <div className="about_second_header">Project Previews</div>
+        </div>
+        </div>
                         </div>
                     </>
-        
+        <div className="panel project_container">
+            <div className="project_preview_container">
+            <div className="project_thumbnail first"></div>
+            <div className="project_thumbnail"></div>
+            <div className="project_thumbnail third"></div>
+                </div>
+            
+            <div className="project_preview_container">
+                <button className="intro_button our_projects_button">Our projects</button>
+            </div>
+            
+            <div className="about_header_container2">
+                <div className="about_right_header">Our Progress</div>
+            </div>
+            <div className="project_header_container">
+                <div className="numbers_container">
+                    <div className="numbers">72</div>
+                    <div className="subtitle">Members</div>
+                </div>
+                <div className="numbers_container">
+                    <div className="numbers">7</div>
+                    <div className="subtitle">Completed Projects</div>
+                </div>
+                <div className="numbers_container">
+                    <div className="numbers">4</div>
+                    <div className="subtitle">Workshops</div>
+                </div>
+            </div>
+            <div className="project_header_container">
+                <div className="about_right_header">Interested?</div>
+            </div>
+        </div>
           
                 <>
-         <div className="panel infographics">
+        {/* <div className="panel infographics">
             <div className="info_header">Why Join Codeprentice?</div>
             <div className="illustrations_container">
                 <div className="illustration left-illustration">
@@ -122,9 +156,10 @@ const Home: React.FC<Props> = () => {
             <div className="more_projects">
                                 See More
             </div>
+            */}
                             <br/><br/>
                         <Footer/>
-                        </div>
+                        
                     </>
        
 

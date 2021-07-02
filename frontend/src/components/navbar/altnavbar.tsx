@@ -42,7 +42,7 @@ const AltNav: React.FC<navbarProps> = (props) => {
                     {/* Login with Github Works thus removing the need for a link to a login page */}
                 <div className="login-button">
                     <div className="github-logo"></div>
-                    <div className="login-button-text">Login</div>
+                    <div className="login-button-text">LOG IN</div>
                 </div>
                 {/* </Link> */}
             </div>
