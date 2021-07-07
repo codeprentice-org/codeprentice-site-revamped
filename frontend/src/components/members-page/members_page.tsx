@@ -161,7 +161,7 @@ const Modal: React.FC<ModalProps> = ({showModal, changeShowModal, member}) => {
     return (<ReactModal 
            isOpen={showModal}
                     contentLabel="Minimal Modal Example"
-                    className="modal"
+                    className="custom_modal"
         >
         <CloseIcon onClick={() => changeShowModal(false)} style={{ cursor: "pointer" }} />
         <br />
