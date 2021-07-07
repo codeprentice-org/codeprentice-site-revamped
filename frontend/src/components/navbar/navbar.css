@@ -1,10 +1,10 @@
-.navbar {
+.custom-navbar {
   height: 70px;
   display: flex;
   flex-direction: row;
   font-family: Segoe UI;
   box-sizing: content-box;
-  /*border-bottom: 2px solid rgb(230, 230, 230);*/
+  border-bottom: 2px solid rgb(230, 230, 230);
   background-color: white;
 }
 
@@ -33,7 +33,7 @@
   height: 40px;
   display: flex;
   text-decoration: none;
-  background: #1C9CB8;
+  background: #1c9cb8;
   margin-right: 30px;
   padding: 8px;
 }
@@ -55,12 +55,12 @@
 .login-button-text {
   text-decoration: none;
   overflow: hidden;
-  color: #FFFFFF;
+  color: #ffffff;
   height: 100%;
   width: 100%;
   line-height: 28px;
   font-size: 18px;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: bold;
   text-align: center;
   transition: all 0.2s ease-out;
@@ -78,9 +78,9 @@
 .nav-item {
   float: right;
   line-height: 30px;
-  height: 20px; 
+  height: 20px;
   font-size: 17px;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: normal;
   border-radius: 5px;
   transform: translateX(0px);
@@ -155,4 +155,24 @@
   .content {
     filter: blur(2px);
   }
+}
+
+.profile {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile_picture_navbar {
+  height: 100%;
+  width: 20%;
+}
+
+.profile_name_navbar {
+  height: 100%;
+  width: 80%;
+  text-overflow: ellipsis;
 }
