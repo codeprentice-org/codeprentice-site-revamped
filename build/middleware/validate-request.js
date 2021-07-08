@@ -4,12 +4,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.validateRequest = void 0;
-var bcrypt_1 = __importDefault(require("bcrypt"));
-exports.validateRequest = function (req, res, next) {
-    var requestToken = req.header('access-token');
-    var backHash = bcrypt_1.default.hashSync(process.env.BACKEND_TOKEN, 10);
-    if (bcrypt_1.default.compareSync(requestToken, backHash)) {
+const safe_compare_1 = __importDefault(require("safe-compare"));
+exports.validateRequest = (req, res, next) => {
+    console.log("validateRequest()");
+    let requestToken = req.header('access_token');
+    if (safe_compare_1.default(requestToken, process.env.ACCESS_TOKEN)) {
+        console.log("Access Granted");
         next();
     }
-    res.status(400).send("Need access token to get data");
+    else {
+        console.log("Access Token invalid");
+        res.status(400).send("Need access token to get data");
+    }
 };

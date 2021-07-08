@@ -105,9 +105,15 @@ const createUser = async (req: Request, res: Response, next: NextFunction) => {
 };
 
 const getUsers = async (req: Request, res: Response, next: NextFunction) => {
-    Users.find({})
-        .then((results:any[]) =>  res.status(200).json(results))
-        .catch((err: any) =>  res.status(404).send(err))
+    console.log("getUsers()");
+    Users.find()
+        .then((results: any[]) => {
+            res.status(200).json(results)
+        })
+        .catch((err: any) => {
+            console.log("Error in fetching users", err);
+            res.status(404).send(err)
+        })
 };
 
 

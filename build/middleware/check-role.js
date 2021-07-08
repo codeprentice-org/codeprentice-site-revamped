@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.checkRoleAdmin = void 0;
-var role_1 = require("../enums/role");
+const role_1 = require("../enums/role");
 // Verifies that the user has Admin privilages 
-exports.checkRoleAdmin = function (req, res, next) {
+exports.checkRoleAdmin = (req, res, next) => {
     try {
-        var user = req.body.user;
+        const user = req.body.user;
         console.log(user);
         if (user.ROLE === role_1.ROLE.ADMIN) {
             next();
