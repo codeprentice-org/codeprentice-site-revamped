@@ -1,8 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserModel = exports.UserSchema = void 0;
-var mongoose_1 = require("mongoose");
-var UserSchema = new mongoose_1.Schema({
+exports.Users = exports.UserSchema = void 0;
+const mongoose_1 = require("mongoose");
+const role_1 = require("../enums/role");
+exports.UserSchema = new mongoose_1.Schema({
     _id: {
         type: mongoose_1.Types.ObjectId,
         required: true
@@ -20,16 +21,35 @@ var UserSchema = new mongoose_1.Schema({
         required: true
     },
     ROLE: {
+        type: role_1.ROLE,
+        required: true
+    },
+    projects: [{
+            type: String,
+            required: true
+        }],
+    bio: {
         type: String,
         required: true
+    },
+    github_link: {
+        type: String,
+    },
+    facebook_link: {
+        type: String,
+    },
+    linkedin_link: {
+        type: String,
+    },
+    instagram_link: {
+        type: String,
     }
     // The collection in which users will be saved
-}, { collection: "users" });
-exports.UserSchema = UserSchema;
-// To Use: userSchema.asString()
-UserSchema.virtual("asString")
-    .get(function () {
-    return "User _id: " + this._id + " \n \n                User email: " + this.email + " \n \n                User username: " + this.username + " \n \n                User ROLE: " + this.ROLE;
+}, {
+    writeConcern: {
+        w: "majority",
+        j: true,
+        wtimeout: 1000,
+    }
 });
-var UserModel = mongoose_1.model("User", UserSchema);
-exports.UserModel = UserModel;
+exports.Users = mongoose_1.model("users", exports.UserSchema);

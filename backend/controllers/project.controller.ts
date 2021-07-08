@@ -15,12 +15,17 @@ export const createProject = async (req: Request, res: Response, next: NextFunct
 };
 
 export const getProjects = (req: Request, res: Response) => {
-    Projects.find({})
-        .then((results:any[]) =>  res.status(200).json(results))
+    console.log("getProjects()");
+    Projects.find()
+        .then((results: any[]) => {
+            console.log("Resolved projects")
+            res.status(200).json(results)
+        })
         .catch((err: any) =>  res.status(404).send(err))
 }
 
 export const getProjectByName = (req: Request, res: Response) => {
+    console.log("getProjectByName() - ", req.params.name);
     Projects.find({name: req.params.name})
         .then((results:any[]) =>  res.status(200).json(results))
         .catch((err: any) =>  res.status(404).send(err))

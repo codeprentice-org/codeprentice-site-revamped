@@ -8,138 +8,116 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createUser = exports.changeUsername = exports.loginUser = void 0;
-var mongoose_1 = require("mongoose");
-var user_model_1 = require("../models/user.model");
-var jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
-var role_1 = require("../enums/role");
-var dotenv_1 = __importDefault(require("dotenv"));
-dotenv_1.default.config({ path: "./backend/config/.env.config" });
-var loginUser = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
-    var userData;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                userData = req.body.user;
-                return [4 /*yield*/, user_model_1.UserModel.findOne({ email: userData.email })
-                        .exec()
-                        .then(function (resolve) { return __awaiter(void 0, void 0, void 0, function () {
-                        var user, token;
-                        return __generator(this, function (_a) {
-                            if (!resolve) {
-                                return [2 /*return*/, res.status(401).json({
-                                        status: 1,
-                                        data: "Authentication Failed"
-                                    })];
-                            }
-                            user = resolve.toObject();
-                            token = jsonwebtoken_1.default.sign(user, process.env.JWT_KEY, { expiresIn: '1h' });
-                            console.log("User with email: " + user.email + " logged in");
-                            return [2 /*return*/, res.status(200).json({
-                                    status: 0,
-                                    data: { token: token }
-                                })];
-                        });
-                    }); })
-                        .catch(function () {
-                        return res.status(401).json({
-                            status: 1,
-                            data: "Authentication Failed"
-                        });
-                    })];
-            case 1:
-                _a.sent();
-                return [2 /*return*/];
-        }
-    });
-}); };
+exports.getUsers = exports.gitHubCallback = exports.createUser = exports.changeUsername = exports.loginUser = void 0;
+const user_model_1 = require("../models/user.model");
+const qs_1 = __importDefault(require("qs"));
+const axios_1 = __importDefault(require("axios"));
+const mongoose_1 = require("mongoose");
+//localhost:4200/user/github/login
+const loginUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    console.log(process.env.GITHUB_CLIENT_SECRET);
+    // Redirect caller to the GitHub auth web flow with our app credentials
+    res.redirect("https://github.com/login/oauth/authorize?" + qs_1.default.stringify({
+        client_id: process.env.GITHUB_CLIENT_ID,
+        client_secret: process.env.GITHUB_CLIENT_SECRET,
+        scope: "read:org",
+        redirect_uri: "http://localhost:4200/user/github/callback"
+    }));
+});
 exports.loginUser = loginUser;
+const gitHubCallback = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    // After successfull auth on GitHub, a code is sent back. We POST it back
+    // to exchange it for an access token
+    const body = {
+        client_id: process.env.GITHUB_CLIENT_ID,
+        client_secret: process.env.GITHUB_CLIENT_SECRET,
+        code: req.query.code // The code we received from GitHub
+    };
+    const opts = { headers: { accept: 'application/json' } };
+    axios_1.default.post(`https://github.com/login/oauth/access_token`, body, opts)
+        .then((post_res) => {
+        console.log(post_res.data);
+        axios_1.default.get('https://api.github.com/user', //memberships/orgs/codeprentice-org
+        { headers: { authorization: "token " + post_res.data.access_token, accept: "application/vnd.github.v3+json" } })
+            .then((r) => qs_1.default.parse(r.data))
+            .catch((err) => console.log(err));
+    })
+        .catch((err) => res.status(500).json({ message: err.message }));
+});
+exports.gitHubCallback = gitHubCallback;
+// const loginUser = async (req: Request, res: Response, next: NextFunction) => {
+//     // authentication with github api
+//     // adds user to database if they are not there already
+//     // pull user from database
+//      // temporary static user 
+//     const userData = req.body.user;
+//     await Users.findOne({email: userData.email})
+//         .exec()
+//         .then(async (resolve) =>  {
+//             if (!resolve) {
+//                 return res.status(401).json({
+//                     status: 1,
+//                     data: "Authentication Failed"
+//                 });
+//             }
+//             const user: UserType = resolve.toObject();
+//             const token = jwt.sign(user, process.env.JWT_KEY as Secret, { expiresIn: '1h' });
+//             console.log(`User with email: ${user.email} logged in`);
+//             return res.status(200).json({
+//                 status: 0,
+//                 data: { token: token }
+//             }); 
+//         })
+//         .catch(() => {
+//             return res.status(401).json({
+//                 status: 1,
+//                 data: "Authentication Failed"
+//             });
+//         })
+// };
 // Changes user username give a request body container user: { newUsername: string }
 // Just for testing
-var changeUsername = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
-    var user, newUsername;
-    return __generator(this, function (_a) {
-        user = req.body.user;
-        newUsername = req.body.newUsername;
-        user_model_1.UserModel.updateOne({ _id: user._id }, { "$set": { "username": newUsername } })
-            .exec()
-            .then(function (resolve) {
-            console.log(resolve);
-            return res.status(200)
-                .send("Username Successfully Updated");
-        })
-            .catch(function () {
-            return res.status(401).json({
-                status: 1,
-                data: "Failed to Change Username"
-            });
+const changeUsername = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    const user = req.body.user;
+    const newUsername = req.body.newUsername;
+    user_model_1.Users.updateOne({ _id: user._id }, { "$set": { "username": newUsername } })
+        .exec()
+        .then((resolve) => {
+        console.log(resolve);
+        return res.status(200)
+            .send("Username Successfully Updated");
+    })
+        .catch(() => {
+        return res.status(401).json({
+            status: 1,
+            data: "Failed to Change Username"
         });
-        return [2 /*return*/];
     });
-}); };
+});
 exports.changeUsername = changeUsername;
 // Creats a new user given a request body containing user: { email: string, username: string, name: string }
 // Just for testing
-var createUser = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
-    var userInfo, newUser;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                userInfo = req.body.user;
-                newUser = new user_model_1.UserModel({
-                    _id: new mongoose_1.Types.ObjectId(),
-                    name: userInfo.name,
-                    email: userInfo.email,
-                    username: userInfo.username,
-                    ROLE: role_1.ROLE.ADMIN
-                });
-                return [4 /*yield*/, newUser.save()
-                        .then(function (resolve) {
-                        console.log(resolve);
-                        res.status(200).send("User was successfully created");
-                    })
-                        .catch(function (resolve) {
-                        console.log(resolve);
-                        res.status(401).json({
-                            status: 1,
-                            data: "Authentication Failed"
-                        });
-                    })];
-            case 1:
-                _a.sent();
-                return [2 /*return*/];
-        }
-    });
-}); };
+const createUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    req.body._id = mongoose_1.Types.ObjectId();
+    const newUser = new user_model_1.Users(Object.assign({}, req.body));
+    yield newUser.save()
+        .then((data) => res.status(200).send("User was successfully created"))
+        .catch((err) => res.status(401).send("Error in creating user"));
+});
 exports.createUser = createUser;
+const getUsers = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    console.log("getUsers()");
+    user_model_1.Users.find()
+        .then((results) => {
+        res.status(200).json(results);
+    })
+        .catch((err) => {
+        console.log("Error in fetching users", err);
+        res.status(404).send(err);
+    });
+});
+exports.getUsers = getUsers;

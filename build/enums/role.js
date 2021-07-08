@@ -4,5 +4,6 @@ exports.ROLE = void 0;
 var ROLE;
 (function (ROLE) {
     ROLE["ADMIN"] = "ADMIN";
-    ROLE["MEMBER"] = "MEMBER";
+    ROLE["ORG"] = "ORG";
+    ROLE["DEV"] = "DEV";
 })(ROLE = exports.ROLE || (exports.ROLE = {}));

@@ -4,13 +4,13 @@ import { USER_API } from "./routes/user.route";
 import { PROJECT_API } from "./routes/project.route";
 import { PICTURE_API } from './routes/picture.route';
 import bodyParser from 'body-parser'
-import dotenv from "dotenv";
 import mongoose from "mongoose";
+import cors from "cors";
 import path from "path";
 import helmet from "helmet";
 import rateLimit from "express-rate-limit";
 import { validateRequest } from './middleware/validate-request';
-dotenv.config({ path: "./environment/.env" });
+require("dotenv").config();
 
 // Set rate limit properties
 const MINUTES = 15;
@@ -19,12 +19,9 @@ const limiter = rateLimit({
   max: 100 // limit each IP to 100 requests per windowMs
 });
 
-
 // Connect to database
 mongoose.connect(
-    "mongodb+srv://test:" 
-    + process.env.MONGODB_ATLAS_DB_PWD 
-    + "@messenger-db.jzhdw.mongodb.net/codeprentice-testing-db?retryWrites=true&w=majority",
+    process.env.DB as string,
     { useNewUrlParser: true, useUnifiedTopology: true }
 );
 const database = mongoose.connection;
@@ -34,9 +31,13 @@ database.once("open", () => console.log("Connected to database"));
 // Express config
 const app = express();
 app.use(helmet());
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(limiter);
+
+// Rate limiting is disabled for testing
+//app.use(limiter);
+
 // Enable if you're behind a reverse proxy (Heroku, Bluemix, AWS ELB, Nginx, etc)
 // see https://expressjs.com/en/guide/behind-proxies.html
 // app.set('trust proxy', 1);

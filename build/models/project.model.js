@@ -1,9 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProjectModel = exports.ProjectSchema = void 0;
-var mongoose_1 = require("mongoose");
-var user_model_1 = require("./user.model");
-var ProjectSchema = new mongoose_1.Schema({
+exports.Projects = exports.ProjectSchema = void 0;
+const mongoose_1 = require("mongoose");
+exports.ProjectSchema = new mongoose_1.Schema({
     _id: {
         type: mongoose_1.Types.ObjectId,
         required: true
@@ -12,18 +11,35 @@ var ProjectSchema = new mongoose_1.Schema({
         type: String,
         required: true
     },
-    // Searches for team members with the listed idea in the collection "User"
-    team: [user_model_1.UserSchema],
-}, { collection: "projects" });
-exports.ProjectSchema = ProjectSchema;
-ProjectSchema.virtual("asString")
-    .get(function () {
-    var projectString = "Project _id: " + this._id + " \n\n                             Project name: " + this.name + " \n\n                             Project team (members): \n";
-    for (var _i = 0, _a = this.team; _i < _a.length; _i++) {
-        var user = _a[_i];
-        projectString += "Member email: " + user.email + " \n";
+    team: [{
+            type: String,
+            required: true
+        }],
+    description: {
+        type: String,
+        required: true
+    },
+    timeline: [
+        {
+            title: {
+                type: String,
+            },
+            cardTitle: {
+                type: String,
+            },
+            cardSubtitle: {
+                type: String,
+            },
+            cardDetailedText: {
+                type: String,
+            }
+        }
+    ]
+}, {
+    writeConcern: {
+        w: "majority",
+        j: true,
+        wtimeout: 1000,
     }
-    return projectString;
 });
-var ProjectModel = mongoose_1.model("Project", ProjectSchema);
-exports.ProjectModel = ProjectModel;
+exports.Projects = mongoose_1.model("projects", exports.ProjectSchema);
