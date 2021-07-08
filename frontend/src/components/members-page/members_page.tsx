@@ -1,115 +1,76 @@
-import React, { useState } from 'react';
-//import SingleMember from './member/single_member';
-import { generatePath } from 'react-router-dom';
+import React, { useState , useEffect} from 'react';
 import CloseIcon from '@material-ui/icons/Close';
 import ReactModal from 'react-modal';
 import '../members-page/member/members_page.css';
-import { Button } from 'reactstrap';
 import GitHubIcon from '@material-ui/icons/GitHub'
 import LinkedInIcon from '@material-ui/icons/LinkedIn'
 import InstagramIcon from '@material-ui/icons/Instagram'
 import FacebookIcon from '@material-ui/icons/Facebook'
-
+import { User } from '../../entities/user';
+import { ROLE } from '../../entities/role';
+ 
 interface MembersProps{
     
 }
-
-const founderData = [
-    {
-        name: "Name",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur "
-    },
-     {
-        name: "Name",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur "
-    },
-      {
-        name: "Name",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur "
-    },
-]
-//Sample  user data to be retrieved from github
-const userData = [
-    {
-        name: "Member 1",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur "
-    },
-     {
-        name: "Member 2",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur "
-    },
-      {
-        name: "Member 3",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur "
-    },
-       {
-        name: "Name",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur "
-    },
-        {
-        name: "Name",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur "
-    },
-         {
-        name: "Name",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur "
-    },
-          {
-        name: "Name",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur "
-    },
-           {
-        name: "Name",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur "
-    },
-            {
-        name: "Name",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur "
-    },
-            {
-        name: "Name",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur "
-    },
-            {
-        name: "Name",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur "
-    },
-            {
-        name: "Name",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur "
-    },
-            {
-        name: "Name",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolor similique consectetur, delectus quis veniam autem ipsam, iure quo illum corrupti possimus distinctio consequatur "
-    },
-]
 
 
 const Members: React.FC<MembersProps> = () => {
     
     const [modal, setModal] = useState(false);
-    const [showModal, changeShowModal] = useState(false);
-    const [member, changeMember] = useState({name:"", desc:""});
+    const [showModal, changeShowModal] = useState<boolean>(false);
+    const [member, changeMember] = useState<User>();
+    
+    const [founders, changeFounders] = useState<User[]>([]);
+    const [orgTeam, changeOrgTeam] = useState<User[]>([]);
+    const [devTeam, changeDevTeam] = useState<User[]>([]);
+
+    useEffect(() => {
+        var founderData: User[] = [];
+        var orgData: User[] = [];
+        var devData: User[] = [];
+        fetch(process.env.REACT_APP_BACKEND + "/user", {
+            headers: {
+                "access_token" : process.env.REACT_APP_ACCESS_TOKEN as string,
+            }
+        })
+            .then(data => data.json())
+            .then(users => {
+                users.forEach((user: User) => {
+                    if (user.ROLE === ROLE.ADMIN) {
+                        founderData.push(user);
+                    } else if (user.ROLE === ROLE.ORG) {
+                        orgData.push(user);
+                    } else {
+                        devData.push(user);
+                    }
+                })
+                changeFounders(founderData);
+                changeOrgTeam(orgData);
+                changeDevTeam(devData);
+            })
+            .catch(err => console.log(err))
+    }, [])
+
   
-  const handleModal = (mem:any) => {
+  const handleModal = (mem: User) => {
       changeShowModal(!modal);
       changeMember(mem);
   }
 
-    const toggle = (mem: object) => handleModal(mem);
+    const toggle = (mem: User) => handleModal(mem);
     
-    const member_generate = (name:String, desc:String) => {
+    const member_generate = (user: User) => {
             return (
-                <div className="member_body" onClick={()=>toggle({name: name, desc: desc})}>
+                <div className="member_body" onClick={()=>toggle(user)}>
                     <div className="upper_part">
 
                     </div>
                     <div className="photo">
                         <p className="member_photo">Photo</p>
                     </div>
-                    <h2 className="name">{name}</h2>
+                    <h2 className="name">{user?.name}</h2>
                     <div className="about">
-                        <p>{desc}
+                        <p>{user?.bio}
                         </p>
                     </div>
 
@@ -119,21 +80,21 @@ const Members: React.FC<MembersProps> = () => {
     return (
         <>
       <div>
-                <Modal showModal={showModal} changeShowModal={changeShowModal} member={member}/>
+            <Modal showModal={showModal} changeShowModal={changeShowModal} member={member as User}/>
       </div>
         <div className="member_page_body">
             <h1 className="main_heading">Members</h1>
             <h2 className="founder_heading">Founders/Executive Board</h2>
             <div className="founder_members">
-                {founderData.map(item=>member_generate(item.name,item.desc))}
+                {founders.map(item=>member_generate(item))}
             </div>
             <h2 className="founder_heading">Organization Team</h2>
             <div className="founder_members">
-                {userData.map(item=>member_generate(item.name,item.desc))}
+                {orgTeam.map(item=>member_generate(item))}
             </div>
             <h2 className="founder_heading">Development Team</h2>
             <div className="founder_members">
-                {userData.map(item=>member_generate(item.name,item.desc))}
+                {devTeam.map(item=>member_generate(item))}
             </div>
             </div>
             </>
@@ -143,10 +104,7 @@ const Members: React.FC<MembersProps> = () => {
 interface ModalProps{
     showModal: boolean;
     changeShowModal: React.Dispatch<React.SetStateAction<boolean>>;
-    member: {
-        name: string;
-        desc: string;
-    };
+    member: User;
 }
 const styles = {
     icon_style: {
@@ -171,19 +129,19 @@ const Modal: React.FC<ModalProps> = ({showModal, changeShowModal, member}) => {
                 <div className="modal_photo">
                         <p className="member_photo">Photo</p>
                 </div>
-                <p className='modal_name'>{member.name}</p>
-                <p className="modal_desc">{member.desc}</p>
+                <p className='modal_name'>{member?.name}</p>
+                <p className="modal_desc">{member?.bio}</p>
                 </div>
             </div>
  
             <div className="modal_body2">
-                <p className='modal_heading'>BIO</p>
-                <p className="modal_desc2">{member.desc}</p>
-                <p className='modal_heading'>PROJECTS</p>
-                <p className="modal_desc2">LINKS</p>
-                <p className="modal_heading">SOCIAL MEDIA</p>
+                <p className='modal_heading'>Bio</p>
+                <p className="modal_desc2">{member?.bio}</p>
+                <p className='modal_heading'>Projects</p>
+                <p className="modal_desc2">Links</p>
+                <p className="modal_heading">Social Media</p>
                 <div className="modal_socials">
-                    <GitHubIcon style={styles.icon_style}/>
+                    <GitHubIcon style={styles.icon_style} />
                     <LinkedInIcon style={styles.icon_style}/>
                     <FacebookIcon style={styles.icon_style}/>
                     <InstagramIcon style={styles.icon_style}/>
