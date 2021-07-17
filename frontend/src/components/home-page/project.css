@@ -95,8 +95,8 @@
 .project_thumbnail{
   background-color: #D9D9D9;
   border-radius: 30px;
-  width: 350px;
-  height: 350px;
+  width: 25vmax;
+  height: 25vmax;
 }
 
 .first{
@@ -135,4 +135,43 @@
   flex-direction: row; 
   justify-content: center;
   padding-top: 20vh;
+}
+
+@media screen and (max-width: 850px) {
+  .project_preview_container {
+    margin-top: 20vh;
+    flex-wrap: wrap;
+  }
+  
+  .project_thumbnail{
+    width: 50vmax;
+    height: 50vmax;
+    margin-top: 5vh; 
+  }
+  
+  .first{
+    opacity: 1;
+    transform:translateX(0px);
+  }
+  
+  .third{
+    opacity: 1;
+    transform:translateX(0px);
+  }
+
+  .project_header_container {
+    flex-wrap: wrap;
+    padding-top: 10vh;
+  }
+
+  .numbers_container{
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+  }
+
+  .project_container {
+    height: 2200px;
+    padding-bottom: 150px;
+    overflow: hidden;
+  }
 }

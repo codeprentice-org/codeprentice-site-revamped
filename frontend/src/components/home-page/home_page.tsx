@@ -20,7 +20,7 @@ const Home: React.FC<Props> = () => {
     <>
 
                 <>
-        <div className="panel intro_container">
+        <div className="intro_container">
             <div className="intro_left_container">
                 <div className='intro_left_header'>
                     Bridging the gap between open source
@@ -39,21 +39,21 @@ const Home: React.FC<Props> = () => {
             </div>
             </div>
 
-           <div className="panel about_container">
+        <div className="about_container">
                
             <div className="about_wave">
             <div className="about_header_container">
-            <div className="about_right_header">Breaking Barriers</div>
+                <div className="about_right_header">Breaking Barriers</div>
             </div>
-        <div className="about_desc_container">
-            <div className="about_image"></div>
-            <div className="about_us_text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                sed do eiusmod tempor incididunt ut labore et dolore magna 
-                aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
-                ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+            <div className="about_desc_container">
+                <div className="about_image"></div>
+                <div className="about_us_text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna 
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                </div>
             </div>
-        </div>
         <div className="about_button_container">
             <button className="intro_button about_us_button">About Us</button>
         </div>
@@ -63,7 +63,7 @@ const Home: React.FC<Props> = () => {
         </div>
                         </div>
                     </>
-        <div className="panel project_container">
+        <div className="project_container">
             <div className="project_preview_container">
             <div className="project_thumbnail first"></div>
             <div className="project_thumbnail"></div>
