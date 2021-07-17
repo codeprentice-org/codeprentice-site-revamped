@@ -114,38 +114,46 @@
 
 @media screen and (max-width: 850px) {
   .about_container {
-    height: 160vh;
+    height: 120vh;
     background: linear-gradient(100deg, rgba(197, 230, 227, 0.2) -33.3%, rgba(78, 83, 124, 0.2) 85.96%),
     linear-gradient(100deg, rgba(0, 52, 100, 0.9) 30.16%, rgba(255, 255, 255, 0.2) 99.58%), 
     rgba(4, 67, 124, 0.8);
   }
 
   .about_right_header {
-    font-size: 8vmax;
+    font-size: 5vmax;
+    text-align: center;
   }
 
   .about_desc_container {
     flex-wrap: wrap;
+    padding: 10px;
   }
 
   .about_image {
     width: 80vw;
-    height: 50vh;
+    height: 40vh;
+    padding-top: 5vh;
   }
 
   .about_us_text {
     padding-left: 0vw;
     width: 80%;
-    padding-top: 10vh;
-    font-size: 4vmax;
+    padding-top: 5vh;
+    font-size: 3vmax;
   }
 
   .about_button_container{ 
-    padding-top: 0vh;
+    padding-top: 5vh;
   }
 
   .about_header_container2 {
-    padding-top: 20vh;
+    padding-top: 10vh;
+  }
+
+  .about_second_header {
+    margin-top: 15vh; 
+    margin-bottom: -10vh; 
   }
 }
 
