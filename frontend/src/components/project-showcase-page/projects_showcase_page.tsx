@@ -11,7 +11,7 @@ import { TimelineItem } from "react-chrono"
 interface ProjectShowcaseProps {
     match: any;
 }
-var time : TimelineItem[] = [{"title":"October 2020","cardTitle":"Started The Project","cardSubtitle":"Lorem ipsum dolor sit ame","cardDetailedText":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco"},{"title":"November 2020","cardTitle":"Deployed first feauture","cardSubtitle":"Lorem ipsum dolor sit amet","cardDetailedText":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco"},{"title":"November 2020","cardTitle":"Deployed Second feauture","cardSubtitle":"Lorem ipsum dolor sit amet","cardDetailedText":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco"},{"title":"November 2020","cardTitle":"Deployed Third feauture","cardSubtitle":"Lorem ipsum dolor sit amet","cardDetailedText":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco"}]
+const time : TimelineItem[] = [{"title":"October 2020","cardTitle":"Started The Project","cardSubtitle":"Lorem ipsum dolor sit ame","cardDetailedText":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco"},{"title":"November 2020","cardTitle":"Deployed first feauture","cardSubtitle":"Lorem ipsum dolor sit amet","cardDetailedText":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco"},{"title":"November 2020","cardTitle":"Deployed Second feauture","cardSubtitle":"Lorem ipsum dolor sit amet","cardDetailedText":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco"},{"title":"November 2020","cardTitle":"Deployed Third feauture","cardSubtitle":"Lorem ipsum dolor sit amet","cardDetailedText":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco"}]
 
 const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ match }) => {
     const [project, changeProject] = useState<Project>();
@@ -49,9 +49,9 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ match }) => {
                 <div className="showcase_about">
                     
                     <div className="about">
-                        <div className="showcase_image illustration"><img src={Coding2}/></div>
-                        <br/><br/>
                         { project?.description as string}
+                        <br/><br/>
+                        <div className="showcase_image hover_image"><img src={Coding2}/></div>
                     </div>
                     <div className="date" style={{ width: "500px", height: "950px" }}>
                         <Chrono items={ project?.timeline as TimelineItem[] } mode="VERTICAL_ALTERNATING"/>

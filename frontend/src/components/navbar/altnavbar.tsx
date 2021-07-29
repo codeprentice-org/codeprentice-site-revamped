@@ -51,7 +51,7 @@ const AltNav: React.FC<navbarProps> = (props) => {
             </div>
             <div className="hamburger" onClick={() => toggle()}>
                 { navOpen? <MenuIcon/>:<CloseIcon/>}
-        </div>
+            </div>
         </div>
         )
 }

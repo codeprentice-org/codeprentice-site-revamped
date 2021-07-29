@@ -123,7 +123,7 @@
 
 @media screen and (max-width: 850px) {
   .hamburger {
-    position: absolute;
+    position: fixed;
     height: auto;
     width: auto;
     margin-top: 20px;
@@ -134,7 +134,9 @@
     display: none;
   }
   .sidebar {
-    position: absolute;
+    position: fixed;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
     left: 50%;
     opacity: 0.98;
     height: 100%;
@@ -145,11 +147,28 @@
     align-items: flex-start;
     justify-content: space-around;
     z-index: 1;
-    transition: height 1s ease-out;
+    font-size: 20px;
+    align-items: center;
+    -webkit-animation: slide 0.5s forwards;
+    -webkit-animation-delay: 2s;
+    animation: slide 0.5s forwards;
+    animation-delay: 2s;
+  }
+
+  @-webkit-keyframes slide {
+    100% {
+      right: 0;
+    }
+  }
+
+  @keyframes slide {
+    100% {
+      right: 0;
+    }
   }
 
   .nav-item {
-    font-size: large;
+    font-size: 25px;
   }
 
   .content {

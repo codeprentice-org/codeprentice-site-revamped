@@ -1,6 +1,6 @@
-import React, { useState , useEffect} from 'react';
+import React, { useState , useEffect, lazy } from 'react';
 import CloseIcon from '@material-ui/icons/Close';
-import ReactModal from 'react-modal';
+//import ReactModal from 'react-modal';
 import '../members-page/member/members_page.css';
 import GitHubIcon from '@material-ui/icons/GitHub'
 import LinkedInIcon from '@material-ui/icons/LinkedIn'
@@ -8,6 +8,9 @@ import InstagramIcon from '@material-ui/icons/Instagram'
 import FacebookIcon from '@material-ui/icons/Facebook'
 import { User } from '../../entities/user';
 import { ROLE } from '../../entities/role';
+import shortid from "shortid";
+import 'react-responsive-modal/styles.css';
+import { Modal } from 'react-responsive-modal';
  
 interface MembersProps{
     
@@ -28,6 +31,15 @@ const Members: React.FC<MembersProps> = () => {
         var founderData: User[] = [];
         var orgData: User[] = [];
         var devData: User[] = [];
+        const founders = JSON.parse(sessionStorage.getItem("founderData") as string);
+        const org = JSON.parse(sessionStorage.getItem("orgData") as string);
+        const devs = JSON.parse(sessionStorage.getItem("devData") as string);
+        if (founders && org && devs) {
+            changeFounders(founders);
+            changeOrgTeam(org);
+            changeDevTeam(devs);
+            return;
+        }
         fetch(process.env.REACT_APP_BACKEND + "/user", {
             headers: {
                 "access_token" : process.env.REACT_APP_ACCESS_TOKEN as string,
@@ -44,6 +56,9 @@ const Members: React.FC<MembersProps> = () => {
                         devData.push(user);
                     }
                 })
+                sessionStorage.setItem("founderData", JSON.stringify(founderData));
+                sessionStorage.setItem("orgData", JSON.stringify(orgData));
+                sessionStorage.setItem("devData", JSON.stringify(devData));
                 changeFounders(founderData);
                 changeOrgTeam(orgData);
                 changeDevTeam(devData);
@@ -60,16 +75,16 @@ const Members: React.FC<MembersProps> = () => {
     const toggle = (mem: User) => handleModal(mem);
     
     const member_generate = (user: User) => {
-            return (
-                <div className="member_body" onClick={()=>toggle(user)}>
+        return (
+            <div className="member_body" key = {shortid.generate()} onClick={()=>toggle(user)}>
                     <div className="upper_part">
 
                     </div>
                     <div className="photo">
                         <p className="member_photo">Photo</p>
                     </div>
-                    <h2 className="name">{user?.name}</h2>
-                    <div className="about">
+                    <p className="name">{user?.name}</p>
+                    <div className="about_member_bio">
                         <p>{user?.bio}
                         </p>
                     </div>
@@ -80,14 +95,14 @@ const Members: React.FC<MembersProps> = () => {
     return (
         <>
       <div>
-            <Modal showModal={showModal} changeShowModal={changeShowModal} member={member as User}/>
+            <CustomModal showModal={showModal} changeShowModal={changeShowModal} member={member as User}/>
       </div>
         <div className="member_page_body">
             <h1 className="main_heading">Members</h1>
             <h2 className="founder_heading">Founders/Executive Board</h2>
             <div className="founder_members">
                 {founders.map(item=>member_generate(item))}
-            </div>
+                </div>
             <h2 className="founder_heading">Organization Team</h2>
             <div className="founder_members">
                 {orgTeam.map(item=>member_generate(item))}
@@ -95,7 +110,7 @@ const Members: React.FC<MembersProps> = () => {
             <h2 className="founder_heading">Development Team</h2>
             <div className="founder_members">
                 {devTeam.map(item=>member_generate(item))}
-            </div>
+                    </div>    
             </div>
             </>
     );
@@ -115,13 +130,11 @@ const styles = {
     }
 };
 
-const Modal: React.FC<ModalProps> = ({showModal, changeShowModal, member}) => { 
-    return (<ReactModal 
-           isOpen={showModal}
-                    contentLabel="Minimal Modal Example"
-                    className="custom_modal"
+const CustomModal: React.FC<ModalProps> = ({showModal, changeShowModal, member}) => { 
+    return (<Modal open = {showModal}
+        onClose={() => changeShowModal(false)}
+        center
         >
-        <CloseIcon onClick={() => changeShowModal(false)} style={{ cursor: "pointer" }} />
         <br />
         <div className="modal_intro">
             <div className="modal_body">
@@ -141,15 +154,15 @@ const Modal: React.FC<ModalProps> = ({showModal, changeShowModal, member}) => {
                 <p className="modal_desc2">Links</p>
                 <p className="modal_heading">Social Media</p>
                 <div className="modal_socials">
-                    <GitHubIcon style={styles.icon_style} />
-                    <LinkedInIcon style={styles.icon_style}/>
-                    <FacebookIcon style={styles.icon_style}/>
-                    <InstagramIcon style={styles.icon_style}/>
+                    <GitHubIcon className = "icons" />
+                    <LinkedInIcon className = "icons"/>
+                    <FacebookIcon className = "icons"/>
+                    <InstagramIcon className = "icons"/>
                 </div>
             </div>
         </div>
         
-        </ReactModal>);
+        </Modal>);
 }
 
 export default Members;
