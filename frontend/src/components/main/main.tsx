@@ -1,14 +1,16 @@
-import React,{useState} from 'react';
+import React, { useState, Suspense, lazy } from 'react';
 import './main.css';
 import '../navbar/navbar.css';
-import Home from "../home-page/home_page";
-import Projects from "../projects-page/projects_page";
-import Members from "../members-page/members_page";
-import Navbar from '../navbar/navbar';
 import AltNav from '../navbar/altnavbar';
-import Login from '../login/login';
-import ProjectShowcase from '../project-showcase-page/projects_showcase_page'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Home from "../home-page/home_page";
+// import Projects from "../projects-page/projects_page";
+// import Members from "../members-page/members_page";
+// import ProjectShowcase from '../project-showcase-page/projects_showcase_page';
+
+const Projects = lazy(() => import("../projects-page/projects_page"));
+const Members = lazy(() => import("../members-page/members_page"));
+const ProjectShowcase = lazy(() => import('../project-showcase-page/projects_showcase_page'));
 
 interface MainProps {
 
@@ -21,14 +23,15 @@ const Main: React.FC<MainProps> = () => {
             <div className="body">
                 <AltNav blurContent={undoBlur} blur={ blur}/>
                 <div className={blur ? "HP blur_content" : "HP content"}>
-                <Switch>
+                <Suspense fallback={<div>Loading...</div>}>
+                    <Switch>
                     <Route path="/about" exact component={Home}></Route>
                     <Route path="/projects" exact component={Projects}></Route>
                     <Route path="/projects/:name" exact component={ProjectShowcase}></Route>
                     <Route path="/members" exact component={Members}></Route>
-                    <Route path="/login" exact component={Login}></Route>
                     <Route path="*" component={Home}></Route>
-                 </Switch>
+                    </Switch>
+                </Suspense>
                 </div>
             </div>  
         </Router>

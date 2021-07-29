@@ -30,22 +30,9 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   margin: 18px;
   flex-wrap: wrap;
-}
-
-@media only screen and (max-width: 450px) {
-  .founder_members {
-    flex-direction: column;
-  }
-  .member_body {
-    height: 350px;
-    width: 350px;
-    background-color: lightgray;
-    border: black;
-    margin: 15px;
-    font-size: medium;
-  }
 }
 
 .member_body {
@@ -60,15 +47,15 @@
 
 .upper_part {
   height: 32%;
-  width: 350px;
+  width: 100%;
   background-color: rgb(161, 161, 161);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
 
 .photo {
-  height: 120px;
-  width: 120px;
+  height: calc((120 / 350) * 100%);
+  width: calc((120 / 350) * 100%);
   background-color: rgb(105, 104, 104);
   border-radius: 50%;
   margin-top: -13%;
@@ -79,12 +66,19 @@
   display: flex;
   justify-content: center;
   margin-top: 2px;
+  font-weight: bold;
+  font-size: 20px;
 }
 
-.about {
+.about,
+.about_member_bio {
   height: 38%;
-  width: 350px;
-  padding: 4px;
+  width: 100%;
+  margin: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .member_photo {
@@ -151,6 +145,13 @@
   margin: 20px;*/
 }
 
+.icons {
+  width: 50px;
+  height: 50px;
+  margin: "10px";
+  cursor: "pointer";
+}
+
 .modal_heading {
   font-size: large;
   font-weight: bold;
@@ -169,9 +170,57 @@
 .modal_intro {
   display: flex;
   flex-direction: row;
+  height: fit-content;
+  width: 100%;
 }
 
 .modal_socials {
   display: flex;
   flex-direction: row;
+}
+
+@media screen and (max-width: 850px) {
+  .icons {
+    width: 30px;
+    height: 30px;
+    margin: "5px";
+    cursor: "pointer";
+  }
+  .modal_heading {
+    font-size: medium;
+    font-weight: bold;
+    padding-bottom: 3%;
+    padding-top: 3%;
+  }
+
+  .modal_photo {
+    width: 100px;
+    height: 100px;
+  }
+
+  .modal_desc2,
+  .modal_desc {
+    font-size: small;
+  }
+
+  .founder_members {
+    flex-direction: column;
+  }
+  .member_body {
+    height: calc(100vh / 4);
+    width: calc(100vh / 4);
+    background-color: lightgray;
+    border: black;
+    margin: 3px;
+    font-size: 15px;
+    text-overflow: clip;
+  }
+
+  .about_member_bio {
+    display: none;
+  }
+
+  .name {
+    font-size: 15px;
+  }
 }

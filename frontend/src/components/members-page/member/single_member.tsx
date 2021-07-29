@@ -5,7 +5,7 @@ interface SingleMemberProps {
 
 }
 
-const SingleMember: React.FC<SingleMemberProps> = () => {
+export const SingleMember: React.FC<SingleMemberProps> = () => {
     const [showModal, changeShowModal] = useState(true);
   
   const handleOpenModal = () => {

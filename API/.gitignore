@@ -3,3 +3,4 @@
 TODO.txt
 .env
 *.bash
+/build
