@@ -49,13 +49,16 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ match }) => {
                 <div className="showcase_about">
                     
                     <div className="about">
-                        { project?.description as string}
+                        {project?.description.split("\n").map(para => {
+                            return <p>{ para }<br/></p>
+                        })}
                         <br/><br/>
                         <div className="showcase_image hover_image"><img src={Coding2}/></div>
                     </div>
-                    <div className="date" style={{ width: "500px", height: "950px" }}>
+                    {/* Chrono component under development */}
+                    {/* <div className="date" style={{ width: "500px", height: "950px" }}>
                         <Chrono items={ project?.timeline as TimelineItem[] } mode="VERTICAL_ALTERNATING"/>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         <Footer/>

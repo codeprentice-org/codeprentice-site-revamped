@@ -38,7 +38,8 @@ const AltNav: React.FC<navbarProps> = (props) => {
                         <div className='nav-item-underline transform-width'></div>
                     </div>
                 </Link>
-                <Link to='/members'>
+                {/* Currently disabled - under development */}
+                <Link to='/members' onClick={ (event) => event.preventDefault() }>
                     <div className='nav-item transform-color'>
                         Members
                         <div className='nav-item-underline transform-width'></div>

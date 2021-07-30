@@ -58,15 +58,17 @@ const AboutComponent: React.FC<Props> = () => {
         <div className="about_desc_container">
             <div className="about_image"></div>
             <div className="about_us_text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                sed do eiusmod tempor incididunt ut labore et dolore magna 
-                aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
-                ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                        We are a non-profit organization committed to mentoring aspiring software engineers
+                        with regards to contributing to open-source projects and advancing open-source culture in universities.<br/><br/>
+                        We successfully concluded our trial-run of Codeprentice at Columbia University and Waterloo University!
+                        During the process we published Sniffpy, our first package as an organization (😌 🙌) contributed to HTTPie,
+                        a command-line tool for making Http requests (one of our members is now top 3 contributor to the project!),
+                        and worked on Opsdroid, an open-source chatbot framework.
             </div>
         </div>
         <div className="about_button_container">
-                    <button className="intro_button about_us_button">About Us</button>
-                    <Link to = "/projects"><button className="intro_button about_us_button">Our projects</button></Link>
+                    <a target = "_blank" href = "https://medium.com/codeprentice-org/about"><button className="intro_button about_us_button">About Us</button></a>
+                    <Link to="/projects"><button className="intro_button about_us_button">Our projects</button></Link>
         </div>
         </div>
         </div>
@@ -92,15 +94,15 @@ const ShowcaseComponent: React.FC<Props> = () => {
             </div>
             <div className="project_header_container">
                 <div className="numbers_container">
-                    <div className="numbers">72</div>
+                    <div className="numbers">57</div>
                     <div className="subtitle">Members</div>
                 </div>
                 <div className="numbers_container">
-                    <div className="numbers">7</div>
-                    <div className="subtitle">Completed Projects</div>
+                    <a target = "_blank" href = "https://medium.com/codeprentice-org/projects-from-fall-2020-2310ec1b086a"><div className="numbers">7</div></a>
+                    <div className="subtitle">Teams</div>
                 </div>
                 <div className="numbers_container">
-                    <div className="numbers">4</div>
+                    <div className="numbers">5</div>
                     <div className="subtitle">Workshops</div>
                 </div>
             </div>

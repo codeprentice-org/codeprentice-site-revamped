@@ -80,7 +80,6 @@
   justify-content: flex-start;
   align-items: center;
   overflow-y: scroll;
-  padding-top: 5vh;
   padding-bottom: 150px;
 }
 
@@ -143,4 +142,3 @@
     padding-top: 5vh;
   }
 }
-
